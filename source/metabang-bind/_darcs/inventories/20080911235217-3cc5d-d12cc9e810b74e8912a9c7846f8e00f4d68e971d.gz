@@ -1,0 +1,151 @@
+Starting with tag:
+[TAG version-0.2.3
+Gary King <gwking@metabang.com>**20070119143902] 
+[Tests for bind-get-vars-from-lambda-list
+Gary King <gwking@metabang.com>**20070205150004] 
+[Try to load asdf-system-connections at compile-time so #+ works as expected
+attila.lendvai@gmail.com**20070119151851] 
+[Don't pollute the :common-lisp-user package from the .asd
+attila.lendvai@gmail.com**20070119151922] 
+[Delete defclass-star integration (the defclass-star project has them all in one place)
+attila.lendvai@gmail.com**20070326141317] 
+[Clean up defclass-star integration
+attila.lendvai@gmail.com**20070413085117
+ 
+ Get rid of the hackish *defclass-macro-name-for-dynamic-context* and move the
+ integration into defclass-star which exports a define-dynamic-context* which by
+ default uses defclass*.
+] 
+[Export bind parameter variables (and rename some of them for consistency)
+Gary King <gwking@metabang.com>**20071105153424] 
+[system reorganization and standardization
+Gary King <gwking@metabang.com>**20071105153807] 
+[Switched to extensible defmethod mechanism to define new binding constructs <I think that's cool>!
+Gary King <gwking@metabang.com>**20071105153846] 
+[Website machinations
+Gary King <gwking@metabang.com>**20071115144921] 
+[More website tweaks
+Gary King <gwking@metabang.com>**20071115213026] 
+[transition to test configuration fiiles
+Gary King <gwking@metabang.com>**20071115213113] 
+[Tests for structure binding and plist binding
+Gary King <gwking@metabang.com>**20071115213145] 
+[Added files to test system
+Gary King <gwking@metabang.com>**20071115213253] 
+[Brought plist handling up to spec
+Gary King <gwking@metabang.com>**20071115213317] 
+[Bumped version; moved to configuration file based testing
+Gary King <gwking@metabang.com>**20071115213353] 
+[Added :slots and :accessors bindings and tests for same
+Gary King <gwking@metabang.com>**20071120150103] 
+[Updated tutorial
+Gary King <gwking@metabang.com>**20071120151832] 
+[Added TextMate project
+Gary King <gwking@metabang.com>**20071120151922] 
+[Bumped version
+Gary King <gwking@metabang.com>**20071120151949] 
+[TAG version-0.6.1
+Gary King <gwking@metabang.com>**20071120152001] 
+[Switch header from class to id
+Gary King <gwking@metabang.com>**20071125165450] 
+[Don't call symbol-package unless it's a symbol!
+Gary King <gwking@metabang.com>**20071125165510] 
+[Bumped version
+Gary King <gwking@metabang.com>**20071125165548] 
+[TAG version-0.6.2
+Gary King <gwking@metabang.com>**20071125165556] 
+[fix: (bind ((values 42))) was confused to be a values binding
+attila.lendvai@gmail.com**20071122131758] 
+[Add support and tests for array destructuring
+Gary King <gwking@metabang.com>**20071201233853] 
+[website update
+Gary King <gwking@metabang.com>**20071201233859] 
+[bumped version
+Gary King <gwking@metabang.com>**20071201233949] 
+[TAG version-0.6.3
+Gary King <gwking@metabang.com>**20071201233958] 
+[fix: ignore/ignorables of (values ...) binding dropped the first entry
+attila.lendvai@gmail.com**20071129140826
+ 
+ (bind (((values a b c) 42))
+   (declare (ignore a b c)))
+ 
+ (MULTIPLE-VALUE-BIND (A B C) 42
+   (DECLARE (IGNORE B) (IGNORE C)))
+] 
+[Added support for regular expression bindings using CL-PPCRE
+Gary King <gwking@metabang.com>**20080113174203] 
+[Use my own boring file
+Gary King <gwking@metabang.com>**20080113174301] 
+[Change copyright; remove GLU system file
+Gary King <gwking@metabang.com>**20080113174327] 
+[Expand metabang-bind-developer package
+Gary King <gwking@metabang.com>**20080113174421] 
+[very minor website updates
+Gary King <gwking@metabang.com>**20080113174444] 
+[Bump version
+Gary King <gwking@metabang.com>**20080113174505] 
+[TAG version-0.6.4
+Gary King <gwking@metabang.com>**20080113175015] 
+[Applied patch from Russ Tyndall and incorporated Attila Lendvai's suggestions for naming things. Bind now maps :accessors and :writable-accessors to with-accessors and :accessors-read-only and :read-only-accessors to a set of read-only bindings.
+Gary King <gwking@metabang.com>**20080128161123] 
+[bumped version
+Gary King <gwking@metabang.com>**20080128161144] 
+[TAG version-0.6.5
+Gary King <gwking@metabang.com>**20080128161156] 
+[Moved copyright notice out of bind.lisp and just point at COPYING
+Gary King <gwking@metabang.com>**20080302010951] 
+[Basic cleanup and reformatting
+Gary King <gwking@metabang.com>**20080302011009] 
+[Added and implemented *bind-treat-values-as-values*
+Gary King <gwking@metabang.com>**20080302011049] 
+[bumped version; improve some accessor tests; improved comments
+Gary King <gwking@metabang.com>**20080302011530] 
+[TAG version-0.7.0
+Gary King <gwking@metabang.com>**20080302011833] 
+[updated test configuration for lift changes
+Gary King <gwking@metabang.com>**20080318012502] 
+[Corrected problem with parsing 'simple-bindings' whose variable was 'values'. Thanks to Attila Lendvai for noticing the problem and pointing it out so nicely. Tests for same.
+Gary King <gwking@metabang.com>**20080318012635] 
+[bumped version
+Gary King <gwking@metabang.com>**20080318012712] 
+[TAG version-0.7.1
+Gary King <gwking@metabang.com>**20080318012728] 
+[Another attempt to correct the misunderstood simple values problem... this one actually works with all the tests.
+Gary King <gwking@metabang.com>**20080318013829] 
+[TAG version-0.7.1
+Gary King <gwking@metabang.com>**20080318013844] 
+[changed id='header' to class='header'
+Gary King <gwking@metabang.com>**20080323232835] 
+[updated textmate file
+Gary King <gwking@metabang.com>**20080323232857] 
+[Fix from Stelian Ionescu for a missing progn in bind's regex expansion (thanks!)
+Gary King <gwking@metabang.com>**20080403184240] 
+[Shift from warning to a style-warning (Thanks to Attila Lendvai)
+Gary King <gwking@metabang.com>**20080413233802] 
+[bump version
+Gary King <gwking@metabang.com>**20080413234236] 
+[TAG version-0.7.2
+Gary King <gwking@metabang.com>**20080413234250] 
+[refactor property list bindings so that the putative plist can use non-keyword keys; added :plist- strategy to do just that
+Gary King <gwking@metabang.com>**20080608145358] 
+[added :assoc binding strategy for associative lists
+Gary King <gwking@metabang.com>**20080608145430] 
+[Toss in a defgeneric to molify SBCL's warning
+Gary King <gwking@metabang.com>**20080610041317] 
+[fix (bind () 1 2) expanding to 1
+attila.lendvai@gmail.com**20080510223807] 
+[Renamed bind option :slots to :read-only-slots, added support for :slots based on with-slots.
+levente.meszaros@gmail.com**20080624112108] 
+[Added bind-re-allegro to support regular expression bindings even without CL-PPCRE when using ACL
+Gary King <gwking@metabang.com>**20080911233830] 
+[bump version
+Gary King <gwking@metabang.com>**20080911233932] 
+[TAG version-0.7.3
+Gary King <gwking@metabang.com>**20080911233950] 
+[left some variables I didn't need in; removing 'em
+Gary King <gwking@metabang.com>**20080911234125] 
+[TAG version-0.7.3
+Gary King <gwking@metabang.com>**20080911234132] 
+[Oh, ACL has the same syntax as CL-PPCRE so I need to use the same funky flet and stuff; OK
+Gary King <gwking@metabang.com>**20080911235212] 

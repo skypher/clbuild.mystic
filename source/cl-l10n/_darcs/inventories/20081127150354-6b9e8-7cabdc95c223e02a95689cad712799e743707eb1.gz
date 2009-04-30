@@ -1,0 +1,332 @@
+Starting with tag:
+[TAG Before cldr refactor
+attila.lendvai@gmail.com**20080308205018] 
+[First wave of cldr refactoring.
+attila.lendvai@gmail.com**20080308201658
+ - depend on alexandria
+ - use stefil for the testsuite
+ - lookup-resource now takes the arguments in an &key arguments instead of an &optional
+ - and much more i can't remember now...
+] 
+[Added bin/update-cldr.sh
+attila.lendvai@gmail.com**20080308204232] 
+[get the dtd, too in update-cldr.sh
+attila.lendvai@gmail.com**20080308214637] 
+[set up boringfile, include cldr directory
+attila.lendvai@gmail.com**20080308214900] 
+[store i18n resources in per locale hashtables
+attila.lendvai@gmail.com**20080308214920] 
+[some helper and refactor in flexml
+attila.lendvai@gmail.com**20080308231304] 
+[resource-missing defun that signals the condition with the same name
+attila.lendvai@gmail.com**20080308231349] 
+[parse currencies and number-symbols into standalone slots on locale, add specialized accessors for them
+attila.lendvai@gmail.com**20080308231559] 
+[more tests
+attila.lendvai@gmail.com**20080308233750] 
+[use simple-error as base class for locale-error
+attila.lendvai@gmail.com**20080309094926] 
+[drop some unused code, add some comments
+attila.lendvai@gmail.com**20080309101016] 
+[make utf-8 lisp file loading mandatory. non-unicode lisps are not supported anymore.
+attila.lendvai@gmail.com**20080309101049] 
+[cache the locale-precedence list on each locale
+attila.lendvai@gmail.com**20080309101741] 
+[get rid of the *resource-package* overdesign
+attila.lendvai@gmail.com**20080309110010] 
+[added some emacs goodies to README
+attila.lendvai@gmail.com**20080309110115] 
+[added more resource tests
+attila.lendvai@gmail.com**20080309112320] 
+[parse the language/script/territory/variant definitions
+attila.lendvai@gmail.com**20080309125033] 
+[parse number territory codes as integer and use an integer as the key in the resource hashtable
+attila.lendvai@gmail.com**20080309125856] 
+[more tests
+attila.lendvai@gmail.com**20080309130350] 
+[remove locales/
+attila.lendvai@gmail.com**20080309150851] 
+[added print-object for ldml:node
+attila.lendvai@gmail.com**20080309151048] 
+[currency-display-name -> currency-name rename
+attila.lendvai@gmail.com**20080309151452] 
+[parse some gregorian calendar stuff
+attila.lendvai@gmail.com**20080309161107] 
+[added metabang-bind dependency
+attila.lendvai@gmail.com**20080309164416] 
+[tests for month names
+attila.lendvai@gmail.com**20080310104017] 
+[some accessors for gregorian calendar values
+attila.lendvai@gmail.com**20080310104059] 
+[added plural exception
+attila.lendvai@gmail.com**20080606171041] 
+[smarter lookup-first-matching-resource macro.
+attila.lendvai@gmail.com**20080623221645
+ 
+ may use when/unless also for the first entry and the fallback will be the first entry's key that was tried.
+] 
+[smarter lookup-first-matching-resource macro.
+attila.lendvai@gmail.com**20080623222118
+ 
+ may use when/unless also for the first entry and the fallback will be the first entry's key that was tried.
+] 
+[flexml: fix boolean slot handling (boolean turns into (member t nil) on ccl)
+attila.lendvai@gmail.com**20080902122213] 
+[fix .asd dependency
+attila.lendvai@gmail.com**20080902231433] 
+[added the-only-child to flexml
+attila.lendvai@gmail.com**20080902231707] 
+[updated to cldr 1.6.1
+attila.lendvai@gmail.com**20080903145058] 
+[updated flexml not to treat all xmlns:id attributes as id (it should parse the dtd for id attributes)
+attila.lendvai@gmail.com**20080903145327] 
+[use cl-l10n.ldml package to name ldml stuff (so that the DO country code does not end up as cl:do)
+attila.lendvai@gmail.com**20080903145457] 
+[housekeeping
+attila.lendvai@gmail.com**20080903162302] 
+[rename fmt-string to format-string
+attila.lendvai@gmail.com**20080903163032] 
+[fix do-locales and do-locales-for-resource: expand to a (block nil ,@body)
+attila.lendvai@gmail.com**20080903163103] 
+[follow cldr 1.6.1 update in the tests
+attila.lendvai@gmail.com**20080903180538] 
+[compile-date-pattern/gregorian-calendar that generates a lambda that can emit dates in the given format
+attila.lendvai@gmail.com**20080903180735] 
+[more smarts to gregorian pattern compiling
+attila.lendvai@gmail.com**20080906223111] 
+[moved write-decimal-digits
+attila.lendvai@gmail.com**20080906223147] 
+[smarter ./bin/update-cldr.sh
+attila.lendvai@gmail.com**20080906223227] 
+[parse the gregorian era names from the cldr files
+attila.lendvai@gmail.com**20080906223425] 
+[store the pattern with the date formatters, gracefully fall back to format-timestring if the requested formatter is not available
+attila.lendvai@gmail.com**20080906223519] 
+[string locale name designators are not processed anymore
+attila.lendvai@gmail.com**20080906225922] 
+[added flexml:first-child
+attila.lendvai@gmail.com**20080906230431] 
+[fix date pattern compiling: properly handler ' quoting
+attila.lendvai@gmail.com**20080907003332] 
+[housekeeping
+attila.lendvai@gmail.com**20080907014309] 
+[fix ldml parsing, tolerate multiple date format patterns
+attila.lendvai@gmail.com**20080907014325] 
+[support nil destination in format-date/gregorian-calendar
+attila.lendvai@gmail.com**20080907014402] 
+[revive the format customization
+attila.lendvai@gmail.com**20080907014441] 
+[explicit locale-not-found-error
+attila.lendvai@gmail.com**20080907014450] 
+[fix date pattern compiling: 0 based vectors and 1 based date parts
+attila.lendvai@gmail.com**20080907014533] 
+[tests that run the cldr test suite. dates only for now.
+attila.lendvai@gmail.com**20080907014839] 
+[reorder declarations for load order
+attila.lendvai@gmail.com**20080916150506] 
+[added type check for ldml-intern
+attila.lendvai@gmail.com**20080919133449] 
+[better warnings when parsing xmls
+attila.lendvai@gmail.com**20080919140945] 
+[revive load-all-locales
+attila.lendvai@gmail.com**20080919141011] 
+[fix silly day-of-week off-by-one bug
+attila.lendvai@gmail.com**20080919141209] 
+[housekeeping
+attila.lendvai@gmail.com**20080919141251] 
+[added handle-otherwise to duplicates
+attila.lendvai@gmail.com**20080919172359] 
+[renamed and moved do-locales and friends
+attila.lendvai@gmail.com**20080919172504] 
+[support locale inheritance in compile-date-pattern/gregorian-calendar
+attila.lendvai@gmail.com**20080919172555] 
+[clear-locale-cache also issues a (load-default-locale)
+attila.lendvai@gmail.com**20080919173445] 
+[added effective-month-names & co. that return the first non-nil slot on the locale precedence list
+attila.lendvai@gmail.com**20080919174025] 
+[delay formatter instantiation after the parent locales are also loaded.
+attila.lendvai@gmail.com**20080919175650
+ 
+ rational: compiling some formatters (e.g. date/time) uses the day/month/etc names, but they need to support inheritance.
+ so, first load the entire locale precedence, and after that initialize them, which includes generating the formatters lambdas.
+] 
+[flatten the date part name vectors in the gregorian calendar based on the locale inheritance
+attila.lendvai@gmail.com**20080919224942] 
+[fix thinko about timezones. much more cldr date tests pass now...
+attila.lendvai@gmail.com**20080919231900] 
+[housekeeping
+attila.lendvai@gmail.com**20080919231957] 
+[let dummy-formatter be called and refine the error message
+attila.lendvai@gmail.com**20080920110846] 
+[do not modify the cldr information stored in the locale objects after parsing.
+attila.lendvai@gmail.com**20080920153314
+ 
+ instead collect the required information in the (date) pattern compilation phase and capture the
+ dynamically constructed state in the resulting lambda's.
+] 
+[cldr decimal number pattern formatting
+norbert.madarasz@gmail.com**20081002111435] 
+[whitespace
+attila.lendvai@gmail.com**20081002120543] 
+[skeleton for number formatter tests in test/cldr/run-cldr-tests
+attila.lendvai@gmail.com**20081002122623] 
+[avoid warning by not binding unused vars
+attila.lendvai@gmail.com**20081002124418] 
+[style changes
+attila.lendvai@gmail.com**20081002124440] 
+[cldr decimal number formatting tests
+norbert.madarasz@gmail.com**20081002143136] 
+[style fix, ensure decimal pattern compiling on root locale
+norbert.madarasz@gmail.com**20081002145339] 
+[parse float as long float in test, fix fraction decimal formatting
+norbert.madarasz@gmail.com**20081002203520] 
+[skipping nan, infinity from decimal formatting tests
+norbert.madarasz@gmail.com**20081002205018] 
+[currency formatter stub
+norbert.madarasz@gmail.com**20081006003740] 
+[currency formatter, minor cleanups
+norbert.madarasz@gmail.com**20081008100048] 
+[percent format implementation, refactor and cleanup general pattern processing
+norbert.madarasz@gmail.com**20081008135448] 
+[percent formatting test, bugfix: 1. negative prefix/suffix sometimes was bad; 2. sometimes zeros were incorrectly removed
+norbert.madarasz@gmail.com**20081008155658] 
+[renames
+attila.lendvai@gmail.com**20081009100930] 
+[clean up flonum-to-digits
+attila.lendvai@gmail.com**20081009110424] 
+[drop dead formatting code
+attila.lendvai@gmail.com**20081009152809] 
+[drop dead code from utils.lisp
+attila.lendvai@gmail.com**20081009152816] 
+[revive some of the extra format directives
+attila.lendvai@gmail.com**20081009152911] 
+[style changes in pattern compiling
+attila.lendvai@gmail.com**20081009152943] 
+[drop parsers.lisp and parse-time.lisp (parsers should be based and/or rethought based on the cldr pattern stuff)
+attila.lendvai@gmail.com**20081009155011] 
+[added src/variables.lisp
+attila.lendvai@gmail.com**20081009155020] 
+[ bugfix decimal formatter: few zeros were incorrectly removed, added test case
+norbert.madarasz@gmail.com**20081009172704] 
+[delete some cl-l10n.lang symbols from the exports
+attila.lendvai@gmail.com**20081029103026
+ Ignore-this: f390fd0f487cd71edf233960e7300a79
+] 
+[use (first-time-p) instead of obsolete if-first-time in iter
+attila.lendvai@gmail.com**20081029150310
+ Ignore-this: 7932496a298d4940df96deaa1cff9786
+] 
+[flexml: added default-node-class
+attila.lendvai@gmail.com**20081029183056
+ Ignore-this: 3f7a3e8af662e03ca1822b0b4df9b4d3
+] 
+[Fix concatenate-separated-by.
+levente.meszaros@gmail.com**20081031130550] 
+[fix: rename the resouce file hu_HU.lisp to hu.lisp so that it's loaded
+attila.lendvai@gmail.com**20081031140123
+ Ignore-this: 23353701f1811e6540f988e2a6b695be
+] 
+[fix: rebind *package* in parse-cldr-file so that interning inside is not going awry
+attila.lendvai@gmail.com**20081031140211
+ Ignore-this: 62b3244473fee4d94f67783276393082
+] 
+[get rid of #.(code-char 225), we don't support lisps without unicode
+attila.lendvai@gmail.com**20081031140253
+ Ignore-this: 378f2436b505b7cafc2968b8a3ff38d6
+] 
+[hungarian plural: reorder -at, -um rules to only run when necessary
+attila.lendvai@gmail.com**20081031141153
+ Ignore-this: 20e14d41b1ecff1eb0e194202fd444e3
+] 
+[hungarian plural: add rule for -ott
+attila.lendvai@gmail.com**20081031141306
+ Ignore-this: 9ff6a72968105a41f9b0e42998aed1a8
+] 
+[drop parse-number.lisp, there's a parse-number system for this and it's not used internally
+attila.lendvai@gmail.com**20081106173157
+ Ignore-this: 1533ab327c731a2ab6c87f46f0882c8f
+] 
+[added a singular compile-date-pattern/gregorian-calendar
+attila.lendvai@gmail.com**20081106173230
+ Ignore-this: 2da31c9f1d46b73aef45bbffd94b4268
+] 
+[some renames and cleanup of package.lisp
+attila.lendvai@gmail.com**20081106181859
+ Ignore-this: 749d260d234f99eb7bca8bf091b71555
+] 
+[make the test system depend on parse-number
+attila.lendvai@gmail.com**20081106183602
+ Ignore-this: 54143d3e5c5eb6860480039265cfc7b2
+] 
+[added comment how to run the cldr tests and what the result looks like at me currently
+attila.lendvai@gmail.com**20081106185317
+ Ignore-this: c00798c9f92b06e9eb2c26fbc8f71029
+] 
+[properly bind *locale* for the entire time of ensure-locale-is-initialized
+attila.lendvai@gmail.com**20081106232612
+ Ignore-this: b08f09dcc05a0011ef009f46ea12fd55
+] 
+[rename some slots to be plural for more intuitive code
+attila.lendvai@gmail.com**20081106232702
+ Ignore-this: 2e2304cfc04eccb85b3d5e426f3f88fc
+] 
+[whitespace
+attila.lendvai@gmail.com**20081106232914
+ Ignore-this: 46e494790c8fb85296acdee8567448d3
+] 
+[tests
+attila.lendvai@gmail.com**20081106232924
+ Ignore-this: 1da6725355926f8804b24792215f9e1
+] 
+[touches to compile-number-absolute-value-pattern/decimal
+attila.lendvai@gmail.com**20081106232950
+ Ignore-this: a5550ccab164cbe2bda96051cc8a7020
+] 
+[no need for parse-real-number here
+attila.lendvai@gmail.com**20081106233453
+ Ignore-this: 3363a7ebec78ef9b0d0996d66d9cbc74
+] 
+[support :pattern keyword arg for some of the formatters (although it's much slower that way)
+attila.lendvai@gmail.com**20081115203710
+ Ignore-this: b418be6cc2cc0a0a9c4775e7b6b07c3e
+] 
+[cleanup around lookup-resource. WARNING: incomaptible change!
+attila.lendvai@gmail.com**20081115231403
+ Ignore-this: 700278057a91cb2d940a73dd6668ae02
+] 
+[micro-cleanup in handle-otherwise
+attila.lendvai@gmail.com**20081115231559
+ Ignore-this: 541e3b86b19bee06c0c3f1ec8006b199
+] 
+[move the localize-... functions into the lang package and fix some asserts
+attila.lendvai@gmail.com**20081117151725
+ Ignore-this: 512c9824ee124e27783307749aa94baa
+] 
+[some tests
+attila.lendvai@gmail.com**20081117151841
+ Ignore-this: 52dc651ccc238dfe85d8adb334e7b9b5
+] 
+[oops, drop bugos code path left-over in format-date/gregorian-calendar
+attila.lendvai@gmail.com**20081117151959
+ Ignore-this: e2290aac994e8672ebc68b95ec51b41c
+] 
+[fix some i18n issue
+attila.lendvai@gmail.com**20081120173244
+ Ignore-this: 269dbad80ff484e96c24aae2a0722ba5
+] 
+[fix some declarations, so the plurals work on any kind of string
+attila.lendvai@gmail.com**20081120203545
+ Ignore-this: 2843dd3b0a45f574bd9ae5e0dc393ea0
+] 
+[oops, drop even more (simple-array character) type declarations
+attila.lendvai@gmail.com**20081121114435
+ Ignore-this: 55fe34653de7c5cc9df62a567aacf1eb
+] 
+[use cl:format where approriate
+attila.lendvai@gmail.com**20081121170713
+ Ignore-this: 11a05b6eb1fc6e0643f3c9b56cb72ad1
+] 
+[store functional resources using symbols to be more like functions
+attila.lendvai@gmail.com**20081125193436
+ Ignore-this: a869742c7a1e4417c846998c7295a88
+] 

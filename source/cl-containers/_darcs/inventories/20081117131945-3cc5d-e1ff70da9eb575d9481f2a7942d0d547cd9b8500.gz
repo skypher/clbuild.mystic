@@ -1,0 +1,31 @@
+Starting with tag:
+[TAG version-0.11.0
+Gary King <gwking@metabang.com>**20080928194030] 
+[First steps towards a user's guide
+Gary King <gwking@metabang.com>**20080928230744] 
+[removed ;;; -+ lines
+Gary King <gwking@metabang.com>**20080930023432] 
+[Added GNUmakefile with shared-copy target
+Gary King <gwking@metabang.com>**20081025235702] 
+[Added documentation system and some support files
+Gary King <gwking@metabang.com>**20081025235729] 
+[some website tweaks
+Gary King <gwking@metabang.com>**20081025235740] 
+[Document collect-keys for lists
+Gary King <gwking@metabang.com>**20081025235843] 
+[documentation and docstring tweaks
+Gary King <gwking@metabang.com>**20081025235952] 
+[documentation system
+Gary King <gwking@metabang.com>**20081026000042] 
+[added user-guide
+Gary King <gwking@metabang.com>**20081027010539] 
+[bump version
+Gary King <gwking@metabang.com>**20081027010620] 
+[fix test package
+Gary King <gwking@metabang.com>**20081027010931] 
+[TAG version-0.11.1
+Gary King <gwking@metabang.com>**20081027010936] 
+[Patch from Daniel Herring to keep load order happy after the recent changes.
+Gary King <gwking@metabang.com>**20081117131308] 
+[bump version
+Gary King <gwking@metabang.com>**20081117131936] 

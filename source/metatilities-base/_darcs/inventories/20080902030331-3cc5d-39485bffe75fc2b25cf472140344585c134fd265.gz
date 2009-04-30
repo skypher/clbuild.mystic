@@ -1,0 +1,88 @@
+[First record as a project on its own
+Gary King <gwking@metabang.com>**20080527004704] 
+[updating website
+Gary King <gwking@metabang.com>**20080527011135] 
+[update features to use ccl for Clozure Common Lisp
+Gary King <gwking@metabang.com>**20080607161358] 
+[Cleanup formatting, etc
+Gary King <gwking@metabang.com>**20080607161524] 
+[Added and exported invalid-stream-specifier-error to use with with-input
+Gary King <gwking@metabang.com>**20080607161606] 
+[Added muffle-redefinition-warnings (WIP)
+Gary King <gwking@metabang.com>**20080607161637] 
+[Moved whitespacep from metatilities to metatilities-base
+Gary King <gwking@metabang.com>**20080610130917] 
+[Switch from #'= to #'char= for string-starts-with and string-ends-with (what _was_ I thinking)
+Gary King <gwking@metabang.com>**20080610131020] 
+[Moved string-trim-if and strip-whitespace from cl-markdown to here
+Gary King <gwking@metabang.com>**20080610131043] 
+[switch from mcl to ccl for feature check
+Gary King <gwking@metabang.com>**20080610131142] 
+[move iterate-over-indexes from metatilities to here
+Gary King <gwking@metabang.com>**20080610131208] 
+[package stuff for whitespacep and other string utilities
+Gary King <gwking@metabang.com>**20080610131235] 
+[test updates
+Gary King <gwking@metabang.com>**20080610131250] 
+[Remove duplicate definitions
+Gary King <gwking@metabang.com>**20080610131305] 
+[bump version
+Gary King <gwking@metabang.com>**20080610131342] 
+[TAG version-0.6.0
+Gary King <gwking@metabang.com>**20080610131354] 
+[fix website typo
+Gary King <gwking@metabang.com>**20080610133622] 
+[Website tweak
+Gary King <gwking@metabang.com>**20080612123910] 
+[muffle-redefinition-warnings supprts Lispworks (John Pallister), CLISP (Sean McNamara) and other lisps (typo caught by mosi).
+Gary King <gwking@metabang.com>**20080612124028] 
+[bump version
+Gary King <gwking@metabang.com>**20080612124052] 
+[TAG version-0.6.1
+Gary King <gwking@metabang.com>**20080612124102] 
+[fixed typo
+Gary King <gwking@metabang.com>**20080612124129] 
+[Added pathname-samep
+Gary King <gwking@metabang.com>**20080621010440] 
+[Added file-newer-than-file-p
+Gary King <gwking@metabang.com>**20080621010507] 
+[reformatting some comments
+Gary King <gwking@metabang.com>**20080621010530] 
+[export file-new-than-file-p; stop exporting a whole bunch of things that aren't in metatilities-base
+Gary King <gwking@metabang.com>**20080621010756] 
+[bump version
+Gary King <gwking@metabang.com>**20080621010834] 
+[TAG version-0.6.2
+Gary King <gwking@metabang.com>**20080621010843] 
+[Restored a few symbols that cl-containers expects
+Gary King <gwking@metabang.com>**20080621011939] 
+[bump version
+Gary King <gwking@metabang.com>**20080621025255] 
+[TAG version-0.6.3
+Gary King <gwking@metabang.com>**20080621025310] 
+[Don't say NIL isn't an atom in docstring
+Stephen Compall <scompall@nocandysw.com>**20080714224403] 
+[add textmate project file for website
+Gary King <gwking@metabang.com>**20080901164759] 
+[Add .boring file
+Gary King <gwking@metabang.com>**20080901164811] 
+[Add .boring file
+Gary King <gwking@metabang.com>**20080901164835] 
+[comment style cleanup
+Gary King <gwking@metabang.com>**20080901164940] 
+[Add and export pathname-without-name+type
+Gary King <gwking@metabang.com>**20080901165019] 
+[I love the smell of eval-when in the morning
+Gary King <gwking@metabang.com>**20080901165040] 
+[Added operation-done-p for test-op
+Gary King <gwking@metabang.com>**20080901165054] 
+[Bump version
+Gary King <gwking@metabang.com>**20080901165100] 
+[TAG version-0.6.4
+Gary King <gwking@metabang.com>**20080901165114] 
+[you say evaluate, I say execute. I oughta be executed.
+Gary King <gwking@metabang.com>**20080902030215] 
+[muffle redefs for sbcl?
+Gary King <gwking@metabang.com>**20080902030238] 
+[bump version
+Gary King <gwking@metabang.com>**20080902030322] 

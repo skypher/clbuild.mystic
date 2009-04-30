@@ -1,0 +1,28 @@
+[initial import
+marijnh@gmail.com**20061210015828] 
+[add repo url to documentation
+marijnh@gmail.com**20061210022410] 
+[add darcsweb link to doc
+marijnh@gmail.com**20061214043454] 
+[read-utf-8-string: avoiding NIL fixnum, utf-8-bytes-to-string: (make-string ... :element-type 'character)
+kilian.sprotte@gmail.com**20070304110952] 
+[add my name to docs
+marijnh@gmail.com**20070901144458] 
+[touch up documentation
+marijnh@gmail.com**20071005184137] 
+[remove out-of-date claim, desperately optimize to try and catch up with SBCL again
+marijnh@gmail.com**20080426124839] 
+[make index.html valid xhtml again -- since I left in the validation link, I might as well follow up on it
+marijnh@gmail.com**20080428101616] 
+[mention license style in docs
+marijnh@gmail.com**20080430110735] 
+[link to babel
+marijnh@gmail.com**20080508115949] 
+[Add :START and :END parameters for UTF-8-BYTES-TO-STRING.
+Maciek Pasternacki <maciej at pasternacki.net>**20080616153853] 
+[use coerce for string->simple-string and vector->(simple-array (unsigned-byte 8)), so that people passing in other types won't get weird errors on SBCL
+marijnh@gmail.com**20080714140125] 
+[add (*) dimensions to simple-array type specs to please SBCL
+marijnh@gmail.com**20080714141411] 
+[remove outdated claim of speed relative to babel
+marijnh@gmail.com**20081028062706] 

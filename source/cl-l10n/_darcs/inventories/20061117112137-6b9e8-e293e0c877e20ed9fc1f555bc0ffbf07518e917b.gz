@@ -1,0 +1,112 @@
+[Initial darcs repo
+attila.lendvai@gmail.com**20060305144647] 
+[Use asdf:component-pathname instead of *load-pathname* for less trouble
+attila.lendvai@gmail.com**20060305144826] 
+[Added missing asd file
+attila.lendvai@gmail.com**20060305145900] 
+[Added missing ChangeLog
+attila.lendvai@gmail.com**20060305145945] 
+[Export
+levente.meszaros@gmail.hu**20060305150311] 
+[Initial implicit locale specific dispatch
+levente.meszaros@gmail.com**20060412121043] 
+[Fix lookup-resource mechanism, implicit progn, etc
+attila.lendvai@gmail.com**20060523154653] 
+[Follow CVS
+attila.lendvai@gmail.com**20060523160212] 
+[Return (values result foundp) from resource lookup functions
+attila.lendvai@gmail.com**20060527134311] 
+[Implement en_GB -> en fallback, some cleanup
+attila.lendvai@gmail.com**20060602193135] 
+[Fix some missing pieces
+attila.lendvai@gmail.com**20060604103508] 
+[Get rid of unnecessary spilt-sequence: package specification
+attila.lendvai@gmail.com**20060606152451] 
+[Some more normalization
+attila.lendvai@gmail.com**20060606182611] 
+[Get rid of split-sequence dependency
+attila.lendvai@gmail.com**20060608093207] 
+[Added arnesi and iterate dependency, lookup-first-matching-resource
+attila.lendvai@gmail.com**20060615192726] 
+[Added missing strcat-separated-by function
+attila.lendvai@gmail.com**20060615203127] 
+[Get rid of a usage or bind
+attila.lendvai@gmail.com**20060615212654] 
+[Oh well, time to slow down. Some more fixes...
+attila.lendvai@gmail.com**20060615222223] 
+[Make locale defun nil-tolerant
+attila.lendvai@gmail.com**20060616105338] 
+[Comment out some frequent symbols in the package exports because they cause a lot of headaches
+attila.lendvai@gmail.com**20060616105701] 
+[Relax the locale rules to work with POSIX
+attila.lendvai@gmail.com**20060616165500] 
+[Delete getenv, arnesi has a better version
+attila.lendvai@gmail.com**20060616165528] 
+[Added resources
+attila.lendvai@gmail.com**20060617123408] 
+[Fix hungarian plural
+attila.lendvai@gmail.com**20060617182218] 
+[Added some words to the README aboud i18n
+attila.lendvai@gmail.com**20060617183600] 
+[Fix resource lookup for lambdas returning nil
+attila.lendvai@gmail.com**20060618133257] 
+[Fix vowel high/lowness
+attila.lendvai@gmail.com**20060618133714] 
+[Fix plurals, rename to plural-of
+attila.lendvai@gmail.com**20060618133737] 
+[Some fixes to hungarian plural
+attila.lendvai@gmail.com**20060618195053] 
+[Make sure the default locale of a used language always gets into the locale list
+attila.lendvai@gmail.com**20060618195142] 
+[Use arnesi's encoding-keyword-to-native
+attila.lendvai@gmail.com**20060618195408] 
+[Issue a warning when redefining a function not defined by us. It's probably an error...
+attila.lendvai@gmail.com**20060618205053] 
+[Fix english plural for words ending with y
+attila.lendvai@gmail.com**20060621130052] 
+[Export normalize-locale-list and do not call it from with-locale
+attila.lendvai@gmail.com**20060625105551] 
+[Fix english plural of words ending with y
+attila.lendvai@gmail.com**20060625105722] 
+[encoding-keyword-to-native in arnesi is exported now
+attila.lendvai@gmail.com**20060625105755] 
+[Fix locale-dispatched functions with 0 args
+attila.lendvai@gmail.com**20060628182335] 
+[Added default localize method that looks up name as a constant or as a lambda with zero args
+attila.lendvai@gmail.com**20060628182529] 
+[Fix load order of resources (we will probably need to split into common-pre/common-post in the future)
+attila.lendvai@gmail.com**20060628182616] 
+[Use with-input-from-file instead of with-open-file
+attila.lendvai@gmail.com**20060630144617] 
+[Imported doc dir from CVS
+attila.lendvai@gmail.com**20060702215945] 
+[OpenMCL fixes by Luís Oliveira
+attila.lendvai@gmail.com**20060702220420] 
+[Fully honour errorp in the function "locale" again
+attila.lendvai@gmail.com**20060712203409] 
+[Get rid of character names to be more portable
+attila.lendvai@gmail.com**20060728162424] 
+[Added some english plural exceptions
+attila.lendvai@gmail.com**20060804171826] 
+[Remove now unnecessary fallbacking
+attila.lendvai@gmail.com**20060804172259] 
+[Fix splitting of lines in read-key->value-text-file-into-hashtable
+attila.lendvai@gmail.com**20060804173235] 
+[Fix overrites typo
+attila.lendvai@gmail.com**20060804181821] 
+[Added missing encoding-keyword-to-native call reported by Henrik Hjelte
+attila.lendvai@gmail.com**20060807185354] 
+[Small fixes to plurals
+attila.lendvai@gmail.com**20060817120503] 
+[Export current-locale
+attila.lendvai@gmail.com**20060918192236] 
+[Use read-from-string in the .asd
+attila.lendvai@gmail.com**20061018113937] 
+[Better support lisps with char-code-limit < 256
+attila.lendvai@gmail.com**20061018113954] 
+[Added missing eval in the quest of making it work on OpenMCL
+attila.lendvai@gmail.com**20061018163432] 
+[Use warn to signal a resource-missing warning
+attila.lendvai@gmail.com**20061104153101] 
+[Small cleanup for resource registration
+attila.lendvai@gmail.com**20061117112101] 

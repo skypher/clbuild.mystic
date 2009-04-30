@@ -1,0 +1,243 @@
+[Setup the .boring file
+Marco Baringer <mb@bese.it>**20050720084143] 
+[Initial import of FiveAM code. This is exactly equal to to bese-2004@common-lisp.net/FiveAM--dev--1.2--patch-20
+Marco Baringer <mb@bese.it>**20050720084355] 
+[The default value of *debug-on-error* should be NIL, not T
+Marco Baringer <mb@bese.it>**20050720085346] 
+[Fix bugs in the handling and reporting of unexpected errors
+Marco Baringer <mb@bese.it>**20050810101154] 
+[Add :fiveam to *features*
+Alan Shields <Alan-Shields@omrf.ouhsc.edu>**20050816184454
+ I've found that I prefer to add testing code in my other code, but I dislike
+ adding :fiveam to my package requirements list.
+ 
+ This allows users of fiveam to delineate testing code with #+fiveam() - whereupon
+ it will be totally ignored by those who do not have fiveam.
+ 
+ Happiness for all and love ensue.
+] 
+[Comments talked about #+fiveame, code said #+5am. correct comments.
+Marco Baringer <mb@bese.it>**20050817061250] 
+[remove debian/ folder
+Luca Capello <luca@pca.it>**20051028104201
+ 
+ The CL-Debian group decided to avoid Debian native packages.
+ 
+ http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=310665
+] 
+[Escape { and } chars in baring regexps
+Marco Baringer <mb@bese.it>**20051105155804] 
+[Add the *verbose-failures* flag
+Chris Dean <ctdean@sokitomi.com>**20051209073854] 
+[Supply slightly less cryptic error messages when mispelling the name of a fixture passed to with-fixture
+Marco Baringer <mb@bese.it>**20051210144119] 
+[Initialize the test-expr slot for unexpected-error errors.
+Marco Baringer <mb@bese.it>**20051210144327] 
+[Fix annoying and hard to track down double evaluation bug in the IS macro.
+Marco Baringer <mb@bese.it>**20051214190109] 
+[Set the default-reason-args in all the various forms the IS macro handles
+Marco Baringer <mb@bese.it>**20060118101116] 
+[minor qbook fixup
+Marco Baringer <mb@bese.it>**20060118104652] 
+[minor indentation fix
+Marco Baringer <mb@bese.it>**20060118104706] 
+[Fix a few typos in the docs. (Reported by: Peter Gijsels <peter.gijsels@gmail.com>)
+Marco Baringer <mb@bese.it>**20060118111414] 
+[Added *debug-on-failure* (Suggested by: Peter Gijsels <peter.gijsels@gmail.com>)
+Marco Baringer <mb@bese.it>**20060118144225] 
+[Added *debug-on-failure* (Suggested by: Peter Gijsels <peter.gijsels@gmail.com>)
+Marco Baringer <mb@bese.it>*-20060118144225] 
+[alternative implementation of *debug-on-failure* (without spurious call frames)
+Peter Gijsels <peter.gijsels@gmail.com>**20060119000252] 
+[Initial version of random testing
+Marco Baringer <mb@bese.it>**20060119185836] 
+[Mispelt file in fiveam.asd
+Marco Baringer <mb@bese.it>**20060120092924] 
+[Remove silly debugging forms from example.lisp
+Marco Baringer <mb@bese.it>**20060120092956] 
+[Added *num-trials*, *max-trials* and checking of whether the test code is ever run in a FOR-ALL test
+Marco Baringer <mb@bese.it>**20060120093815] 
+[Removed fail-guard-conditions tset from example code
+Marco Baringer <mb@bese.it>**20060120093904] 
+[Added :alphanumericp keyword to gen-character
+Marco Baringer <mb@bese.it>**20060120172625] 
+[Made run!'s first argument optional (defaults to *suite*)
+Marco Baringer <mb@bese.it>**20060120172639] 
+[Allow SIGNALS marco to have a description
+Marco Baringer <mb@bese.it>**20060120173510] 
+[Added docs directory
+Marco Baringer <mb@bese.it>**20060122152729] 
+[Added t/examples.lisp to the qbook output
+Marco Baringer <mb@bese.it>**20060122152750] 
+[Export EXPLAIN!
+Marco Baringer <mb@bese.it>**20060122152833] 
+[Minor qbook fixups in random.lisp
+Marco Baringer <mb@bese.it>**20060122152842] 
+[Fix api-breakage in SIGNALS.
+Marco Baringer <mb@bese.it>**20060122152857
+ 
+ SIGNALS now can accept the same parameters as before plus the new
+ reason and reason-control parameters
+] 
+[Update copyright notices to 2006
+Marco Baringer <mb@bese.it>**20060123123941] 
+[Default minimum for gen-integer is most-negative-fixnum - 1, not most-negative-fixnum + 1.
+Marco Baringer <mb@bese.it>**20060124113715] 
+[Fix thinko in test's docstring
+Marco Baringer <mb@bese.it>**20060124113754] 
+[TEST macro now recompiles the body on every run.
+Marco Baringer <mb@bese.it>**20060124113810
+ 
+ This idea, blatenly stolen from LispUnit, ensures that tests will
+ always use the latest macro definitions.
+] 
+[Use defgenerator and not defun for gen-list and gen-string
+Marco Baringer <mb@bese.it>**20060124115339] 
+[Added gen-float
+Marco Baringer <mb@bese.it>**20060124121728] 
+[Drop us of defgenerator, document the generators.
+Marco Baringer <mb@bese.it>**20060124122132] 
+[Export gen-float and gen-list
+Marco Baringer <mb@bese.it>**20060124124538] 
+[Added *run-test-when-defined* variable.
+Marco Baringer <mb@bese.it>**20060124140352
+ 
+ This new variable causes tests to be (using run!) as soon as they are
+ defined. Test suites must still be run explicitly. Idea blatenly
+ stolen from LIFT.
+] 
+[Export *run-test-when-defined*
+Marco Baringer <mb@bese.it>**20060124152434] 
+[Typo: Use *run-test-when-defined* in test macro. (Reported by: Gary King <gwking@metabang.com>)
+Marco Baringer <mb@bese.it>**20060124152445] 
+[Document what happens when re-evaluating def-suite and make-suite.
+Marco Baringer <mb@bese.it>**20060126115338] 
+[Fix stupid bug in gen-character
+Marco Baringer <mb@bese.it>**20060126120426] 
+[Allow for-all bindings to be lists used with destructuring-bind
+Marco Baringer <mb@bese.it>**20060126120947] 
+[Added tests for FOR-ALL
+Marco Baringer <mb@bese.it>**20060126121026] 
+[Fix bug in defalut handling of IS macro
+Marco Baringer <mb@bese.it>**20060202111238] 
+[Fix IS macro's handling of the default (unknown) case
+Marco Baringer <mb@bese.it>**20060210095755
+ 
+ In the list-match-case form we were using _? (which only matches the
+ symbol _?) instead of ?_ (which matches anything), so the default
+ clause was never being used.
+] 
+[Fix (signals error ...), was always passing
+Donavon Keithley <keithley@easystreet.com>**20060215201141
+ 
+ If the body of the check didn't signal error, PROCESS-FAILURE would. So I 
+ simply moved PROCESS-FAILURE out of the HANDLER-BIND form.
+] 
+[Added gen-buffer generator
+Marco Baringer <mb@bese.it>**20060313215403] 
+[Adedd gen-one-element
+Marco Baringer <mb@bese.it>**20060408100022] 
+[Support code limit for gen-character
+attila.lendvai@gmail.com**20060831161325] 
+[Princ-ing of Unexpected Error
+Kilian Sprotte <kilian_s@gmx.de>**20060901061439] 
+[Rebind a copy of *readtable* before running a test
+attila.lendvai@gmail.com**20060902115023] 
+[Allow to run multiple named tests to be run at once.
+levente.meszaros@gmail.com**20060929072333] 
+[Added in-suite* that also defines the suite
+attila.lendvai@gmail.com**20060930155344] 
+[Added is-equal test
+attila.lendvai@gmail.com**20060930155353] 
+[Added is-string=
+attila.lendvai@gmail.com**20060930155402] 
+[Dropped is-equal and is-string=, added is-every
+attila.lendvai@gmail.com**20061001174056] 
+[Extended the 'is' macro to support multiple values
+attila.lendvai@gmail.com**20061001174755
+ 
+ (is (equal (decode-universal-time (universal-time (encode-local-time 1 2 3 4 5 6 2008)))
+            (values 2 3 4 5 6 2008 3 * *)))
+ the expressions' result is converted to list with mutliple-value-list and then the predicate
+ is applied to the two lists. *'s are replaced/setf'd to nil.
+] 
+[FIX: Store *package* at definition time for tests and rebind it at runtime
+attila.lendvai@gmail.com**20061014153122] 
+[Added a simple gen-tree
+attila.lendvai@gmail.com**20061016202552] 
+[Do not warn when redefining a test
+attila.lendvai@gmail.com**20061016203013] 
+[Added debug! which is run! but enters the debugger on errors
+attila.lendvai@gmail.com**20061107142117] 
+[FIX: gentree typo/unsaved file
+attila.lendvai@gmail.com**20061109111033] 
+[Can't use &rest in loop destructuring. Use (expected actual . reason) instead.
+Marco Baringer <mb@bese.it>**20061206105451] 
+[Change IS's default resaon strings to show the form which didn't
+Marco Baringer <mb@bese.it>**20061206112449
+ provide the expected value (and, obviously, its value)
+] 
+[Added :fiveam package nickname
+attila.lendvai@gmail.com**20061110214907] 
+[Print failed tests in the order of execution
+attila.lendvai@gmail.com**20061209154715] 
+[Rebind *package* also when compiling the tests
+attila.lendvai@gmail.com**20061209154734] 
+[Added :compile-at parameter for test (:run-time :definition-time)
+attila.lendvai@gmail.com**20061220151018] 
+[Add new restart called explain which ignores the rest of the tests and expains the current results.
+levente.meszaros@gmail.com**20061219133012] 
+[Export results-status
+Marco Baringer <mb@bese.it>**20070109145526] 
+[Added :fixture argument to TEST macro
+Marco Baringer <mb@bese.it>**20070323194133] 
+[Added :default-test-args parameter to def-suite.
+Marco Baringer <mb@bese.it>**20070323195625] 
+[Drop spurious newline
+Marco Baringer <mb@bese.it>**20070323195918] 
+[Added def-suite* macro
+Marco Baringer <mb@bese.it>**20070324164310] 
+[Avoid dobule evaluation of IS-FALSE's argument
+Marco Baringer <mb@bese.it>**20070626105443] 
+[Add support for collecting profiling information during test runs.
+Marco Baringer <mb@bese.it>**20070626105918] 
+[Don't put a literal suite object into a test form's macro expnsion.
+Marco Baringer <mb@bese.it>**20070626114900
+ 
+ Use either *SUITE* or (GET-TEST NAME)
+] 
+[There is no fixture named foo, wtf?
+Marco Baringer <mb@bese.it>**20070626114914] 
+[Removed the default-test-args slot from test-suite.
+Marco Baringer <mb@bese.it>**20070626114805
+ 
+ This slot doesn't really do what it's says it does (redefining it
+ doesn't change things the way you'd expect) and it causes no end of
+ headaches by confusing compile-time definitions with run-time
+ definitions.
+] 
+[def-suite should expand into an (eval-when (:always) ...) not a progn
+Marco Baringer <mb@bese.it>**20070814173609] 
+[add an (eval-when ...) when defining a test suite
+Luca Capello <luca@pca.it>**20071021201056] 
+[ Platform-independent pathnames in make-qbook
+Henrik Hjelte <henrik@evahjelte.com>**20060821082948] 
+[tests for dependencies with symbol
+Henrik Hjelte <henrik@evahjelte.com>**20071031083215] 
+[bugfixed test of depends on symbol
+Henrik Hjelte <henrik@evahjelte.com>**20071031084516] 
+[depends-on with single symbol resolves dependencies ok
+Henrik Hjelte <henrik@evahjelte.com>**20071031085010] 
+[added :before depends-on option
+Henrik Hjelte <henrik@evahjelte.com>**20071101081514
+ to be used when you really want to safeguard
+ that some other test has not run first.
+] 
+[Don't inline package object in ECL (breaks compilation).
+Maciek Pasternacki <maciekp@japhy.fnord.org>**20080210171224] 
+[make gen-character more robust
+Kilian Sprotte <kilian.sprotte@gmail.com>**20080320094911
+ code-char is allowed to return NIL for a given code.
+ gen-character now checks for this, so that it will always
+ return a character.
+] 

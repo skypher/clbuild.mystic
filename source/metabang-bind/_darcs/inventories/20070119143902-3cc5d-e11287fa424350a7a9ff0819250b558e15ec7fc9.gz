@@ -1,0 +1,80 @@
+[initial (again)
+Gary King <gwking@metabang.com>**20051112030447] 
+[added website; adding system-connection
+Gary King <gwking@metabang.com>**20051114020230] 
+[added version file; changing names again
+Gary King <gwking@metabang.com>**20051117032158] 
+[Moved system file up one level
+Gary King <gwking@metabang.com>**20051118151504] 
+[removed CVS keys
+Gary King <gwking@metabang.com>**20051123012612] 
+[An attempt at better behavior for handling asdf-system-connections; fixed website typo (thanks to Zach Musgrave)
+Gary King <gwking@metabang.com>**20051209190401] 
+[Typo in ASDF-install and made system depend on asdf-system-connections to get ASDF-Install to do our work for us
+Gary King <gwking@metabang.com>**20051219164158] 
+[Added COPYING file
+Gary King <gwking@metabang.com>**20060101142635] 
+[COPYING move
+Gary King <gwking@metabang.com>**20060101183925] 
+[Added metabang-bind package nickname
+Gary King <gwking@metabang.com>**20060103152430] 
+[Added website module
+Gary King <gwking@metabang.com>**20060109202144] 
+[Re-worked webpage
+Gary King <gwking@metabang.com>**20060109202157] 
+[Minor webpage fixes
+Gary King <gwking@metabang.com>**20060119160710] 
+[Fixed :Name links in website
+Gary King <gwking@metabang.com>**20060127040401] 
+[Moved to almost tableless design; I now have achieved nirvana: I can look a bit odd in every browser! <smile>
+Gary King <gwking@metabang.com>**20060128235256] 
+[Added called to export-exported-symbols
+Gary King <gwking@metabang.com>**20060202160641] 
+[Improved formatting of system news in website
+Gary King <gwking@metabang.com>**20060202160708] 
+[Added extra logic to take care of nils in destructuring-binds (MCL didn't care, OpenMCL does now) and it's probably a good thing.
+Gary King <gwking@metabang.com>**20060209204645] 
+[Corrected bug where bind destructuring did not handle dotted lists
+Gary King <gwking@metabang.com>**20060210145250] 
+[Added some unit-tests; corrected the destructuring-bind code (again!); exported some conditions that aren't acutally used!
+Gary King <gwking@metabang.com>**20060212165620] 
+[Updated for mlisp
+Gary King <gwking@metabang.com>**20060321000414] 
+[More #\. => #\- madness
+Gary King <gwking@metabang.com>**20060405133404] 
+[Lower-cased package names in defsystem
+Gary King <gwking@metabang.com>**20060425023701] 
+[Fixing in-packages
+Gary King <gwking@metabang.com>**20060511193329] 
+[Updated copyright date
+Gary King <gwking@metabang.com>**20060611204709] 
+[Converting error about missing asdf-system-connections into a warning (and a fake warning at that)
+Gary King <gwking@metabang.com>**20061002164640] 
+[Fixed copyright
+Gary King <gwking@metabang.com>**20061008183004] 
+[Added define-dynamic-context
+attila.lendvai@gmail.com**20061022132313] 
+[Better test system integration
+Gary King <gwking@metabang.com>**20061217200839] 
+[Fixed destructuring bind tests with dotted lists
+Gary King <gwking@metabang.com>**20061217200903] 
+[TAG version-0.2.1
+Gary King <gwking@metabang.com>**20061217201023] 
+[FIX: export more stuff when asked for in define-dynamic-context
+attila.lendvai@gmail.com**20061217220147] 
+[Updated lambda list parsing to handle default values properly. Thanks to Chris Dean for pointing this out.
+Gary King <gwking@metabang.com>**20061226235403] 
+[TAG version-0.2.2
+Gary King <gwking@metabang.com>**20061226235413] 
+[updated copyright; renamed one of the bind-and-metatilities system connections to bind-and-defclass-star
+Gary King <gwking@metabang.com>**20070119012700] 
+[FIX: the in-NAME accessor of define-dynamic-context was reading the defined variable which muffled the unused var warning
+attila.lendvai@gmail.com**20070109152540] 
+[Make the integration with other systems more robust
+attila.lendvai@gmail.com**20070119134745] 
+[Remove some cruft; fix another bug in bind-get-vars-from-lambda-list -- it's still too heuristic,... oh well.
+Gary King <gwking@metabang.com>**20070119143713] 
+[Bump version (include Attila Lendvai's patch too)
+Gary King <gwking@metabang.com>**20070119143759] 
+[Tests for bind-get-vars-from-lambda-list
+Gary King <gwking@metabang.com>**20070119143837] 

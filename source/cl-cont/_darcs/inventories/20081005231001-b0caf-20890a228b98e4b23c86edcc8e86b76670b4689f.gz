@@ -1,0 +1,94 @@
+[Initial checkin
+coffeemug@gmail.com**20071031174706] 
+[Adding support for declarations
+coffeemug@gmail.com**20071031184235] 
+[Supporting catch and throw
+coffeemug@gmail.com**20071101232550] 
+[Adding ignorable declarations to catch/throw hash
+coffeemug@gmail.com**20071102000125] 
+[Adding support for values, values-list, and multiple-value-call
+coffeemug@gmail.com**20071102043330] 
+[Adding support for multiple-value-prog1 (and improving code)
+coffeemug@gmail.com**20071102053047] 
+[Adding support for load-time-value
+coffeemug@gmail.com**20071102162724] 
+[Adding eval-when support
+coffeemug@gmail.com**20071102165746] 
+[Very basic progv support
+coffeemug@gmail.com**20071102170503] 
+[Adding support for CMUCL
+coffeemug@gmail.com**20071102230021] 
+[Fixing an incorrect test case
+coffeemug@gmail.com**20071103051057] 
+[Fixing a multiple values issue (exposed by lispworks)
+coffeemug@gmail.com**20071103054406] 
+[Adding an ignorable that prevents warnings on throw
+coffeemug@gmail.com**20071103055438] 
+[Removing broken support for catch/throw
+coffeemug@gmail.com**20071103182225] 
+[ACL MOP fix
+coffeemug@gmail.com**20071103191720] 
+[Additional information in docs
+coffeemug@gmail.com**20071103194058] 
+[adding progv info to docs
+coffeemug@gmail.com**20071103194224] 
+[Adding basic support for unwind-protect
+coffeemug@gmail.com**20071103194501] 
+[Adding support for defun and defun/cc
+coffeemug@gmail.com**20071103205014] 
+[Adding transformations for explicit funcall and apply
+coffeemug@gmail.com**20071103221927] 
+[Fixing k-expr in defun/cc
+coffeemug@gmail.com**20071104054233] 
+[Adding support for declarations in defun
+coffeemug@gmail.com**20071105223026] 
+[Adding support for lambda/cc and nested with-call/cc
+coffeemug@gmail.com**20071106194631] 
+[Restructuring for asdf-install friendliness
+coffeemug@gmail.com**20071107201606] 
+[Modifying dependencies to use symbols instead of strings
+coffeemug@gmail.com**20071107222536] 
+[Hiding an allegro specific expression from other implementations
+coffeemug@gmail.com**20071110225723] 
+[Passing environment to all transformers explicitly
+coffeemug@gmail.com**20071112055813] 
+[Fixing environment passing for defun/cc
+coffeemug@gmail.com**20071112075828] 
+[Fixing environment/macro clashes for flet/labels
+coffeemug@gmail.com**20071112080046] 
+[Adding OpenMCL environment test case
+coffeemug@gmail.com**20071112231334] 
+[Adding ignore declarations for ENV where necessary, updating version
+coffeemug@gmail.com**20071112235131] 
+[Listing additionally supported constructs
+coffeemug@gmail.com**20071116034424] 
+[Adding support for without-call/cc
+coffeemug@gmail.com**20071116035730] 
+[Adding support for tagbody/go
+coffeemug@gmail.com**20071116035905] 
+[Changing apply/cc to accept multiple arguments
+coffeemug@gmail.com**20071205204808] 
+[Specialist handling for LIST on ACL
+coffeemug@gmail.com**20071205233155] 
+[Turning off compiler optimizations on CMUCL for defun/cc
+coffeemug@gmail.com**20071207052352] 
+[Special handling for lispworks internal-the
+coffeemug@gmail.com**20071226222651] 
+[Fixing (list (values)) test case
+coffeemug@gmail.com**20071226223318] 
+[0.3.3. Release
+coffeemug@gmail.com**20071226223339] 
+[Fixing a typo
+coffeemug@gmail.com**20071230062032] 
+[Adding without-call/cc macro to match the transformer
+coffeemug@gmail.com**20071230065654] 
+[Fixing issue with passing defun/cc symbols to funcall/cc and apply/cc
+coffeemug@gmail.com**20071230065907] 
+[Release 0.3.4
+coffeemug@gmail.com**20071230065949] 
+[work around Clozure TYPEP bug; document said bug in an XFAIL
+Stephen Compall <scompall@nocandysw.com>**20080905071050] 
+[Mod changelog
+coffeemug@gmail.com**20081005214117] 
+[Releasing version 0.3.5
+coffeemug@gmail.com**20081005230940] 

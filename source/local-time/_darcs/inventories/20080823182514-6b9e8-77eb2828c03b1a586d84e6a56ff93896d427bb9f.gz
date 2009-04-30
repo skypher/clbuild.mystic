@@ -1,0 +1,99 @@
+Starting with tag:
+[TAG 0.9.2
+dlowe@bitmuse.com**20071119142524] 
+[Valid-date-p removed from library
+dlowe@bitmuse.com**20071119203809] 
+[Local-time function now honors the nsec keyword argument
+dlowe@bitmuse.com**20071119203834] 
+[Updated version numbers in system
+dlowe@bitmuse.com**20071121153545] 
+[Eliminated confusing local-time-diff. Added local-time+ and local-time- and encode-duration. Durations are represented in seconds.
+levente.meszaros@gmail.com**20071231190157] 
+[don't :use cl-fad, use fully qualified symbols
+attila.lendvai@gmail.com**20080205170134] 
+[added clone-local-time
+attila.lendvai@gmail.com**20080205170214] 
+[follow the adjust-local-time patch in the tests, fix some leap day related tests
+attila.lendvai@gmail.com**20080205174402] 
+[an unfortunately big patch with INCOMPATIBLE CHANGES.
+attila.lendvai@gmail.com**20080205175013
+ 
+ - fix gregorian leap year rules: 100 and 400 years rules were not taken
+   into account which broke timestamps when using cl-postgres and year far
+   enough from now.
+ 
+ - added adjust-local-time, and adjust-local-time! (which sideeffects the
+   changes into the input).
+ 
+   example uses:
+ 
+   (adjust-local-time sunday (offset :day-of-week :monday))
+   (adjust-local-time epoch (set :timezone to utc-1))
+   (adjust-local-time sunday (offset :day by 3))
+ 
+   "to" and "by" is optional and otherwise is ignored.
+ 
+ the INCOMPATIBLE CHANGES:
+ - LOCAL-TIME-ADJUST has been renamed to ADJUST-TO-TIMEZONE and not
+   exported anymore. the return values (day sec) has been swapped
+   to match the small->large order everywhere else.
+   instead use: (adjust-local-time time (set :timezone +utc-zone+))
+ 
+ - LOCAL-TIME-ADJUST-DAYS removed in favor of
+   (adjust-local-time day (offset :day-of-week :monday))
+ 
+ - MODIFIED-LOCAL-TIME and ADJUSTED-LOCAL-TIME has been merged into
+   ADJUST-LOCAL-TIME
+ 
+ - the non-exported LOCAL-TIME-SUM has been dropped
+] 
+[reorder some definitions to load it cleanly, add an eval-when, too (splitting into multiple files would help, too)
+attila.lendvai@gmail.com**20080205180452] 
+[use some +constants+ for readability purposes
+attila.lendvai@gmail.com**20080205180630] 
+[delete an impossible case in %set-local-time-part
+attila.lendvai@gmail.com**20080205184240] 
+[added test-parse/format-consistency
+attila.lendvai@gmail.com**20080205192904] 
+[fix format timestring bug with negative timezone offsets
+attila.lendvai@gmail.com**20080219174126] 
+[Added decode/parse/encode durations in the form of ww-ddThh:mm:ss.sss
+levente.meszaros@gmail.com**20080220114224] 
+[fix nsec parsing on 32-bit systems
+tomi.borbely@gmail.com**20080221101041
+ 
+ e.g. (parse-timestring "2008-02-20T16:56:28.940703Z")  => @2008-02-20T16:56:28.-133039Z
+ when most-positive-fixnum is 536870911
+ 
+ 
+] 
+[tell the compiler the full thruth and let it decide what to do in the nanosec parsing code
+attila.lendvai@gmail.com**20080221150732] 
+[optimize format-timestring, add some ftype's and reorder definitions, bind *print-pretty* and friends to nil
+attila.lendvai@gmail.com**20080221165928] 
+[optimize format stuff, return simple-base-strings where appropriate
+attila.lendvai@gmail.com**20080222101327] 
+[Parse timezone names into simple-base-strings
+attila.lendvai@gmail.com**20080222101359] 
+[fix a string related type declaration
+attila.lendvai@gmail.com**20080222163114] 
+[support overflow on nsec value in encode-local-time, fix tests and add a TODO whether it's ok to overflow at all anywhere
+attila.lendvai@gmail.com**20080222164319] 
+[Housekeeping
+attila.lendvai@gmail.com**20080301185748] 
+[Added texinfo doc
+attila.lendvai@gmail.com**20080301190158] 
+[Delete usage from the README, add link to the site
+attila.lendvai@gmail.com**20080301233418] 
+[Bleh, fix my previous not :use-ing cl-fad patch
+attila.lendvai@gmail.com**20080305145033] 
+[Updated year on copyright
+dlowe@bitmuse.com**20080306182423] 
+[Removed ChangeLog file
+dlowe@bitmuse.com**20080312151631] 
+[Updated version number
+dlowe@bitmuse.com**20080312151923] 
+[TAG 0.9.3
+dlowe@bitmuse.com**20080312151937] 
+[Added the ouput of the documentation to the boring file
+attila.lendvai@gmail.com**20080316164612] 

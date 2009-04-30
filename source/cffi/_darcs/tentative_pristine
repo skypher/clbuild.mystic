@@ -1,0 +1,237 @@
+hunk ./src/cffi-clisp.lisp 63
++(eval-when (:compile-toplevel :load-toplevel :execute)
++  (unless (find-package :ffi)
++    (error "CFFI requires CLISP compiled with dynamic FFI support.")))
++
+hunk ./src/cffi-allegro.lisp 174
+-(defun convert-foreign-type (type-keyword &optional (context :normal))
++(defun convert-foreign-type (type-keyword)
+hunk ./src/cffi-allegro.lisp 187
+-    (:pointer          (ecase context
+-                         (:normal '(* :void))
+-                         (:funcall :foreign-address)))
++    (:pointer          :unsigned-nat)
+hunk ./src/cffi-allegro.lisp 244
+-          if arg collect (convert-foreign-type type :funcall) into types
++          if arg collect type into types
+hunk ./src/cffi-allegro.lisp 246
+-          else do (setf return-type (convert-foreign-type type :funcall))
++          else do (setf return-type type)
+hunk ./src/cffi-allegro.lisp 250
+-  (if (equal '(* :void) type)
+-      'integer
+-      (ecase type
+-        (:char 'signed-byte)
+-        (:unsigned-char 'integer) ;'unsigned-byte)
+-        ((:short
+-          :unsigned-short
+-          :int
+-          :unsigned-int
+-          :long
+-          :unsigned-long) 'integer)
+-        (:float 'single-float)
+-        (:double 'double-float)
+-        (:foreign-address :foreign-address)
+-        (:void 'null))))
++  (ecase type
++    ((:char :short :int :long)
++     `(signed-byte ,(* 8 (ff:sizeof-fobject type))))
++    ((:unsigned-char :unsigned-short :unsigned-int :unsigned-long :unsigned-nat)
++     `(unsigned-byte ,(* 8 (ff:sizeof-fobject type))))
++    (:float 'single-float)
++    (:double 'double-float)
++    (:void 'null)))
+hunk ./src/cffi-allegro.lisp 259
+-(defun foreign-allegro-type (type)
+-  (if (eq type :foreign-address)
+-      nil
+-      type))
+-
+-(defun allegro-type-pair (type)
+-  (list (foreign-allegro-type type)
+-        (convert-to-lisp-type type)))
++(defun allegro-type-pair (cffi-type)
++  (let ((ftype (convert-foreign-type cffi-type)))
++    (list ftype (convert-to-lisp-type ftype))))
+hunk ./src/cffi-allegro.lisp 272
+-                 ',(allegro-type-pair (convert-foreign-type rettype :funcall))
++                 ',(allegro-type-pair rettype)
+hunk ./src/cffi-allegro.lisp 274
+-                 '(,@(loop for type in types
+-                           collect (allegro-type-pair
+-                                    (convert-foreign-type type :funcall))))
++                 '(,@(mapcar #'allegro-type-pair types))
+hunk ./src/cffi-allegro.lisp 300
+-     `(ff:def-foreign-call (,ff-name ,name)
+-          ,(mapcar (lambda (ty)
+-                     (let ((allegro-type (convert-foreign-type ty)))
+-                       (list (gensym) allegro-type
+-                             (convert-to-lisp-type allegro-type))))
+-                   types)
+-        :returning ,(allegro-type-pair
+-                     (convert-foreign-type rettype :funcall))
+-        ;; Don't use call-direct when there are no arguments.
+-        ,@(unless (null args) '(:call-direct t))
+-        :arg-checking nil
+-        :strings-convert nil)
+-     `(,ff-name ,@args))))
++      `(ff:def-foreign-call (,ff-name ,name)
++           ,(loop for type in types
++                  collect (list* (gensym) (allegro-type-pair type)))
++         :returning ,(allegro-type-pair rettype)
++         ;; Don't use call-direct when there are no arguments.
++         ,@(unless (null args) '(:call-direct t))
++         :arg-checking nil
++         :strings-convert nil)
++      `(,ff-name ,@args))))
+hunk ./src/cffi-allegro.lisp 133
+-   #+(version>= 8 1)
+-   (cond ((and (constantp size) (<= (eval size) ff:*max-stack-fobject-bytes*))
+-          ;; stack allocation
+-          `(let ((,size-var ,size))
+-             (declare (ignorable ,size-var))
+-             (ff:with-stack-fobject (,var '(:array :char ,size)
+-                                          :allocation :foreign-static-gc)
+-               ;; (excl::stack-allocated-p var) => T
+-               (let ((,var (ff:fslot-address ,var)))
+-                 ,@body))))
+-         (t
+-          ;; heap allocation
+-          `(let ((,size-var ,size))
+-             (ff:with-stack-fobject (,var :char :allocation :c :size ,size-var)
+-               (unwind-protect
+-                    (progn ,@body)
+-                 (ff:free-fobject ,var))))))
+-   #-(version>= 8 1)
+-   `(let ((,size-var ,size))
+-      (ff:with-stack-fobject (,var :char :c ,size-var)
+-        ,@body)))
++  #+(version>= 8 1)
++  (when (and (constantp size) (<= (eval size) ff:*max-stack-fobject-bytes*))
++    (return-from with-foreign-pointer
++      `(let ((,size-var ,size))
++         (declare (ignorable ,size-var))
++         (ff:with-static-fobject (,var '(:array :char ,size)
++                                       :allocation :foreign-static-gc)
++           ;; (excl::stack-allocated-p var) => T
++           (let ((,var (ff:fslot-address ,var)))
++             ,@body)))))
++  `(let* ((,size-var ,size)
++          (,var (ff:allocate-fobject :char :c ,size-var)))
++     (unwind-protect
++          (progn ,@body)
++       (ff:free-fobject ,var))))
+hunk ./src/cffi-allegro.lisp 155
+-;(defun make-shareable-byte-vector (size)
+-;  "Create a Lisp vector of SIZE bytes can passed to
+-;WITH-POINTER-TO-VECTOR-DATA."
+-;  (make-array size :element-type '(unsigned-byte 8)))
+-;
+-;(defmacro with-pointer-to-vector-data ((ptr-var vector) &body body)
+-;  "Bind PTR-VAR to a foreign pointer to the data in VECTOR."
+-;  `(sb-sys:without-gcing
+-;     (let ((,ptr-var (sb-sys:vector-sap ,vector)))
+-;       ,@body)))
++(defun make-shareable-byte-vector (size)
++  "Create a Lisp vector of SIZE bytes can passed to
++WITH-POINTER-TO-VECTOR-DATA."
++  (make-array size :element-type '(unsigned-byte 8)
++              :allocation :static-reclaimable))
++
++(defmacro with-pointer-to-vector-data ((ptr-var vector) &body body)
++  "Bind PTR-VAR to a foreign pointer to the data in VECTOR."
++  `(let ((,ptr-var ,vector))
++     ,@body))
+hunk ./src/cffi-allegro.lisp 254
+-  (let ((ftype (convert-foreign-type cffi-type)))
+-    (list ftype (convert-to-lisp-type ftype))))
++  ;; the :FOREIGN-ADDRESS pseudo-type accepts both pointers and
++  ;; arrays. We need the latter for shareable byte vector support.
++  (if (eq cffi-type :pointer)
++      (list :foreign-address)
++      (let ((ftype (convert-foreign-type cffi-type)))
++        (list ftype (convert-to-lisp-type ftype)))))
+hunk ./src/cffi-allegro.lisp 5
+-;;; Copyright (C) 2005-2008, Luis Oliveira  <loliveira(@)common-lisp.net>
++;;; Copyright (C) 2005-2009, Luis Oliveira  <loliveira(@)common-lisp.net>
+hunk ./src/cffi-allegro.lisp 31
+-  (:use #:common-lisp #:alexandria)
++  (:use #:common-lisp)
++  (:import-from #:alexandria #:if-let #:with-unique-names #:once-only)
+hunk ./src/cffi-allegro.lisp 362
+-  (intern (format nil "~A::~A" (package-name (symbol-package name))
++  (intern (format nil "~A::~A"
++                  (if-let (package (symbol-package name))
++                    (package-name package)
++                    "#")
+hunk ./src/cffi-cmucl.lisp 32
+-  (:import-from #:alexandria #:once-only #:with-unique-names)
++  (:import-from #:alexandria #:once-only #:with-unique-names #:if-let)
+hunk ./src/cffi-cmucl.lisp 300
+-    (intern (format nil "~A::~A" (package-name (symbol-package name))
++    (intern (format nil "~A::~A"
++                    (if-let (package (symbol-package name))
++                      (package-name package)
++                      name)
+hunk ./src/cffi-ecl.lisp 293
+-    (intern (format nil "~A::~A" (package-name (symbol-package name))
++    (intern (format nil "~A::~A"
++                    (if-let (package (symbol-package name))
++                      (package-name package)
++                      "#")
+hunk ./src/cffi-lispworks.lisp 364
+-    (intern (format nil "~A::~A" (package-name (symbol-package name))
++    (intern (format nil "~A::~A"
++                    (if-let (package (symbol-package name))
++                      (package-name package)
++                      "#")
+hunk ./src/cffi-openmcl.lisp 32
+-  (:import-from #:alexandria #:once-only)
++  (:import-from #:alexandria #:once-only #:if-let)
+hunk ./src/cffi-openmcl.lisp 267
+-  (intern (format nil "~A::~A" (package-name (symbol-package name))
++  (intern (format nil "~A::~A"
++                  (if-let (package (symbol-package name))
++                    (package-name package)
++                    "#")
+hunk ./tests/callbacks.lisp 514
++;;; RT: many of the %DEFCALLBACK implementations wouldn't handle
++;;;     uninterned symbols.
++(deftest callbacks.uninterned
++    (values (defcallback #1=#:foo :void ())
++            (pointerp (callback #1#)))
++  #1# t)
++
+hunk ./src/cffi-allegro.lisp 55
+-   ;#:make-shareable-byte-vector
+-   ;#:with-pointer-to-vector-data
++   #:make-shareable-byte-vector
++   #:with-pointer-to-vector-data
+hunk ./src/cffi-allegro.lisp 164
+-  `(let ((,ptr-var ,vector))
+-     ,@body))
++  ;; An array allocated in static-reclamable is a non-simple array in
++  ;; the normal Lisp allocation area, pointing to a simple array in
++  ;; the static-reclaimable allocation area. Therefore we have to get
++  ;; out the simple-array to find the pointer to the actual contents.
++  (with-unique-names (simple-vec)
++    `(excl:with-underlying-simple-vector (,vector ,simple-vec)
++       (let ((,ptr-var (ff:fslot-address-typed :unsigned-char :lisp
++                                               ,simple-vec)))
++         ,@body))))
+hunk ./tests/misc.lisp 101
+-#+(or ecl allegro)
++#+ecl
+hunk ./cffi.asd 34
+-  :version "0.10.3"
++  :version "0.10.4"
+hunk ./grovel/grovel.lisp 160
++#include <stdint.h>
+hunk ./grovel/grovel.lisp 171
++#define SIGNED64P(x) ( x <= 0x7FFFFFFFFFFFFFFFLL )
+hunk ./grovel/grovel.lisp 463
+-    (c-printf out "%i" c-name)
++    (format out "~&  if(SIGNED64P(~A))~%" c-name)
++    (format out "    fprintf(output, \"%lli\", (int64_t) ~A);" c-name)
++    (format out "~&  else~%")
++    (format out "    fprintf(output, \"%llu\", (uint64_t) ~A);" c-name)

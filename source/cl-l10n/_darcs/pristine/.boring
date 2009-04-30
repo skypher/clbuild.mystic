@@ -1,0 +1,10 @@
+# Boring file regexps:
+^cldr/
+\#
+\.dfsl$
+\.ppcf$
+\.fasl$
+\.x86f$
+\.fas$
+\.lib$
+^logs/

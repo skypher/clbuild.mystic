@@ -1,0 +1,18 @@
+[init
+nallen05@gmail.com**20080715173428] 
+[adding license file
+nallen05@gmail.com**20080720171107] 
+[adding test system [but no tests]
+nallen05@gmail.com**20080720171116] 
+[documentation
+nallen05@gmail.com**20080720171144] 
+[exporting pattern->src functions, adding default pattern
+nallen05@gmail.com**20080720171201] 
+[touching the comments
+nallen05@gmail.com**20080721163100] 
+[making DEFCONSTANT +DEFAULT-UT-PATTERN+ not complain w/ SBCL
+nallen05@gmail.com**20080721163127] 
+[fixing the compiler macros
+nallen05@gmail.com**20080721163149] 
+[touching comments
+nallen05@gmail.com**20080724141254] 

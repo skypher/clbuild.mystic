@@ -1,0 +1,53 @@
+Starting with tag:
+[TAG 2008-11-27
+attila.lendvai@gmail.com**20081127150354
+ Ignore-this: 236aaf4a623c20bb3fbd9b6252555b4a
+] 
+[always try to look up the downcased key if it wasn't found in lookup-resource
+attila.lendvai@gmail.com**20081129215309
+ Ignore-this: 5ff8f01718f1b1c55cca034803905dc4
+] 
+[added time format compiling. no timezones yet.
+attila.lendvai@gmail.com**20081201104829
+ Ignore-this: d780c01928b85ade1268acd8b1582c88
+] 
+[make (locale 'root) work as expected
+attila.lendvai@gmail.com**20081208174433
+ Ignore-this: f9722066bfa49c1fa58d2bed10e1cd93
+] 
+[use :otherwise for locale loading
+attila.lendvai@gmail.com**20081208231902
+ Ignore-this: c154c343d1746e08fe4d00ba73babee4
+] 
+[added register-locale-loaded-listener
+attila.lendvai@gmail.com**20081209110839
+ Ignore-this: cf4ee903b976e4886fe60a601b209caf
+] 
+[don't :use rarely used dependent packages for better searchability
+attila.lendvai@gmail.com**20081209111739
+ Ignore-this: f6fb40316274e04f5c249310bf93d877
+] 
+[flexml.lisp update
+attila.lendvai@gmail.com**20081209120811
+ Ignore-this: edcc3d7be4811a2ec90a6a2abf0815ee
+] 
+[housekeeping
+attila.lendvai@gmail.com**20081222160918
+ Ignore-this: 239179565ad6e9f6ce0f89a3eafa3443
+] 
+[revive proper error message that gives a hint about running the download script to get the cldr files
+attila.lendvai@gmail.com**20081222160946
+ Ignore-this: d272e1bdcbd8934a3ac836531cf8221a
+] 
+[housekeeping
+attila.lendvai@gmail.com**20081223002721
+ Ignore-this: b2a37e2194816389a2e4ae007d567a15
+] 
+[fix currency i18n stuff
+attila.lendvai@gmail.com**20081223005043
+ Ignore-this: 644bea931e12146c7ec7afc76fe72e06
+] 
+[add some date/time related formatter stubs to guide future development
+attila.lendvai@gmail.com**20081223013114
+ Ignore-this: 4c949c4dae60741a40a529ebef73e9d6
+] 

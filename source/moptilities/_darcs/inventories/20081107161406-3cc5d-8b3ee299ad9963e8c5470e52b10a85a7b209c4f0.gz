@@ -1,0 +1,172 @@
+[initial
+Gary King <gwking@metabang.com>**20051011123743] 
+[TAG first working asdf version
+Gary King <gwking@metabang.com>**20051103182424] 
+[change of system names
+Gary King <gwking@metabang.com>**20051111035718] 
+[added website
+Gary King <gwking@metabang.com>**20051114020626] 
+[added version files
+Gary King <gwking@metabang.com>**20051117032356] 
+[Moved system file up one level
+Gary King <gwking@metabang.com>**20051118151616] 
+[Major rewrite to build on Closer to MOP and make generally better. New names for old, etc.
+Gary King <gwking@metabang.com>**20051216184352] 
+[quick allegro patches; need to find actual implmentations
+Gary King <gwking@metabang.com>**20051217230503] 
+[damn typo in mopu-arglist (extra #\))
+Gary King <gwking@metabang.com>**20051219172050] 
+[Fixed bug in finalize-if-necessary
+Gary King <gwking@metabang.com>**20060101142753] 
+[Moved copying
+Gary King <gwking@metabang.com>**20060101142810] 
+[Added and used nyi; correction for Allegro arglist
+Gary King <gwking@metabang.com>**20060104193259] 
+[Added website module
+Gary King <gwking@metabang.com>**20060109202506] 
+[Re-worked webpage
+Gary King <gwking@metabang.com>**20060109202516] 
+[Added initial test system; test directory and tests
+Gary King <gwking@metabang.com>**20060116004909] 
+[Minor webpage fixes
+Gary King <gwking@metabang.com>**20060119160945] 
+[Added dry-run? to remove-methods and remove-methods-if
+Gary King <gwking@metabang.com>**20060119161011] 
+[Added ignore-errors/ to remove-methods and remove-methods-if
+Gary King <gwking@metabang.com>**20060120192700] 
+[Fixed :Name links in website
+Gary King <gwking@metabang.com>**20060127040755] 
+[Added test for map-methods generating an error for non-existent classes
+Gary King <gwking@metabang.com>**20060127040922] 
+[mucking with a termination protocol; working on avoiding SBCL errors; added mopu-arglist for SBCL
+Gary King <gwking@metabang.com>**20060127040951] 
+[Moved to almost tableless design; I now have achieved nirvana: I can look a bit odd in every browser! <smile>
+Gary King <gwking@metabang.com>**20060128235319] 
+[Renamed mopu-arglist function-arglist; added support for SBCL to function-arglist; improved documentation of remove-methods and friends. Added tests for function-arglist.
+Gary King <gwking@metabang.com>**20060131142412] 
+[Improved formatting of system news in website
+Gary King <gwking@metabang.com>**20060202183522] 
+[Added documentation to get-slot-definition and slot-properties; reworked get-slot-definition to rely on get-class instead of having three methods of its own.
+Gary King <gwking@metabang.com>**20060202183701] 
+[Added function default-initargs; added keyword argument :error? to get-class
+Gary King <gwking@metabang.com>**20060206210826] 
+[messing with export stuff
+Gary King <gwking@metabang.com>**20060210015808] 
+[Added dispatch on Allegro to mopu-class-initargs (still nyi though)
+Gary King <gwking@metabang.com>**20060309144817] 
+[Updated for mlisp
+Gary King <gwking@metabang.com>**20060320235714] 
+[Moved comment into copy-template
+Gary King <gwking@metabang.com>**20060401202657] 
+[Fix for function-arglist in SBCL on (setf foo)-like functions. Thanks to Cyrus Harmon
+Gary King <gwking@metabang.com>**20060404211239] 
+[Corrected type (protodol -> protocol); added 'object' to nyi for care-when-garbage-collected.
+Gary King <gwking@metabang.com>**20060413145957] 
+[Renamed 'test-moptilities' to 'moptilities-test' (on the theory that it's the little things that matter!)
+Gary King <gwking@metabang.com>**20060415230131] 
+[care-when-finalized and when-finalized for SBCL (also a rename)
+Gary King <gwking@metabang.com>**20060415230159] 
+[Fix to default-initargs (thanks to Pascal Costanza and Robert Goldman)
+Gary King <gwking@metabang.com>**20060418012735] 
+[added remove-generic-function (not exported yet)
+Gary King <gwking@metabang.com>**20060425024157] 
+[Added test/package and test/finalization (still WIP)
+Gary King <gwking@metabang.com>**20060425024220] 
+[Improved finalization stuff
+Gary King <gwking@metabang.com>**20060425151355] 
+[Fixed lame mistake in when-finalized :around
+Gary King <gwking@metabang.com>**20060504172202] 
+[Fixing in-packages
+Gary King <gwking@metabang.com>**20060511193516] 
+[Fixed implementation of nyi macro
+Gary King <gwking@metabang.com>**20060515182826] 
+[Updated and corrected copyright information
+Gary King <gwking@metabang.com>**20060606015853] 
+[Exported remove-generic-function
+Gary King <gwking@metabang.com>**20060703024331] 
+[Improved documentation a jot (or maybe a tiddle)
+Gary King <gwking@metabang.com>**20060908194321] 
+[Bumped version
+Gary King <gwking@metabang.com>**20060925154101] 
+[TAG version-0.3.1
+Gary King <gwking@metabang.com>**20060925154113] 
+[Fix for function-arglist on CMUCL (thanks to Christoph Oppawsky); updated to do test-op properly; bumped version to 0.3.2
+Gary King <gwking@metabang.com>**20061216190206] 
+[TAG version-0.3.2
+Gary King <gwking@metabang.com>**20061216190222] 
+[Better documentation for copy-template
+Gary King <gwking@metabang.com>**20070101023032] 
+[updated copyright
+Gary King <gwking@metabang.com>**20070119020423] 
+[very minor documentation improvements
+Gary King <gwking@metabang.com>**20070119020517] 
+[Formatting improvements
+Gary King <gwking@metabang.com>**20070119020540] 
+[Bumped version
+Gary King <gwking@metabang.com>**20070119020618] 
+[TAG version-0.3.3
+Gary King <gwking@metabang.com>**20070119020706] 
+[Fix/implement slot-names for sbcl
+attila.lendvai@gmail.com**20070119141511] 
+[Bumped version to 0.3.4 (with Attila Lendvai's patch; moved depends-on symbols to the keyword package to provide better error messages.
+Gary King <gwking@metabang.com>**20070119145743] 
+[Make dependencies in system file keywords
+Gary King <gwking@metabang.com>**20070204202716] 
+[Merged differences from CRUE moptilities (Thanks to Joshua Moody, Clay Morrison and the Center for Research into Unexpected Events); most notable change is probably get-structure support for Allegro.
+Gary King <gwking@metabang.com>**20070309142608] 
+[bumped version
+Gary King <gwking@metabang.com>**20070309142647] 
+[TAG version-0.3.5
+Gary King <gwking@metabang.com>**20070309142706] 
+[better docstring for slot-names
+Gary King <gwking@metabang.com>**20070428205155] 
+[(finally) pulled in patch for CMUCL arglist from Christoph Oppawsky -- sorry it took so long!
+Gary King <gwking@metabang.com>**20070428224005] 
+[bumped version
+Gary King <gwking@metabang.com>**20070428224122] 
+[TAG version-0.3.6
+Gary King <gwking@metabang.com>**20070428224134] 
+[Fix declare ignorable warning
+Gary King <gwking@metabang.com>**20070626022156] 
+[Fixing a type that causes a bug on Lispworks
+coffeemug@gmail.com**20071004150744] 
+[bumped version
+Gary King <gwking@metabang.com>**20071004170525] 
+[TAG version-0.3.7
+Gary King <gwking@metabang.com>**20071004170536] 
+[specializers-of needs to include the class itself
+Gary King <gwking@metabang.com>**20071105153228] 
+[Added tests for copy-template
+Gary King <gwking@metabang.com>**20071125171032] 
+[Let copy-template copy classes with class allocated slots.
+krewink@inb.uni-luebeck.de**20071205165507] 
+[Update tests; bump version
+Gary King <gwking@metabang.com>**20071206150955] 
+[TAG version-0.3.8
+Gary King <gwking@metabang.com>**20071206151007] 
+[Website
+Gary King <gwking@metabang.com>**20071206152157] 
+[Fixed reference to non-existant website index file
+Gary King <gwking@metabang.com>**20080201042148] 
+[TAG version-0.3.9
+Gary King <gwking@metabang.com>**20080201042205] 
+[formatting
+Gary King <gwking@metabang.com>**20080527025459] 
+[add boring file
+Gary King <gwking@metabang.com>**20080831203212] 
+[improve documentation of subclasses (case 206).
+Gary King <gwking@metabang.com>**20080831203320] 
+[remove some comment cruft
+Gary King <gwking@metabang.com>**20080831203338] 
+[tests for case 207
+Gary King <gwking@metabang.com>**20080831203405] 
+[improve documentation for copy-template
+Gary King <gwking@metabang.com>**20080831203416] 
+[bump version
+Gary King <gwking@metabang.com>**20080831205545] 
+[TAG version-0.3.10
+Gary King <gwking@metabang.com>**20080831205555] 
+[remove subclassp definition, as it is now part of closer-mop
+Stephen Compall <scompall@nocandysw.com>**20081107015114] 
+[bump version
+Gary King <gwking@metabang.com>**20081107161354] 

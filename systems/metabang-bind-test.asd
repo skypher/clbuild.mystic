@@ -1,0 +1,1 @@
+../source/metabang-bind/metabang-bind-test.asd

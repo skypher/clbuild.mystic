@@ -1,0 +1,311 @@
+[Initial revision (v0.2).
+pc@p-cos.net**20050802151239] 
+[Class initialization patches.
+pc@p-cos.net**20050816144718
+ The correction of lists of direct superclasses was done at the wrong place (in :around methods on initialize-instance and reinitialize-instance). The MOP specification doesn't allow to define primary methods for initialize-instance and reinitialize-instance, but these are the only places where those lists can be corrected in a reasonable way. This affects LispWorks and MCL.
+ 
+ Further changes:
+ - The typep implementation for MCL was incorrect.
+ - reinitialize-instance for standard-class could be simplified.
+ - reinitialize-instance for standard-generic-function could be simplified.
+] 
+[Class initialization patch.
+pc@p-cos.net**20050816231151
+ The previous patch was partially incorrect. LispWorks and MCL don't need the change of the direct superclasses in primary methods on initialize-instance / reinitialize-instance. I have rearranged that part of the code back to what it was before.
+] 
+[Checked with new versions of CLisp and SBCL.
+pc@p-cos.net**20050904001359] 
+[Removed spurious &allow-other-keys declarations.
+pc@p-cos.net**20050910092744] 
+[Minor edit.
+pc@p-cos.net**20050910103331] 
+[Special cased defmethod macro for LispWorks.
+pc@p-cos.net**20050910110130
+ 
+ The defmethod macro in LispWorks (i.e., the new definition in closer-mop) now checks whether only the default methods for make-method-lambda are applicable. If so, defmethod expands into an equivalent cl:defmethod form. This is a workaround to make keyword argument checking for standard generic functions work.
+ 
+] 
+[Changes triggered by Christophe Rhodes / SBCL.
+pc@p-cos.net**20051029013651] 
+[Documentation update.
+pc@p-cos.net**20051029115614] 
+[Supports OpenMCL 1.0 - no changes necessary.
+pc@p-cos.net**20051029224040] 
+[Checked against LispWorks 4.4.6 - no changes.
+pc@p-cos.net**20051103084956] 
+[Added reports for lack of extensible :allocation types.
+pc@p-cos.net**20051105150436
+ 
+ See MOP Feature Tests for more details.
+ 
+] 
+[Rewired slot access protocol for slot-boundp-using-class and slot-makunbound-using-class in Allegro.
+pc@p-cos.net**20051117200922] 
+[Updated reports on supported/fixed features and release notes.
+pc@p-cos.net**20051117201142] 
+[CMUCL 19c now supports the dependent protocol correctly, so the corresponding fixes could be removed.
+pc@p-cos.net**20051117201252] 
+[Added support for SBCL 0.9.7.
+pc@p-cos.net**20051130202445] 
+[Checked against clisp 2.36.
+pc@p-cos.net**20051205134118] 
+[Switched to symbols in the asdf definition.
+pc@p-cos.net**20051220162014] 
+[Checked against SBCL 0.9.8.
+pc@p-cos.net**20051228150237] 
+[Checked against clisp 2.37.
+pc@p-cos.net**20060103112938] 
+[Fixed lack of extensible allocation kinds in Allegro Common Lisp.
+pc@p-cos.net**20060119133808] 
+[Support for Allegro Common Lisp 8.0 added. (8.0b removed.)
+pc@p-cos.net**20060119133914] 
+[TAG 0.3
+pc@p-cos.net**20060119202553] 
+[Fixed a bug in the loop form for some implementations of ensure-method.
+pc@p-cos.net**20060127142634] 
+[Checked against clisp 2.38 and SBCL 0.9.9.
+pc@p-cos.net**20060127142903] 
+[Replaced programmatic implementation of ensure-method in CMUCL and SBCL.
+pc@p-cos.net**20060127142950
+ 
+ In CMUCL and SBCL, ensure-method was implemented as proposed in AMOP. However in some cases, this seems to lead to problems with method combination. For the time being, I have replaced the implementation by using a generated defmethod form instead, like in some of the other CL implementations. (In SBCL, this isn't as straightforward because SBCL doesn't accept class metaobjects as specializers.)
+] 
+[Added a utility function required-args.
+pc@p-cos.net**20060127214635] 
+[Documented the results of the more detailed checks for metaobject readers in MOP Feature Tests.
+pc@p-cos.net**20060201000120] 
+[The function documentation now returns the documentation strings for slot definition metaobjects in OpenMCL.
+pc@p-cos.net**20060201000253] 
+[The function documentation now returns the documentation strings for effective slot definition metaobjects in CMUCL.
+pc@p-cos.net**20060201000433] 
+[Finalized the separate release notes.
+pc@p-cos.net**20060201000511] 
+[TAG 0.31
+pc@p-cos.net**20060203120853] 
+[Added reports about the results of the tests whether subclasses of specified metaobject classes inherit any exported slots. See MOP Feature Tests for more details.
+pc@p-cos.net**20060211193158] 
+[Changed system def to handle ASDF-Install bug
+Gary King <gwking@metabang.com>**20051216174627] 
+[Updated system defs because MCL is disappearing from OpenMCL's features list
+Gary King <gwking@metabang.com>**20060216145216] 
+[Removed a conflict between Gary's and my code.
+pc@p-cos.net**20060224212121] 
+[Updated more code to reflect the disappearance of MCL from OpenMCL's feature list
+pc@p-cos.net**20060224212657] 
+[Checked against SBCL 0.9.10 - no changes, except for a few specified metaclass that don't define slots with exported symbols anymore.
+pc@p-cos.net**20060301115916] 
+[Updated the version number and copyright information in the system definition.
+pc@p-cos.net**20060301200956] 
+[Removed a superfluous export from clisp's c2mop.
+pc@p-cos.net**20060302093912] 
+[Recorded the results from running MOP Feature Tests on ECL.
+pc@p-cos.net**20060325171005] 
+[Checked against SBCL 0.9.11. SBCL is now safe from making subclasses of specified metaobject classes inherit slots that they shouldn't see.
+pc@p-cos.net**20060327120633] 
+[Checked againts SBCL 0.9.12 - no changes.
+pc@p-cos.net**20060427163929] 
+[Added support for ecl.
+pc@p-cos.net**20060501082945] 
+[Checked against SBCL 0.9.13 - no changes.
+pc@p-cos.net**20060529180600] 
+[Added the standard accessor classes to ecl.
+pc@p-cos.net**20060531202150] 
+[Changed a slot name in the class eql-specializer* in LispWorks that was previously accessible in commen-lisp-user.
+pc@p-cos.net**20060531203220] 
+[Checked against sbcl 0.9.14 - no changes.
+pc@p-cos.net**20060629175352] 
+[MCL and OpenMCL don't reinitialize argument-precedence-order properly when a lambda list of a generic function is reinitialized.
+pc@p-cos.net**20060711121904] 
+[Updated the reports for :reinitialize-instance-calls-finalize-inheritance. See MOP Feature Tests for more details.
+pc@p-cos.net**20060720085220] 
+[Added a new utility function ensure-finalized.
+pc@p-cos.net**20060720105100
+ 
+ A pretty common idiom is this:
+ 
+ (unless (class-finalized-p class)
+   (finalize-inheritance class))
+ class
+ 
+ This is captured in the new utility function ensure-finalized.
+ 
+] 
+[Checked against clisp 2.39 - no changes.
+pc@p-cos.net**20060720105302] 
+[Updated report for :reinitialize-instance-calls-finalize-inheritance.
+pc@p-cos.net**20060721125623] 
+[TAG 0.32
+pc@p-cos.net**20060729125750] 
+[Checked against sbcl 0.9.15 - several changes.
+pc@p-cos.net**20060729134152
+ 
+ SBCL 0.9.15 now has support for anonymous classes and correctly calls finalize-inheritance when reinitialize-instance is invoked on a class metaobject.
+ 
+ This makes several changes necessary in the Closer to MOP support for SBCL. Therefore, support for versions of SBCL before 0.9.15 is dropped. The darcs repository has been tagged with '0.32' in case you need a version that works on older SBCL versions, up to and including SBCL 0.9.14.
+ 
+] 
+[SBCL 0.9.15 now correctly supports typep and subtypep for class metaobjects, so Closer to MOP's versions thereof are not needed anymore.
+pc@p-cos.net**20060729134711] 
+[Class metaobjects in SBCL can be anonymous now, so we don't have to force a generated name.
+pc@p-cos.net**20060729134940] 
+[Removed a spurious call to print.
+pc@p-cos.net**20060729135119] 
+[SBCL now supports class metaobjects in specializers in defmethod forms, so we don't have to replace them with their names.
+pc@p-cos.net**20060729135149] 
+[Noted support for clisp 2.39.
+pc@p-cos.net**20060729135435] 
+[Fixed features.txt: it still claimed that SBCL had a problem with calling finalize-inheritance again.
+pc@p-cos.net**20060802122101] 
+[Removed a spurious in-package declaration in the .asd file.
+pc@p-cos.net**20060821203834] 
+[TAG 0.33
+pc@p-cos.net**20060826084425] 
+[Checked against sbcl 0.9.16 - several changes.
+pc@p-cos.net**20060826103957
+ 
+ SBCL 0.9.16 now passes all MOP Feature Tests.
+ 
+ This makes several changes necessary in the Closer to MOP support for SBCL, again. Therefore, support for SBCL 0.9.15 is dropped. The darcs repository has been tagged with '0.33' in case you need a version that works with SBCL 0.9.15.
+ 
+] 
+[TAG 0.4
+pc@p-cos.net**20060826124935] 
+[Updated version number in the .asd file.
+pc@p-cos.net**20060826130127] 
+[Checked against SBCL 0.9.17 - no changes.
+pc@p-cos.net**20060927161258] 
+[Checked against clisp 2.40. REINITIALIZE-INSTANCE now calls FINALIZE-INHERITANCE correctly in clisp.
+pc@p-cos.net**20061001221204] 
+[Fixed a problem in the handling of initial-methods in LispWorks.
+pc@p-cos.net**20061010173021] 
+[Fixed another issue with initial-methods in LispWorks.
+pc@p-cos.net**20061010174147] 
+[Checked against clisp 2.41 - no changes.
+pc@p-cos.net**20061013081525] 
+[Added support for LispWorks 5.0 - numerous changes.
+pc@p-cos.net**20061014113836] 
+[Fixed a bug in some (loop var on list ...) idioms. Thanks to Attila Lendvai.
+pc@p-cos.net**20061028113627] 
+[Checked against sbcl 0.9.18 - no changes.
+pc@p-cos.net**20061031090315] 
+[Checked against CMU 19d - no changes.
+pc@p-cos.net**20061116132730] 
+[Checked against SBCL 1.0. Modified ensure-method for SBCL.
+pc@p-cos.net**20061130202814
+ 
+ The programmatic version of ensure-method in SBCL has problems again. Therefore, it is replaced with a version that evaluates a defmethod form for the time being.
+] 
+[Noted support for SBCL 1.0.
+pc@p-cos.net**20061130203424] 
+[Checked against LispWorks 5.0.1. No changes.
+pc@p-cos.net**20061218222443] 
+[Noted support for SBCL 1.0.
+pc@p-cos.net**20061218222546] 
+[Checked against SBCL 1.0.1. Reinstated the former ensure-method implementation for SBCL.
+pc@p-cos.net**20061227142245] 
+[Simplified the implementation of some validate-superclass methods. (Reduced consing.)
+pc@p-cos.net**20061228002510] 
+[Exported set-funcallable-instance-function in ecl and OpenMCL.
+pc@p-cos.net**20061228002726] 
+[Changed the format of the contents of features.lisp. Better support for comparing feature changes between different versions of a given CL implementation.
+pc@p-cos.net**20061228002856] 
+[Corrected and added a few feature reports to features.txt.
+pc@p-cos.net**20061228003007] 
+[Updated version number in the .asd file.
+pc@p-cos.net**20061228151904] 
+[TAG 0.41
+pc@p-cos.net**20061228151916] 
+[Noted lack of use of FUNCALLABLE-STANDARD-OBJECT as the default superclass for FUNCALLABLE-STANDARD-CLASS in Allegro Common Lisp.
+pc@p-cos.net**20061228161029] 
+[Noted support for SBCL 1.0.1.
+pc@p-cos.net**20061228161128] 
+[Checked against SBCL 1.0.2 - no changes.
+pc@p-cos.net**20070127192325] 
+[Noted support for SBCL 1.0.1 and 1.0.2.
+pc@p-cos.net**20070127192925] 
+[Checked against LispWorks 5.0.1 Personal Edition - no changes.
+pc@p-cos.net**20070127195002] 
+[Fixed a typo in the SBCL version numbers.
+pc@p-cos.net**20070127201814] 
+[Fixed a bug in the creation of congruent lambda lists for generic functions in c2mop for LispWorks.
+pc@p-cos.net**20070206104737] 
+[Checked against SBCL 1.0.3 - no changes.
+pc@p-cos.net**20070228193530] 
+[Checked against SBCL 1.0.4 - no changes.
+pc@p-cos.net**20070327202949] 
+[Checked against LispWorks 5.0.2 - no changes.
+pc@p-cos.net**20070421192516] 
+[Incremented version number to 0.42.
+pc@p-cos.net**20070421193020] 
+[TAG 0.42
+pc@p-cos.net**20070421193107] 
+[Checked against SBCL 1.0.5 - no changes.
+pc@p-cos.net**20070501115057] 
+[Checked against SBCL 1.0.6 - no changes.
+pc@p-cos.net**20070528145132] 
+[Checked against SBCL 1.0.7 - no changes.
+pc@p-cos.net**20070628201619] 
+[Checked against SBCL 1.0.8 and 1.0.9 - no changes.
+pc@p-cos.net**20070831233438] 
+[Fixed a copy&paste bug in the description for funcallable instances for MCL and OpenMCL.
+pc@p-cos.net**20070916181018] 
+[Checked against SBCL 1.0.10 - no changes.
+pc@p-cos.net**20070926164316] 
+[Checked against Allegro 8.1. Dropped fix for SLOT-BOUNDP-USING-CLASS for that version.
+pc@p-cos.net**20070926172622
+ 
+ SLOT-BOUNDP-USING-CLASS now works correctly by default in Allegro 8.1.
+ 
+] 
+[Checked against clisp 2.42 - no changes.
+pc@p-cos.net**20071016202235] 
+[Checked against SBCL 1.0.11 - no changes.
+pc@p-cos.net**20071026151856] 
+[Added thread synchronization in two minor places in Allegro and LispWorks.
+pc@p-cos.net**20071117233210] 
+[In MCL and OpenMCL, ccl::funcallable-standard-object is now exported from Closer to MOP.
+pc@p-cos.net**20071117235256] 
+[Checked against clisp 2.43 - no changes.
+pc@p-cos.net**20071118210612] 
+[Fixed the lack of :generic-function-argument-precedence-order-returns-required-arguments in Allegro Common Lisp.
+pc@p-cos.net**20071124181725] 
+[Removed notes about previously supported Common Lisp implementations.
+pc@p-cos.net**20071124182025] 
+[Ensured that a defgeneric form makes a generic function metaobject available in the compile-time environment. Otherwise, defmethod may not yield a method of the correct method metaobject class.
+pc@p-cos.net**20071127232033] 
+[Checked against SBCL 1.0.12 - no changes.
+pc@p-cos.net**20071128165107] 
+[Checked against SBCL 1.0.13 - no changes.
+pc@p-cos.net**20071230204811] 
+[Checked against SBCL 1.0.14 - no changes.
+pc@p-cos.net**20080128164107] 
+[Removed dependency on lw-compat.
+pc@p-cos.net**20080223205801] 
+[Checked against clisp 2.44.1 - no changes.
+pc@p-cos.net**20080328172817] 
+[Checked against SBCL 1.0.15 - no changes.
+pc@p-cos.net**20080329005643] 
+[Checked against LispWorks 5.1 - :ALLOCATION types other than :CLASS or :INSTANCE work now.
+pc@p-cos.net**20080329010713] 
+[Added support for Clozure Common Lisp.
+pc@p-cos.net**20080405134238] 
+[Added support for compute-discriminating-function in Clozure Common Lisp and OpenMCL, based on code provided by Slava Akhmechet.
+pc@p-cos.net**20080405134506] 
+[Checked against SBCL 1.0.16 - no changes.
+pc@p-cos.net**20080413113634] 
+[Checked against CCL 1.2-rc1. Needed to adapt compute-discriminating-funcition.
+pc@p-cos.net**20080509231555] 
+[Checked against CMUCL 19E - no changes.
+pc@p-cos.net**20080509231646] 
+[Noted support for Clozure CL 1.2-rc1.
+pc@p-cos.net**20080509232703] 
+[Noted support for CUMCL 19e.
+pc@p-cos.net**20080509232806] 
+[Checked against clisp 2.45 - no changes.
+pc@p-cos.net**20080516091641] 
+[Checked against SBCL 1.0.17 - no changes.
+pc@p-cos.net**20080529133803] 
+[Added a classp predicate (due to Willem Broekema).
+pc@p-cos.net**20080529194634] 
+[Updated version number and copyright in the system definition.
+pc@p-cos.net**20080601194637] 

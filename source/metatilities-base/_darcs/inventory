@@ -1,0 +1,11 @@
+Starting with tag:
+[TAG version-0.6.6
+Gary King <gwking@metabang.com>**20080928195023] 
+[removed ;;; -+ lines
+Gary King <gwking@metabang.com>**20080930023631] 
+[clean up defmethod/defun
+Gary King <gwking@metabang.com>**20081125181329] 
+[remove reset
+Gary King <gwking@metabang.com>**20081125181501] 
+[add a generic for report-condition
+Gary King <gwking@metabang.com>**20081125181556] 

@@ -1,0 +1,558 @@
+[initial import
+marijnh@gmail.com**20061222202457] 
+[correct typo in a link
+marijnh@gmail.com**20061222204441] 
+[a few corrections in the documentation
+marijnh@gmail.com**20061224074412] 
+[switch from trivial-sockets to usocket
+marijnh@gmail.com**20070117135908] 
+[move db-null type into S-SQL, and use it in :create-table
+marijnh@gmail.com**20070117142836] 
+[make retrieving dao objects from a query result more robust
+marijnh@gmail.com**20070122205950] 
+[add support for regular expression matching and traditional like/ilike matching to s-sql
+marijnh@gmail.com**20070122211323] 
+[fix typo in docs
+marijnh@gmail.com**20070122211559] 
+[update create-table example to reflect changes in syntax
+marijnh@gmail.com**20070122211915] 
+[report release .21 in docs
+marijnh@gmail.com**20070122213642] 
+[make the transaction model less error-prone
+marijnh@gmail.com**20070126200631] 
+[disallow recursive use of queries from row-readers
+marijnh@gmail.com**20070126200826] 
+[beautify the style of the docs a bit
+marijnh@gmail.com**20070126203826] 
+[remove typo from docs
+marijnh@gmail.com**20070126204028] 
+[revise syntax of create-table, allowing constraints, foreign keys, and default values to be specified
+marijnh@gmail.com**20070127093828] 
+[note release .22 in documentation
+marijnh@gmail.com**20070127094928] 
+[fix bug that made regexp operator expand to minus
+marijnh@gmail.com**20070127204150] 
+[fix bug in expansion of :create-table for NULL columns
+marijnh@gmail.com**20070129084832] 
+[release .23
+marijnh@gmail.com**20070129085059] 
+[minor corrections in docs
+marijnh@gmail.com**20070208194545] 
+[allow extra arguments to query and execute to replace placeholders like $1 in the query
+marijnh@gmail.com**20070215190255] 
+[make :reconnect restarts usable, document them
+marijnh@gmail.com**20070216075349] 
+[make message-case macro continue with the next message if it encounters a warning (thanks to Bart Botta)
+marijnh@gmail.com**20070303133912] 
+[release .24
+marijnh@gmail.com**20070316081950] 
+[fix :limit sql operator
+marijnh@gmail.com**20070327113825] 
+[Signal an exported 'postgresql-warning so that it can be muffled
+attila.lendvai@gmail.com**20070420193528] 
+[Use uninterned symbols in the .asd
+attila.lendvai@gmail.com**20070420193639] 
+[Added a simple blob test
+attila.lendvai@gmail.com**20070420234300] 
+[FIX: ignore-row-reader was collecting unnecessarily
+attila.lendvai@gmail.com**20070421000500] 
+[Added vector-row-reader
+attila.lendvai@gmail.com**20070421001358] 
+[Support binding (vector (unsigned-byte 8)) in bind-message. IOW, support binary long objects.
+attila.lendvai@gmail.com**20070421142807] 
+[add :of-type keyword to type declarations in loops
+marijnh@gmail.com**20070430004023] 
+[use uninterned keywords for exports in all packages
+marijnh@gmail.com**20070430004807] 
+[missed a :type-of in one-but-last patch
+marijnh@gmail.com**20070430004853] 
+[mark release 1.0 in docs
+marijnh@gmail.com**20070515172832] 
+[Use ecase at two places instead of case
+attila.lendvai@gmail.com**20070424113757] 
+[Extended integer-writer to define write-int* functions. Use write-int4 where appropriate.
+levente.meszaros@gmail.com**20070503081639] 
+[sql-ize the name of fields when building index names
+marijnh@gmail.com**20070522161607] 
+[release 1.01
+marijnh@gmail.com**20070613105755] 
+[add :defer-id keyword to table class initializer
+marijnh@gmail.com**20070617205036] 
+[make save-dao work nicely with previous patch
+marijnh@gmail.com**20070621155617] 
+[fix to previous patch, make dao-exists-p check for bound auto-id, not save-dao, because the slot name is not always id
+marijnh@gmail.com**20070622074026] 
+[Make aborting transactions safer, properly close the socket
+attila.lendvai@gmail.com**20070523124441] 
+[Return the updated row count from CommandComplete
+attila.lendvai@gmail.com**20070712173609] 
+[Typo
+attila.lendvai@gmail.com**20070712173643] 
+[clean up effected-rows code
+marijnh@gmail.com**20070716114132] 
+[also add note about previous patch to postmodern documentation
+marijnh@gmail.com**20070716114659] 
+[use Attila's ensure-socket-is-closed in a few more places
+marijnh@gmail.com**20070716122115] 
+[detect server shutdown errors, close the connection when they happen
+marijnh@gmail.com**20070716124633] 
+[make the query macro more picky about interpreting arguments as format specifiers
+marijnh@gmail.com**20070724194830] 
+[fix for the patch that added effected-rows output to query and execute
+marijnh@gmail.com**20070724200520] 
+[mark release 1.02
+marijnh@gmail.com**20070724201043] 
+[tiny error in doc
+marijnh@gmail.com**20070724203257] 
+[add some check-type tests to prevent the connection from being screwed up in case a non-string value is passed as a query or query name
+marijnh@gmail.com**20070728074336] 
+[fix query to evaluate its arguments *before* it prepares its query
+marijnh@gmail.com**20070728153645] 
+[make string-escaping and binary-data-escaping a *lot* faster by turning off *print-pretty* and not using format
+marijnh@gmail.com**20070730213308] 
+[communicate.lisp: bugfix for CMUCL
+Ryszard Szopa <ryszard.szopa@gmail.com>**20070905130310
+ 
+ If CMUCL was used, declaring byte-length to be of type FIXNUM in
+ read-ascii-string caused it to be optimized as non-NIL when given as
+ first argument to WHEN. Fixed by declaring it to be of type (OR NULL
+ FIXNUM).
+ 
+] 
+[*untested*: fix weird use of loop, to hopefully fix a lispworks problem
+marijnh@gmail.com**20070917124449] 
+[*untested*: give some more practical alternatives to with-connection
+marijnh@gmail.com**20070917131631] 
+[add my name to the docs
+marijnh@gmail.com**20070917132526] 
+[link to submarine from docs
+marijnh@gmail.com**20070917135653] 
+[missing comma in definition of `WITH-CONNECTION*'.
+Ryszard Szopa <ryszard.szopa@gmail.com>**20070918155338] 
+[mark release 1.03
+marijnh@gmail.com**20070918171824] 
+[optimize hex encoding in md5 authorisation
+marijnh@gmail.com**20070925131842] 
+[make error messages for malformed joins a little less confusing
+marijnh@gmail.com**20071017115929] 
+[+ corrected to * in split-on-keywords docstring.
+Ryszard Szopa <ryszard.szopa@gmail.com>**20071107221948] 
+[add distinct option to :select operator
+marijnh@gmail.com**20071113134330] 
+[support :distinct-on, change place of :distinct
+marijnh@gmail.com**20071113232921] 
+[there is no apostrophe in to-dos! (it still looks funny)
+marijnh@gmail.com**20071118213523] 
+[recognise unicode support in Allegro (by Ivan Boldyrev)
+marijnh@gmail.com**20071227091922] 
+[mark release 1.04
+marijnh@gmail.com**20071227092950] 
+[be a bit more liberal in the forms that :insert-into allows (stuff like :union is also valid)
+marijnh@gmail.com**20080103151527] 
+[add type information to escaped representation of simple-date values
+marijnh@gmail.com**20080105093046] 
+[add savepoint interface (by Ivan Boldyrev)
+marijnh@gmail.com**20080105093551] 
+[fix and document the savepoint interface
+marijnh@gmail.com**20080105110131] 
+[store the configuration parameters in a hash table for later reference
+marijnh@gmail.com**20080106200208] 
+[add an E prefix to strings to properly indicate that they are backslash-escaped, and add a mode for standard sql strings
+marijnh@gmail.com**20080106204435] 
+[make strcat take a list of strings instead of &rest args
+marijnh@gmail.com**20080108175954] 
+[make the interface for defining simple s-sql operators public
+marijnh@gmail.com**20080108194027] 
+[fix forgotten comma in previous patch
+marijnh@gmail.com**20080109172732] 
+[change the meaning of the type (string N) from VARCHAR(N) to CHAR(N) in s-sql
+marijnh@gmail.com**20080111215306] 
+[mark release 1.05
+marijnh@gmail.com**20080111222254] 
+[allow :unique indices in deftable, retouch deftable docs
+marijnh@gmail.com**20080114141127] 
+[forgot a line in the previous patch
+marijnh@gmail.com**20080114143344] 
+[remove (the ...) form that causes probs in lispworks
+marijnh@gmail.com**20080204075046] 
+[add support for 'union all' operator
+marijnh@gmail.com**20080207091001] 
+[make sure dead connections do not get repooled
+marijnh@gmail.com**20080213193556] 
+[fix :set in the case it is given a dynamic argument that evaluates to nil
+marijnh@gmail.com**20080222165046] 
+[add a way to precompute sql templates, storing them in functions
+marijnh@gmail.com**20080218221642] 
+[remove superfluous check in sequence-next
+marijnh@gmail.com**20080218221709] 
+[disable pretty printing when generating sql templates
+marijnh@gmail.com**20080220195541] 
+[document sql-template
+marijnh@gmail.com**20080220203027] 
+[Modify integer-reader so that it generates both the signed/unsigned version.
+attila.lendvai@gmail.com**20071111163119
+ 
+ This way it's more like the integer-writer. Also declaim inline the functions.
+] 
+[add distinct types for useful error conditions
+marijnh@gmail.com**20080222201246] 
+[add cute asdf:test-op interface to tests
+marijnh@gmail.com**20080222205148] 
+[add file forgotten in previous patch (errors.lisp), and shorten error names
+marijnh@gmail.com**20080222210710] 
+[add register-type-reader for custom interpretation of pg types
+marijnh@gmail.com**20080222222824] 
+[add license blurb to new file
+marijnh@gmail.com**20080223093027] 
+[add *query-log* to cl-postgres
+marijnh@gmail.com**20080223104959] 
+[revert accidental de-alphabetization of symbol list in docs
+marijnh@gmail.com**20080223105834] 
+[Optimize md5-password
+attila.lendvai@gmail.com**20080223175249] 
+[clean up md5-optimise patch
+marijnh@gmail.com**20080224073859] 
+[fix foo.* expanding to foo._
+marijnh@gmail.com**20080226103631] 
+[remove inline declarations causing mysterious SBCL errors
+marijnh@gmail.com**20080227153544] 
+[provide :reconnect restart in more situations, database-connection-error is now the condition that is raised when this restart is available
+marijnh@gmail.com**20080228084919] 
+[remove disfunctional change-class trick, wrap stream-errors in a database-connection-error when they provide a :reconnect restart
+marijnh@gmail.com**20080228091651] 
+[export and document symbols introduced in previous patches
+marijnh@gmail.com**20080228092912] 
+[add :except-all and :intersect-all to s-sql
+marijnh@gmail.com**20080228094043] 
+[raise an error when a :single, :alist, :str-alist, :list, or :row query yields a number of rows that is not 1
+marijnh@gmail.com**20080228094458] 
+[ugly hack to fix the problem of daos with only a primary and no other columns
+**20080227145952] 
+[fix mistake in :reconnect patch
+marijnh@gmail.com**20080228102746] 
+[add :single! result type
+marijnh@gmail.com**20080228102820] 
+[allow ordering arguments to select-dao
+marijnh@gmail.com**20080228141158] 
+[add :where keyword to :create-index/:create-unique-index forms
+marijnh@gmail.com**20080226201807] 
+[add :drop-view operator
+marijnh@gmail.com**20080226211943] 
+[fix spacing in documentation
+marijnh@gmail.com**20080226212920] 
+[handle special case of not passing any values to :insert-into (DEFAULT VALUES)
+marijnh@gmail.com**20080301200536] 
+[add suport for :returning to :insert-into
+marijnh@gmail.com**20080301202240] 
+[optimize sql-compile -- and fix a mistake in :returning patch
+marijnh@gmail.com**20080301202538] 
+[add support for SERIAL and SERIAL8 types to S-SQL
+marijnh@gmail.com**20080301203142] 
+[add closer-mop dependency, use *features* instead of reader-eval hack to manage compile-time options
+marijnh@gmail.com**20080223093119] 
+[unfinished dao-class metaclass implementation
+marijnh@gmail.com**20080223105219] 
+[refine new DAO system a bit further
+marijnh@gmail.com**20080301200623] 
+[make with-connection do what with-connection* used to do
+marijnh@gmail.com**20080301211901] 
+[add standards-mode doctypes to the documentation
+marijnh@gmail.com**20080301212021] 
+[fix tests to use with-connection correctly
+marijnh@gmail.com**20080301212359] 
+[update tests for changes in dao system, fix bugs in said system
+marijnh@gmail.com**20080301212451] 
+[document new DAO system
+marijnh@gmail.com**20080301223202] 
+[ditch save-dao
+marijnh@gmail.com**20080301223243] 
+[make null slots with no given default default to :null
+marijnh@gmail.com**20080301223255] 
+[update documentation index to reflect new DAO system
+marijnh@gmail.com**20080301232549] 
+[fix inconsistencies in docs
+marijnh@gmail.com**20080301233732] 
+[small touches to documentation
+marijnh@gmail.com**20080302093211] 
+[add version 1.10 migration doc (unfinished)
+marijnh@gmail.com**20080302093251] 
+[make simple-date dependency for cl-postgres and s-sql optional, add some system-loading magic to make simple-date automatically hook into these libraries when it is loaded after them
+marijnh@gmail.com**20080302172657] 
+[update postmodern testsuite for new changes
+marijnh@gmail.com**20080302173156] 
+[make the selection of string-handling functions (for different encodings) in cl-postgres a little less scare (use separate files instead of reader macros all over the place)
+marijnh@gmail.com**20080302175903] 
+[make direct-slot-definition-class return a class rather than a class-name, to please CLISP
+marijnh@gmail.com**20080302190912] 
+[handle table-name specification in a more solid way
+marijnh@gmail.com**20080304091221] 
+[add two error types to cl-postgres
+marijnh@gmail.com**20080304111021] 
+[fix really bad bug in with-connection
+marijnh@gmail.com**20080304122701] 
+[rename database-stream-error to database-socket-error, add more :reconnect restarts
+marijnh@gmail.com**20080305155942] 
+[export dao-table-name function
+marijnh@gmail.com**20080307112227] 
+[initialize instances of DAO objects when read from the db (still ignores :default-initargs)
+marijnh@gmail.com**20080307112254] 
+[make inheritance work for DAO classes
+marijnh@gmail.com**20080307210352] 
+[document dao-table-name
+marijnh@gmail.com**20080307210713] 
+[clean up documentation of new DAO system
+marijnh@gmail.com**20080307214252] 
+[update migrating document
+marijnh@gmail.com**20080307214949] 
+[document error recovery features
+marijnh@gmail.com**20080307220944] 
+[have query-dao% test whether its subject class has been finalized
+marijnh@gmail.com**20080313143433] 
+[slight fixes in docs
+marijnh@gmail.com**20080307221621] 
+[export sql readtables as objects that client code can manipulate
+marijnh@gmail.com**20080316122657] 
+[move s-sql:sql-ize to cl-postgres:to-sql-string, make exec-prepared accept any sql-stringifyable parameters
+marijnh@gmail.com**20080316134815] 
+[forgot to add a new file in previous patch
+marijnh@gmail.com**20080316140402] 
+[Reintroduce time reader
+attila.lendvai@gmail.com**20080316161945] 
+[Return the table from set-sql-datetime-readers for easier chaining
+attila.lendvai@gmail.com**20080316171204] 
+[also make set-sql-reader return the readtable, for consistency
+marijnh@gmail.com**20080316173625] 
+[Do not round away usec resolution for timestamps
+attila.lendvai@gmail.com**20080316161622] 
+[document addition of time readers and use of microsecond resolution
+marijnh@gmail.com**20080316174141] 
+[add :timestamp-with-timezone argument to set-sql-datetime-readers
+marijnh@gmail.com**20080316174951] 
+[fix bug in previous patch
+marijnh@gmail.com**20080316175350] 
+[update the default time readers to use useconds
+marijnh@gmail.com**20080316175738] 
+[Fix binding sql null's
+attila.lendvai@gmail.com**20080316174719] 
+[do not convert arguments to strings before passing them to exec-prepared
+marijnh@gmail.com**20080317130512] 
+[Fix binding ratio's: only lose precision up to double-float's precision.
+attila.lendvai@gmail.com**20080317120016] 
+[make update-dao and insert-dao return their argument
+marijnh@gmail.com**20080319112016] 
+[document the fact that update-dao and insert-dao return their arguments
+marijnh@gmail.com**20080319112149] 
+[update migration guide
+marijnh@gmail.com**20080319205126] 
+[add a few test cases for prepared statements
+marijnh@gmail.com**20080319210327] 
+[mark release 1.10
+marijnh@gmail.com**20080319211339] 
+[add coalesce util function
+marijnh@gmail.com**20080325091348] 
+[add :reconnect example to docs
+marijnh@gmail.com**20080327142642] 
+[give to-sql-name a second optional argument to directly control escaping, optimize it, and make sure the sql names stored in DAO slots are not escaped
+marijnh@gmail.com**20080330103104] 
+[use 'person' instead of 'user' in the doc example, since 'user' is a reserved word
+marijnh@gmail.com**20080330103558] 
+[add automatic escaping of reserved words, undo previous patch which is no longer needed
+marijnh@gmail.com**20080330113252] 
+[add test case for auto-escaping of reserved words
+marijnh@gmail.com**20080330113846] 
+[keep docstrings up to date
+marijnh@gmail.com**20080330114339] 
+[properly handle symbols with lowercase characters when looking for reserved words
+marijnh@gmail.com**20080330115001] 
+[properly recognise T and NIL as booleans, even when not quoted
+marijnh@gmail.com**20080331082153] 
+[define a :distinct operator, since this is apparently not a regular function-style SQL operator, and must not be escaped
+marijnh@gmail.com**20080331131149] 
+[handle ParameterStatus messages when reading in query results
+marijnh@gmail.com**20080401133953] 
+[support for EXTRACT operator in S-SQL
+marijnh@gmail.com**20080401155256] 
+[support for field names and types in :as
+marijnh@gmail.com**20080404070824] 
+[add :any and :all operators, which need a special case now because they are reserved words and are automatically escaped
+marijnh@gmail.com**20080405155530] 
+[always listen for ParameterStatus messages in message-case, since it seems to occur in a lot of contexts
+marijnh@gmail.com**20080407092524] 
+[add timing information to *query-log* output
+marijnh@gmail.com**20080408160255] 
+[add *max-pool-size* parameter, allowing client code to cap the size of connection pools
+marijnh@gmail.com**20080409181140] 
+[remove silly copyright footers from source files, put them in a single LICENSE file
+marijnh@gmail.com**20080409181724] 
+[normalise links to postgres docs in pomo docs
+marijnh@gmail.com**20080409183459] 
+[mark release 1.11
+marijnh@gmail.com**20080409183707] 
+[prevent breaking when (for some reason) a postgres error does not contain an error code
+marijnh@gmail.com**20080410074649] 
+[replace dashes with spaces in symbols that are interpreted as type names, allowing stuff like timestamp-with-time-zone to work
+marijnh@gmail.com**20080414135242] 
+[provide a simple-date interpreter for timestamp-with-timezone values
+marijnh@gmail.com**20080414135654] 
+[add :% to the list of n-ary sql operators
+marijnh@gmail.com**20080417140821] 
+[clarify errors raised by dao row readers when the wrong columns are read
+marijnh@gmail.com**20080419172600] 
+[prevent going into an infinite loop when calling get-dao on a class with no key slots
+marijnh@gmail.com**20080421081223] 
+[make to-sql-name accept strings
+marijnh@gmail.com**20080424182642] 
+[prevent table-names from 'sticking' to classes when the class is redefined without a table name
+marijnh@gmail.com**20080425081231] 
+[add with-column-writers form
+marijnh@gmail.com**20080425092016] 
+[resolve conflict in prev patches
+marijnh@gmail.com**20080425092754] 
+[make error message more informative when *database* is nil
+marijnh@gmail.com**20080425093141] 
+[fix syncing, which was causing the library to hang on a socket read when an error happened at the wrong moment
+marijnh@gmail.com**20080428101038] 
+[save-dao is back
+marijnh@gmail.com**20080429101908] 
+[make execute return the amount of effected rows as first argument
+marijnh@gmail.com**20080429151223] 
+[add SSL support
+marijnh@gmail.com**20080429192910] 
+[add :case and :between operators to s-sql (courtesy of Drew Crampsie)
+marijnh@gmail.com**20080429194524] 
+[make the ssl stuff rely on its caller to close the socket, as advertised
+marijnh@gmail.com**20080429204434] 
+[update reference to local-time
+marijnh@gmail.com**20080430113052] 
+[touch up docs
+marijnh@gmail.com**20080430115210] 
+[mark release 1.12
+marijnh@gmail.com**20080430120335] 
+[more informative error reporting for malformed (or db-null ...) types
+marijnh@gmail.com**20080510081233] 
+[fix mistake in docs
+marijnh@gmail.com**20080514141026] 
+[add a savepoint to save-dao to prevent it from aborting transactions
+marijnh@gmail.com**20080516090122] 
+[use transactions instead of savepoints for the previous patch (since the second will fail when no transaction is active)"
+marijnh@gmail.com**20080516144345] 
+[evaluate queries for prepared statements only once
+marijnh@gmail.com**20080620005641] 
+[effected -> affected in docs
+marijnh@gmail.com**20080624195046] 
+[support outer joins (courtesy of Timur Sufiev)
+marijnh@gmail.com**20080704104331] 
+[add deftable (again, now with a different role)
+marijnh@gmail.com**20080710112121] 
+[try to not break in Allegro's modern mode (though split-sequence is still broken there, it seems)
+marijnh@gmail.com**20080710112601] 
+[fix the previous patch, forgot to save before recording!
+marijnh@gmail.com**20080710113408] 
+[fix a stupid mistake (when you leave a single line untested, guess where the bug appears)
+marijnh@gmail.com**20080711203222] 
+[Minor fix to WITH-QUERY to accomodate SBCL.
+Stelian Ionescu <sionescu@common-lisp.net>**20080713142541] 
+[Add a few type declarations for speed.
+Stelian Ionescu <sionescu@common-lisp.net>**20080713154443] 
+[fix wrong default argument in enc-read-string
+marijnh@gmail.com**20080713160237] 
+[Correct rational (double-float) formatting
+Arjan Wekking <arjan@streamtech.nl>**20080725135212
+ 
+ On Clozure CL (PPC32), (format "~f" (coerce 1/123 'double-float))
+ returns "0.008130081300813009D0" which is not a number syntax
+ PostgreSQL understands.
+ 
+ In order to be sure that a format is used that is always supported,
+ the formatting string was changed to generate the number in
+ exponential notation which is accepted by PostgreSQL and which can be
+ reliably generated by at least SBCL and Clozure CL (only CLs I've
+ tested).
+ 
+ The modified control string in this patch ("~,,,,,,'EE") will generate
+ for the rational 1/123 "8.130081300813009E-3" which is accepted and
+ interpreted properly by PostgreSQL.
+] 
+[mark release 1.13
+marijnh@gmail.com**20080828075110] 
+[sql-operators: create-enum, drop-enum
+Ryszard Szopa <ryszard.szopa@gmail.com>**20080923180116] 
+[sql-operators: create-domain, drop-domain
+Ryszard Szopa <ryszard.szopa@gmail.com>**20080923180708] 
+[sql-ops: create rule, drop rule
+Ryszard Szopa <ryszard.szopa@gmail.com>**20080924030332] 
+[create view
+Ryszard Szopa <ryszard.szopa@gmail.com>**20080924113910] 
+[create-view takes the view-name as an unquoted symbol (like create-table)
+Ryszard Szopa <ryszard.szopa@gmail.com>**20080925000803] 
+[make :create-rule accept many arguments to DO
+Ryszard Szopa <ryszard.szopa@gmail.com>**20080925231220] 
+[clean up create-view, create-rule, create-domain ops
+marijnh@gmail.com**20080928072356] 
+[document :create-view
+marijnh@gmail.com**20080928072632] 
+[In (def-sql-op :create-domain) dissect-type was getting a list whose 
+Ryszard Szopa <ryszard.szopa@gmail.com>**20080928162227
+ only element was the type instead of the type.
+ 
+] 
+[the table code in create-table is executed in a transaction
+Ryszard Szopa <ryszard.szopa@gmail.com>**20080928221914] 
+[bugfix: (def-sql-op :create-rule)
+Ryszard Szopa <ryszard.szopa@gmail.com>**20080928221955] 
+[clafify doquery documentation
+marijnh@gmail.com**20081001061950] 
+[Detect Clozure CL's Unicode properly.
+Maciej Pasternacki <maciej@pasternacki.net>**20081008213910] 
+[s-sql ops: nulls-last, nulls-first
+Ryszard Szopa <ryszard.szopa@gmail.com>**20081008192233] 
+[document nulls-first, nulls-last
+marijnh@gmail.com**20081009071426] 
+[Documentation typo fix: enable-sql-syntax -> enable-s-sql-syntax
+Maciej Pasternacki <maciej@pasternacki.net>**20081021130515] 
+[Factor out table constraints to separate function.
+Maciej Pasternacki <maciej@pasternacki.net>**20081021131210] 
+[Fix compiler warning in a loop.
+Maciej Pasternacki <maciej@pasternacki.net>**20081021131355] 
+[Add support for named constraints.
+Maciej Pasternacki <maciej@pasternacki.net>**20081021134600] 
+[s-sql-op :alter-table to support adding and dropping constraints.
+Maciej Pasternacki <maciej@pasternacki.net>**20081021135242] 
+[add a :nextval op so that both symbols and strings can be given to that operator
+marijnh@gmail.com**20081022143128] 
+[make sure :nextval works with sql-compile
+marijnh@gmail.com**20081022144430] 
+[fix last patch
+marijnh@gmail.com**20081022144519] 
+[S-SQL support for UPDATE ... RETURNING.
+Maciej Pasternacki <maciej@pasternacki.net>**20081022110923] 
+[add :insert-rows-into
+marijnh@gmail.com**20081112090408] 
+[added transaction-rollback error codes, including deadlock-detected
+attila.lendvai@gmail.com**20081124150038
+ Ignore-this: af1d8d6f9b64498aeeb0e1f0fe7c054c
+] 
+[Export DAO-KEYS.
+Maciej Pasternacki <maciej@pasternacki.net>**20081125002818] 
+[DAO-KEYS method for DAOs.
+Maciej Pasternacki <maciej@pasternacki.net>**20081125004221] 
+[escape exclamation marks in symbol names, to prevent breaking when allegrograph is loaded
+marijnh@gmail.com**20081215161255] 
+[fix another ACL modern-mode incompatibility
+marijnh@gmail.com**20081216155519] 
+[add interpreter spec for oid datatype
+marijnh@gmail.com**20081216160824] 
+[fix stupid typo in !foreign
+marijnh@gmail.com**20081216161327] 
+[fix use of wrong oid for oid datatype
+marijnh@gmail.com**20081217075009] 
+[use a custom error type for S-SQL parsing errors
+marijnh@gmail.com**20081217075031] 
+[support RETURNING in :delete-from (courtesy Timur Sufiev)
+marijnh@gmail.com**20081217075326] 
+[document :delete-from :returning support
+marijnh@gmail.com**20081218105519] 
+[Add query callback feature to cl-postgres.
+Maciej Pasternacki <maciej@pasternacki.net>**20081221223846] 
+[wrong term in symbol index in cl-postgres doc
+marijnh@gmail.com**20081229073715] 

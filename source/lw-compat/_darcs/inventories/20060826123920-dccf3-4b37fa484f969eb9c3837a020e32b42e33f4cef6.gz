@@ -1,0 +1,8 @@
+[Initial revision (v0.2).
+pc@p-cos.net**20050802152818] 
+[Added licensing information.
+pc@p-cos.net**20050811150118] 
+[Replaced a reduce idiom with a better understandable loop idiom.
+pc@p-cos.net**20051228220551] 
+[Removed a spurious in-package declaration in the .asd file.
+pc@p-cos.net**20060821203626] 

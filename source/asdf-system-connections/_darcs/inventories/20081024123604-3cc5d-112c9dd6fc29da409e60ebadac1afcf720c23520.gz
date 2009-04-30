@@ -1,0 +1,80 @@
+[first commit
+Gary King <gwking@metabang.com>**20051114020447] 
+[added version file, notes.text
+Gary King <gwking@metabang.com>**20051117031852] 
+[Moved system file up one level
+Gary King <gwking@metabang.com>**20051118151043] 
+[system-loaded-p was generating an error when a system wasn't available
+Gary King <gwking@metabang.com>**20051207193152] 
+[fixed bug
+Gary King <gwking@metabang.com>**20051212185428] 
+[Better (?) system-loaded-p
+Gary King <gwking@metabang.com>**20051219202825] 
+[Try again to prevent find-system from actually changing *defined-systems*
+Gary King <gwking@metabang.com>**20051219205325] 
+[bad call to find-system-in-memory
+Gary King <gwking@metabang.com>**20051220195956] 
+[Added COPYING file
+Gary King <gwking@metabang.com>**20060101142452] 
+[Fixed my e-mail address
+Gary King <gwking@metabang.com>**20060106214318] 
+[Fixed mailing address
+Gary King <gwking@metabang.com>**20060106224432] 
+[Added website module
+Gary King <gwking@metabang.com>**20060109201617] 
+[Re-worked webpage
+Gary King <gwking@metabang.com>**20060109201630] 
+[removed css file
+Gary King <gwking@metabang.com>**20060109201651] 
+[Minor webpage fixes
+Gary King <gwking@metabang.com>**20060119152252] 
+[Fixed :Name links
+Gary King <gwking@metabang.com>**20060127034615] 
+[website to table-less design
+Gary King <gwking@metabang.com>**20060131151542] 
+[Updated formatting of news section
+Gary King <gwking@metabang.com>**20060202184617] 
+[Allegro says export should be inside an eval-when and who am I to argue.
+Gary King <gwking@metabang.com>**20060205024940] 
+[Ah, Gary, you need to export when you load too
+Gary King <gwking@metabang.com>**20060208150037] 
+[fixing in-package
+Gary King <gwking@metabang.com>**20060511033018] 
+[Fixed copyright date
+Gary King <gwking@metabang.com>**20060609140347] 
+[Adding asdf-feature-connections to features
+Gary King <gwking@metabang.com>**20061002164705] 
+[setting version to 0.8.1
+Gary King <gwking@metabang.com>**20061101153218] 
+[Bumped version and copyright
+Gary King <gwking@metabang.com>**20070107200120] 
+[TAG Unrecorded the :force t asdf patch (I'm not sure what I was thinking; thanks Attila).
+Gary King <gwking@metabang.com>**20070120222311] 
+[One more check when loading a connection
+attila.lendvai@gmail.com**20061017110214
+ 
+ This is needed in situations when some systems are forwarding operations to
+ other systems. See metacopy for an example.
+] 
+[Bumped version; reformatted
+Gary King <gwking@metabang.com>**20070120222549] 
+[Minor website updates
+Gary King <gwking@metabang.com>**20070120223827] 
+[TAG version-0.8.3
+Gary King <gwking@metabang.com>**20070120223845] 
+[s/index.lml/index.md/
+Gary King <gwking@metabang.com>**20080608144414] 
+[just some renaming
+Gary King <gwking@metabang.com>**20080621022905] 
+[defsystem-connection allows overriding :class
+attila.lendvai@gmail.com**20081020194522
+ Ignore-this: def4dc1b6dc27c0cd8cbfb45cddbcf2d
+] 
+[Remove index.lml
+Gary King <gwking@metabang.com>**20081020220440] 
+[add new website files
+Gary King <gwking@metabang.com>**20081020220455] 
+[TAG version-0.8.4
+Gary King <gwking@metabang.com>**20081020220903] 
+[bump version
+Gary King <gwking@metabang.com>**20081024123551] 

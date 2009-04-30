@@ -1,0 +1,7 @@
+Starting with tag:
+[TAG version-0.3.11
+Gary King <gwking@metabang.com>**20081107161406] 
+[look for function-lambda-list and function-arglist in SBCL (thanks to William Halliburton for pointing out the change)
+Gary King <gwking@metabang.com>**20090123135116] 
+[Believe we need closer-to-mop 0.5 (or higher) now.
+Gary King <gwking@metabang.com>**20090123135134] 

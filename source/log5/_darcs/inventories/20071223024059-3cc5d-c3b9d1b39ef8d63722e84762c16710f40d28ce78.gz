@@ -1,0 +1,98 @@
+[First recording
+Gary King <gwking@metabang.com>**20070117215101] 
+[Added COPYING
+Gary King <gwking@metabang.com>**20070117215155] 
+[Basic documentation and usability functions like output-specs and category-specs.
+Gary King <gwking@metabang.com>**20070122151522] 
+[More exports; conditions for error and warning messages; lazy updating of categories (when needed); better stop and start sender logic; print-sender method; more error checking for bogus categories and outputs.
+Gary King <gwking@metabang.com>**20070128145133] 
+[Added file config; added asdf properties for version, author, etc.
+Gary King <gwking@metabang.com>**20070128145214] 
+[Adding file config.lisp, todo.text, and folders for the website
+Gary King <gwking@metabang.com>**20070128145353] 
+[fix for simple categories, changes :fatal et. al. to fatal et. al.
+Gary King <gwking@metabang.com>**20070129174544] 
+[Bump version
+Gary King <gwking@metabang.com>**20070129174622] 
+[TAG version-0.1.1
+Gary King <gwking@metabang.com>**20070129174632] 
+[Added initial website
+Gary King <gwking@metabang.com>**20070129195253] 
+[Added user-guide
+Gary King <gwking@metabang.com>**20070202003419] 
+[Added several tests files and a test system def; connected log5 with its tests
+Gary King <gwking@metabang.com>**20070204004417] 
+[Some cleanup, test-suite accomodations, and sbcl compatibility: added several defgenerics; switched from ~a to ~s in error messages;  renamed stop-sending -> stop-sender-fn; decided I don't really understand progv and reworked sender-responds-to-category-p
+Gary King <gwking@metabang.com>**20070204004833] 
+[Updated todo.text
+Gary King <gwking@metabang.com>**20070204004850] 
+[Bumped version
+Gary King <gwking@metabang.com>**20070204004925] 
+[TAG version-0.2.0
+Gary King <gwking@metabang.com>**20070204004945] 
+[Added speed-test.lisp
+Gary King <gwking@metabang.com>**20070218194325] 
+[Added speed-test to test system file
+Gary King <gwking@metabang.com>**20070218194354] 
+[name is now evaluated in start/stop-sender; make sure handler is compiled.
+Gary King <gwking@metabang.com>**20070218194449] 
+[bump version
+Gary King <gwking@metabang.com>**20070218194626] 
+[TAG version-0.2.1
+Gary King <gwking@metabang.com>**20070218194633] 
+[Reorganized website and made it more purtty
+Gary King <gwking@metabang.com>**20070221164230] 
+[Bumped version
+Gary King <gwking@metabang.com>**20070221170258] 
+[TAG version-0.2.2
+Gary King <gwking@metabang.com>**20070221170308] 
+[Correct my heavy handed (and broken at that!) test for file-streams in start-handling. New version fixes a bug that showed in Allegro. Also used the :end argument for faster speed.
+Gary King <gwking@metabang.com>**20070223154349] 
+[Website changes
+Gary King <gwking@metabang.com>**20070418151257] 
+[Just notes
+Gary King <gwking@metabang.com>**20070418151313] 
+[work in progress; pay no attention to the man behind the curtain
+Gary King <gwking@metabang.com>**20070418151655] 
+[Handle-message _must_ be a macro (otherwise, we don't get the benefit of _not_ computing log-for arguments (duh!)
+Gary King <gwking@metabang.com>**20070418152635] 
+[Added configuration-file function to return a default place to read configurations
+Gary King <gwking@metabang.com>**20070418152718] 
+[Added built-in-output-specs and modified the output-specs function to return them
+Gary King <gwking@metabang.com>**20070418152753] 
+[category specs and output-specs are now evaluated
+Gary King <gwking@metabang.com>**20070418152835] 
+[Split the compilation step out of build-handle-message-fn for easier debugging
+Gary King <gwking@metabang.com>**20070418152911] 
+[stream-sender-mixin
+Gary King <gwking@metabang.com>**20070418153030] 
+[formatting changes, comments, etc
+Gary King <gwking@metabang.com>**20070418153148] 
+[Updating website
+Gary King <gwking@metabang.com>**20070423020100] 
+[Bringing tests up to date
+Gary King <gwking@metabang.com>**20070423020113] 
+[Added debug-category-spec and undebug-category-spec and compile-time-category-spec; refactored handle-message; lots of minor stuff
+Gary King <gwking@metabang.com>**20070525205555] 
+[Added compile-time category-spec tests
+Gary King <gwking@metabang.com>**20070623134040] 
+[Split out category-defs iinto their own file
+Gary King <gwking@metabang.com>**20070623134057] 
+[Fixed a typo: librart -> library
+Gary King <gwking@metabang.com>**20070623134130] 
+[Bumped version
+Gary King <gwking@metabang.com>**20070623134219] 
+[Website updates and tweaks
+Gary King <gwking@metabang.com>**20070630144203] 
+[Added reference-guide.md
+Gary King <gwking@metabang.com>**20070630144220] 
+[Used symlink for darcs location
+Gary King <gwking@metabang.com>**20071204183135] 
+[Add a test for negated categories
+Gary King <gwking@metabang.com>**20071223023810] 
+[Add a note
+Gary King <gwking@metabang.com>**20071223023824] 
+[sender-responds-to-category-p was not correctly checked for negated categories in the sender's specification. Thanks to Ilya Perminov for noticing the problem and pointing towards the fix.
+Gary King <gwking@metabang.com>**20071223024031] 
+[bumped version
+Gary King <gwking@metabang.com>**20071223024052] 

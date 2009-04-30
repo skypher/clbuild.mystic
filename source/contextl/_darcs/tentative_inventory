@@ -1,0 +1,5 @@
+Starting with tag:
+[TAG 0.52
+pc@p-cos.net**20081213181027] 
+[Changed mapping to internal names to avoid a use of a "stop the world" synchronization primitive.
+pc@p-cos.net**20090101151931] 

@@ -1,0 +1,1247 @@
+hunk ./dev/lift.lisp 448
+-     (report nil) (arguments nil))
++     (report nil) (arguments nil)
++     (ignore-multiple-values? nil))
+hunk ./dev/lift.lisp 458
+-			    test test-specified-p report arguments))
++			    test test-specified-p report arguments
++			    ignore-multiple-values?))
+hunk ./dev/lift.lisp 463
+-     (report nil) (arguments nil))
++     (report nil) (arguments nil)
++     (ignore-multiple-values? nil))
+hunk ./dev/lift.lisp 467
+-			    test test-specified-p report arguments))
++			    test test-specified-p report arguments
++			    ignore-multiple-values?))
+hunk ./dev/lift.lisp 471
+-    (form values guard-fn test test-specified-p report arguments)
++    (form values guard-fn test test-specified-p report arguments
++     ignore-multiple-values?)
+hunk ./dev/lift.lisp 490
+-	 (loop for value in (multiple-value-list ,form)
+-	    for other-value in (multiple-value-list ,values) do
++	 (loop for value in (,(if ignore-multiple-values? 
++				  'list 'multiple-value-list) ,form)
++	    for other-value in (,(if ignore-multiple-values? 
++				     'list 'multiple-value-list) ,values) do
+hunk ./website/source/glossary.md 1
+-{include resources/header.md}
+-
+-## Glossary
+-
+-{glossary}
+-
+- [fixture]> glossary The fixture is the environment in which a testcase runs. The 
+-fixture is the code that prepares the environment for the test and that resets 
+-the environment after the test. Fixtures can be shared by many test-cases.
+-
+-{include resources/footer.md}
+rmfile ./website/source/glossary.md
+hunk ./website/source/user-guide.css 1
+-/* @group toc */
+-
+-.table-of-contents {
+-	font-size: 90%;
+-	margin-bottom: 1em;
+-	padding-bottom: 1em;
+-}
+-
+-.table-of-contents h2, h3, h4 {
+-	padding-top: 0;
+-	padding-bottom: 0;
+-	margin-top: 0;
+-	margin-bottom: 1px;
+-}
+-
+-.table-of-contents h2 {
+-	font-size: inherit;
+-	font-style: inherit;
+-	position: relative;
+-	left: 2em;
+-}
+-
+-.table-of-contents h3 {
+-	font-size: inherit;
+-	font-style: inherit;
+-	position: relative;
+-	left: 4em;
+-}
+-
+-.table-of-contents h4 {
+-	font-size: inherit;
+-	font-style: inherit;
+-	position: relative;
+-	left: 6em;
+-}
+-
+-.table-of-contents h5 {
+-	font-size: inherit;
+-	font-style: inherit;
+-	position: relative;
+-	left: 8px;
+-}
+-	
+-/* @end */
+-
+-/* @group anchors */
+-
+-a.none { 
+-	text-decoration: none;
+-	color:black }
+-	
+-a.none:visited { text-decoration: none; color:black }
+-
+-a.none:active { text-decoration: none; color:black }
+-
+-a.none:hover { text-decoration: none; color:black }
+-
+-a { 
+-	text-decoration: none; 
+-	}
+-	
+-a:visited { 
+-	text-decoration: none; 
+-}
+-
+-a:active { 
+-	text-decoration: underline; 
+-}
+-
+-a:hover { 
+-	text-decoration: underline; 
+-}
+-
+-/* @end */
+-
+-/* @group Reference */
+-
+-.reference {
+-	padding-bottom: 1em;
+-}
+-
+-.reference h3 {
+-	margin-top: 2em;
+-	font-size: 110%;
+-	border-bottom: 1px solid silver;
+-	border-top: 4px solid gray;
+-	padding-top: 3px;
+-	padding-bottom: 3px;
+-}
+-
+-
+-
+-/* @end */
+-
+-body {
+-  font-family: Georgia, "Times New Roman", Times, serif;
+-	margin-right: 0.5in;
+-	margin-left: 0.5in;
+-	margin-bottom: 0.25px;
+-}
+-
+-h1, h2, h3, h4 { 
+-  font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
+-}
+-
+-h2 {
+-}
+-
+-h3, h4 {
+-	font-style: italic;
+-}
+-
+-.hidden {
+-	visibility: hidden;
+-}
+-
+-.documentation {
+-	margin-right: 1em;
+-	margin-left: 1em;
+-}
+-
+-.function {
+-	
+-}
+-
+-.documentation.header {
+-	display: block;
+-	position: relative;
+-	border: none white 0px;
+-	border-top: thin;
+-	border-top-style: solid;
+-	border-top-width: 1pt;
+-	padding-top: 4px;
+-	margin-top: 2em; 
+-	font-size: inherit;
+-	background-color: transparent;
+-	color: black;
+-}
+-
+-.documentation.contents {
+-	top: 10px;
+-	position: relative;
+-}
+-
+-.documentation-name {
+-	font-weight: bold;
+-	float: left;
+-	padding-right: 10px;
+-	width: 125px;
+-}
+-
+-.documentation-kind {
+-	float: right;
+-	font-style: italic;
+-	color: gray;
+-	padding-left: 10px;
+-}
+-
+-.documentation-arguments {
+-	float: left;
+-	width: 350px;
+-	font-style: italic;
+-}
+-
+-.documentation p {
+-	clear: both;
+-	margin-right: 1em;
+-	margin-left: 1em;
+-}
+-
+-pre {
+-	background-color: #ffc8ff;
+-	overflow: auto;
+-	padding-bottom: 5px;
+-	margin-right: 1cm;
+-	margin-left: 1cm;
+-	font-family: "Courier New", Courier, mono;
+-}
+-
+-.note {
+-	border: 2px inset gray;
+-	padding: 0.5em;
+-	margin-right: 2em;
+-	margin-left: 2em;
+-}
+-
+-#footer {
+-	margin-top: 2em;
+-	border-top-style: inset;
+-	border-top-width: 2px;
+-}
+-#navigation li {
+-	display: inline;
+-	border-right-style: dotted;
+-	border-right-width: 1px;
+-	border-left-style: dotted;
+-	border-left-width: 1px;
+-	border-collapse: collapse;
+-	padding-right: 0.25em;
+-	padding-left: 0.25em;
+-	margin-right: 1em;
+-}
+-
+-#navigation {
+-	text-align: center;
+-}
+-
+-#timestamp {
+-	font-size: 80%;
+-	text-align: right;
+-}
+-
+rmfile ./website/source/user-guide.css
+hunk ./website/source/user-guide.md 1
+-{include resources/ug-header.md}
+-{set-property title "LIFT User's Guide"}
+-{set-property style-sheet user-guide}
+-{set-property docs-package lift}
+-
+-# LIFT User's Guide
+-
+-# Table of Contents 
+-
+-{table-of-contents :start 2 :depth 3}
+-
+-## Introduction
+-
+-The LIsp Framework for Testing (LIFT) is a unit and system
+-test tool for LISP. Though inspired by [SUnit][] and
+-[JUnit][], it's built with Lisp in mind. In LIFT,
+-[testcases][] are organized into hierarchical [testsuites][]
+-each of which can have its own [fixture][]. When run, a
+-testcase can succeed, fail, or error. LIFT supports
+-randomized testing, benchmarking, profiling, and reporting.
+-
+- [testcases]> glossary A test-case is the smallest unit of testing.
+- [testsuites]> glossary A testsuite is a group of tests plus their environment plus local variables and configuration settings. 
+- [fixture]> glossary The environment in which a test-case runs. This includes code for both setup and teardown.
+- 
+-## Overview : our first testsuite
+-
+-LIFT supports interactive testing so imagine that we type
+-each of the following forms into a file and evaluate them as
+-we go.
+-
+-    (in-package #:common-lisp-user)
+-    (use-package :lift)
+-
+-First, we define an empty testsuite. [deftestsuite][] is
+-similar to defclass so here we define a testsuite with no
+-super-testsuites and no slots.
+-
+-    > (deftestsuite lift-examples-1 () ()) 
+-    ==> #<lift-examples-1: no tests defined>
+-
+-Now, we add a test-case to our new suite. Since we don't
+-specify a testsuite or a test name, LIFT will add the
+-test-case to the most recently defined testsuite and name it
+-for us.
+-
+-    > (addtest (ensure-same (+ 1 1) 2))
+-    ==> #<Test passed>
+-
+-Because it ran the test interactively, it assume that you know the suite and name of the test and so only prints whether the test-case passed or failed. You can use [run-test][] to run individual test-cases. If you don't specify which case to run, LIFT will use the it ran most recently:
+-
+-    > (run-test)
+-    ==> #<lift-examples-1.lift-examples-1 passed>
+-    
+-Now LIFT provides more details. 
+-
+-Next, let's add another test using ensure-error
+-Here we specify the testsuite and the name in the addtest form. 
+-
+-    > (addtest (lift-examples-1)  ; the testsuite name
+-         div-by-zero              ; the testcase name
+-       (ensure-error (let ((x 0)) (/ x))))
+-    ==> #<Test passed>
+-
+-Though it works, [ensure-error][] is a bit heavy-handed in
+-this case. We can use [ensure-condition][] to check that we
+-get exactly the right _kind_ of error.
+-
+-    > (addtest (lift-examples-1)
+-        div-by-zero
+-       (ensure-condition division-by-zero 
+-           (let ((x 0)) (/ x))))
+-    ==> #<Test passed>
+-
+-Notice that because we named the testcase `div-by-zero`, LIFT will replace the previous definition with this one. If you don't name your tests, LIFT cannot distinguish between correcting an already defined test and creating a new one.
+-
+-Now, let's us [run-tests][] to run all our tests. Unless you
+-tell it otherwise, [run-tests][] runs all the test-cases of
+-the most recently touched testsuite{footnote "By 'touched', I
+-mean the last testsuite in which a test-case was run."}.
+-Here, thats `lift-example-1`.
+-
+-    > (run-tests)
+-    ==> #<Results for lift-examples-1 [2 Successful tests]>
+-
+-As you saw above, if you don't supply a test-case name, LIFT will give it one. This works for quick interactive testing but makes it hard to find a problem when running regression tests. It's a much better practice to give every test-case a name -- it also makes the testsuite self documenting. 
+-
+-Here is a test-case that fails because floating point math isn't exact.
+-
+-    > (addtest (lift-examples-1)
+-       floating-point-math
+-       (ensure-same (+ 1.23 1.456) 2.686))
+-    ==> #<Test failed>
+-
+-Hmmm, what happened? Lift returns a [test-result][] object so
+-we can look at it to understand what went wrong. Let's {hs
+-describe} it:
+-
+-    > (describe *)
+-    Test Report for lift-examples-1: 1 test run, 1 Failure.
+-    
+-    Failure: lift-examples-1 : floating-point-math
+-      Condition: Ensure-same: 2.6859999 is not equal to 2.686
+-      Code     : ((ensure-same (+ 1.23 1.456) 2.686))
+-
+-We try again using the function `almost=` for the test of [ensure-same][]
+-
+-    > (addtest (lift-examples-1)
+-        floating-point-math
+-        (ensure-same (+ 1.23 1.456) 2.686 :test 'almost=))
+-    ==> #<Error during testing>
+-
+-Whoopts, we forgot to write `almost=`! Here's a simple (though not
+-very efficient) version
+-
+-    > (defun almost= (a b)
+-       (< (abs (- a b)) 0.000001))
+-    ==> almost=
+-
+-Like `run-tests`, [run-test][] runs the most recently touched test-case.
+-
+-    > (run-test)
+-    ==> #<lift-examples-1.lift-examples-1 passed>
+-
+-The examples above cover most of LIFT's basics: 
+-
+-* Use [deftestsuite][] and [addtest][] to define testsuites and test-cases.
+-* In a testcase, use members of the ensure family of macros (like [ensure][], [ensure-same][], and [ensure-condition][]) to specify what is supposed to happen
+-* Run tests interactively by evaluating them or by calling [run-test][] or [run-tests][]
+-
+-In what follows, we'll explore LIFT in more depth by looking at test hierarchies and fixtures, randomized testing, and using LIFT for benchmarking and profiling.
+-
+-## Defining testsuites and adding testcases.
+-
+-The [deftestsuite][] macro defines or redefines a testsuite. Testsuites are CLOS classes and deftestsuite looks a lot like defclass.
+-
+-    (deftestsuite name (supersuite*)
+-        (slotspec*)
+-        options*)
+-
+-The list of supersuites lets you organize tests into a hierarchy. This can be useful both to share fixtures (i.e., setup and tearcode code) and to organize your testing: different parts of the hierarchy can test different parts of your software. The slotspecs are similar to slotspecs in defclass but with a twist: deftestsuite automatically adds an initarg and accessor for each spec{footnote "Though they once did, the slotspecs don't really define slots for the class internally anymore. LIFT keeps track of slot values through a different (slower but more flexible) mechanism."}. You can specify an initial value using a pair rather than needing to specify an initform and these value can use the values of previously defined slots (as if they were being bound in a let* form). Finally, you'll also see below that slot values are immediately available with the body of a test method. These two features make writing tests very simple.
+-
+-    > (deftestsuite test-slots ()
+-        ((a 1) (b 2) (c (+ a b)))
+-        (:test ((ensure-same (+ a b) c))))
+-    Start: test-slots
+-    #<Results for test-slots [1 Successful test]>
+-
+-The example above also shows that you can define tests directly in the deftestsuite form.  This is really handy for unit testing where you don't want the boilerplate to get in the way of the tests! Here is another, more complex example:
+-
+-    > (deftestsuite test-leap-year-p ()
+-       ()
+-       ;; Use :tests to define a list of tests
+-       (:tests
+-        ((ensure (leap-year-p 1904)))
+-        ;; we give this one a name
+-        (div-by-four (ensure (leap-year-p 2000)))
+-        ((ensure (leap-year-p 1996))))
+-       ;; use :test to define one test at a time
+-       (:test ((ensure-null (leap-year-p 1900))))
+-       (:test ((ensure-null (leap-year-p 1997)))))
+-
+-    ;; let's see what we've done
+-    > (print-tests :start-at 'test-leap-year-p)
+-    test-leap-year-p (5)
+-      TEST-1
+-      div-by-four
+-      TEST-3
+-      TEST-4
+-      TEST-5
+-
+-So far, our tests have not required any setup or teardown. Let's next look at at a few tests that do. The first example is from the [ASDF-Install][] testsuite. It uses its fixtures setup to make sure that the working directory is empty (so that it is ensured of installing into a clean system).{footnote "We'll talk about the :dynamic-variables clause in more detail below."}
+-
+-    (deftestsuite test-asdf-install-basic-installation (test-asdf-install) 
+-      ()
+-      (:dynamic-variables 
+-       (*verify-gpg-signatures* t))
+-      (:setup 
+-       (delete-directory-and-files *working-directory* 
+-           :if-does-not-exist :ignore)))
+-
+-This next testsuite is from [Log5][log5]. 
+-Though the details aren't important, you can be assured that LIFT will run the setup before every test-case and the teardown after every test-case (even if there is an error).  
+-
+-    (deftestsuite test-stream-sender-with-stream (test-stream-sender)
+-     (sender-name
+-      string-stream
+-      (sender nil))
+-     (:setup
+-      (setf sender-name (gensym)
+-    	 string-stream (make-string-output-stream)))   
+-     (:teardown (stop-sender-fn sender-name :warn-if-not-found-p nil))
+-     :equality-test #'string-equal)
+-
+-
+-#### Deftestsuite options and arguments
+-
+-We've already seen two other clauses that deftestsuite supports (:dynamic-variables and :equality-test). Here is the complete list:
+-
+-* dynamic-variables - specifies how to initialize dynamic-variables within a testsuite
+-* documentation - used, of all things, for documentation
+-* equality-test - specifies the default equality-test used by ensure-same and ensure-different. See [\*lift-equality-test\*][*lift-equality-test*]
+-* export-p - if true, the testsuite name will be exported
+-* export-slots - if true, all of the testsuite slots will be exported. It can also be a list of slot names to export
+-* function - defines a local test function (think of flet or labels)
+-* random-instance - tells LIFT how to make random examples of things for this suite
+-* run-setup - tells LIFT when to run setup.
+-* setup - code for test setup
+-* teardown - code for testsuite teardown
+-* test - defines a single test
+-* tests - defines several tests
+-* timeout - how long can each test take
+-
+-Many of these are self-explanatory. We'll discuss  :dynamic-variables, :equality-test, :function, :run-setup and :timeout here and look at :random-instance below when we talk about random-testing. 
+-
+-##### Dynamic-variables
+-
+-It is often the case that you'll want some dynamic variable bound around the body of all of your tests. This is hard to do because LIFT doesn't expose its inner mechanisms for easy access.{footnote "At least, it doesn't expose them yet... One long range plan is to do a better job of building a sort of test metaobject protocol that would make it easier to extend LIFT in new and exciting ways."} The :dynamic-variables clause lets you specify a list of variables and bindings that LIFT will setup for each testcase.
+-
+-##### Equality-test
+-
+-This is used to specify the default equality-test used by
+-[ensure-same][] for test-cases in this suite and any suites
+-that inherit from it. Though you can use the special variable
+-[\*lift-equality-test\*][] to set test, it usually better to
+-exercise control at the testsuite level. This is especially
+-handy when, for example, you are testing numeric functions
+-and want to avoid having to specify the test for every
+-`ensure-same`.
+-
+-##### Function
+-
+-Let the Common Lisp forms `flet`, `labels`, and `macrolet`, [deftestsuite][]'s `function` clause lets you define functions that are local to a particular testsuite (and its descendants). There are two good reasons to use `:function`: it provides good internal documentation and structure _and_ you can use the testsuite's local variables without without any fuss or bother. Here is an example:
+-
+-    (deftestsuite test-size (api-tests)
+-        (last-count db)
+-     (:function
+-        (check-size (expected)
+-            (ensure (>= (size) last-count))
+-            (setf last-count (size))
+-            (ensure-same (size) (count-slowly db))
+-            (ensure-same (size) expected)))
+-     (:setup
+-        (setf db (open-data "bar" :if-exists :supersede)))
+-
+-The `check-size` function will not conflict with any other check-size functions (from other tests or any of Lisp's other namespaces). Secondly, the references to `last-count` and `db` will automatically refer to the testsuite's variables.
+-
+-##### Run-setup
+-
+-LIFT's usual behavior is to run a testsuite's `setup` and `teardown` code around every single test-case. This provides the best isolation and makes it easy to think about a test-case by itself. If test setup takes a _long_ time or if you want to break a complex test into a number of stages, then LIFT's usual behavior will just get in the way. The `run-setup` clause lets you control when `setup` (and `teardown`) occur. It can take on one of the following values:
+-
+-* :once-per-test-case or t (the default) - run `setup` and `teardown` around every testcase
+-* :once-per-suite - run `setup` for the first test-case of a testsuite and run `teardown` after the last test-case.
+-* :never or nil
+-
+-##### Timeout
+-
+-Things go wrong (that is, after all, part of why we write tests!). The `timeout` clause lets you tell LIFT that if test-case hasn't completed within a certain number of seconds, then you want LIFT to complete the test with an error. 
+-
+-### LIFT and Random testing
+-
+-To be written.
+-
+-### Benchmarking with LIFT
+-
+-To be written.
+-
+-### Reporting
+-
+-To be written.
+-
+-<div class='reference'>
+-    
+-## Reference
+-
+-### Defining Tests
+-
+-{docs deftestsuite macro}
+-{docs addtest macro}
+-
+-### How to test for something
+-
+-The following macros can be used outside of LIFT where they will function very much like `assert`. When used in the body of an `addtest` or `deftestsuite` form, however, they will record test failures instead of signaling one themselves.{footnote "Random testing adds a few additional `ensure` variants like [ensure-random-cases][]."}
+-
+-{docs ensure macro}
+-{docs ensure-null macro}
+-{docs ensure-same macro}
+-{docs ensure-different macro}
+-{docs ensure-condition macro}
+-{docs ensure-warning macro}
+-{docs ensure-error macro}
+-{docs ensure-no-warning}
+-{docs ensure-cases macro}
+-
+-### Running tests 
+-
+-{docs run-test function}
+-{docs run-tests function}
+-{docs lift-result}
+-{docs lift-property}
+-{docs *test-result* variable}
+-{docs test-result class}
+-
+-### Configuring LIFT
+-
+-Many of the variables below are used as the default values
+-when calling [run-test][] or [run-tests][] or when interactively defining new tests and testsuites.
+-
+-#### Variables that control how LIFT runs tests
+-
+-{docs *test-ignore-warnings?* variable}
+-{docs *test-break-on-errors?* variable}
+-{docs *test-break-on-failures?* variable}
+-{docs *test-maximum-error-count* variable}
+-{docs *test-maximum-failure-count* variable}
+-{docs *test-maximum-time* variable}
+-{docs *test-print-testsuite-names* variable}
+-{docs *test-print-test-case-names* variable}
+-{docs *lift-equality-test* variable}
+-{docs *lift-debug-output* variable}
+-{docs *lift-dribble-pathname* variable}
+-{docs *lift-report-pathname* variable}
+-
+-#### Variables that change how LIFT displays information
+-
+-{docs *test-describe-if-not-successful?* variable}
+-{docs *test-evaluate-when-defined?* variable}
+-{docs *test-print-length* variable}
+-{docs *test-print-level* variable}
+-{docs *test-print-when-defined?* variable}
+-{docs *test-show-expected-p* variable}
+-{docs *test-show-details-p* variable}
+-{docs *test-show-code-p* variable}
+-
+-### Introspection
+-
+-{docs print-tests}
+-{docs map-testsuites}
+-{docs testsuites}
+-{docs testsuite-tests}
+-{docs find-testsuite}
+-{docs last-test-status}
+-{docs suite-tested-p}
+-{docs testsuite-p}
+-{docs failures}
+-{docs errors}
+-{docs expected-failures}
+-{docs expected-errors}
+-
+-### Random testing
+-
+-{docs ensure-random-cases}
+-{docs ensure-random-cases+}
+-{docs random-instance-for-suite}
+-
+-{docs ensure-random-cases-failure}
+-
+-{docs defrandom-instance}
+-{docs random-element}
+-{docs random-number}
+-{docs an-integer}
+-{docs a-double-float}
+-{docs a-single-float}
+-{docs a-symbol}
+-
+-### Benchmarking and Profiling
+-
+-#### Defining Measures
+-
+-{docs defmeasure}
+-{docs undefmeasure}
+-{docs while-measuring}
+-{docs measure-seconds measure}
+-{docs measure-space measure}
+-
+-#### Profiling
+-
+-{docs with-profile-report}
+-{docs write-profile-information}
+-{docs *profiling-threshold*}
+-
+-#### Timing 
+-
+-{docs count-repetitions}
+-{docs while-counting-events}
+-{docs while-counting-repetitions}
+-
+-#### Deprecated functions
+-
+-{docs measure-time}
+-{docs measure-conses}
+-
+-### Miscellaneous 
+-
+-{docs test-mixin}
+-{docs *current-test*}
+-
+-</div>
+-
+-## Indices
+-
+-### Index of Functions
+-
+-{docs-index function}
+-
+-### Index of variables
+-
+-{docs-index variable}
+-
+-### Index of Macros
+-
+-{docs-index macro}
+-
+-### Full symbol index
+-
+-{docs-index :all}
+-
+-<hr>
+-
+-#### Glossary
+-
+-{glossary}
+-
+-
+-#### Footnotes
+-
+-{footnotes}
+-
+-{include resources/ug-footer.md}
+rmfile ./website/source/user-guide.md
+hunk ./website/website.tmproj 6
+-	<string>source/user-guide.md</string>
++	<string>source/index.md</string>
+hunk ./website/website.tmproj 35
+-			<date>2008-03-07T15:36:06Z</date>
++			<date>2009-01-25T17:28:04Z</date>
++			<key>selected</key>
++			<true/>
+hunk ./website/website.tmproj 73
+-			<date>2008-10-01T12:23:05Z</date>
+-			<key>selected</key>
+-			<true/>
++			<date>2008-10-26T00:45:19Z</date>
+hunk ./website/website.tmproj 99
+-				<integer>6</integer>
++				<integer>0</integer>
+hunk ./website/website.tmproj 101
+-				<integer>19</integer>
++				<integer>1</integer>
+hunk ./website/website.tmproj 103
++			<key>columnSelection</key>
++			<false/>
+hunk ./website/website.tmproj 108
+-			<integer>61</integer>
++			<integer>0</integer>
++			<key>selectFrom</key>
++			<dict>
++				<key>column</key>
++				<integer>0</integer>
++				<key>line</key>
++				<integer>0</integer>
++			</dict>
++			<key>selectTo</key>
++			<dict>
++				<key>column</key>
++				<integer>0</integer>
++				<key>line</key>
++				<integer>1</integer>
++			</dict>
+hunk ./website/website.tmproj 131
+-				<integer>9</integer>
++				<integer>0</integer>
+hunk ./website/website.tmproj 143
+-				<integer>0</integer>
++				<integer>30</integer>
+hunk ./website/website.tmproj 145
+-				<integer>13</integer>
++				<integer>8</integer>
+hunk ./website/website.tmproj 157
+-				<integer>10</integer>
++				<integer>0</integer>
+hunk ./website/website.tmproj 159
+-				<integer>30</integer>
++				<integer>1</integer>
+hunk ./website/website.tmproj 161
++			<key>columnSelection</key>
++			<false/>
+hunk ./website/website.tmproj 167
++			<key>selectFrom</key>
++			<dict>
++				<key>column</key>
++				<integer>0</integer>
++				<key>line</key>
++				<integer>0</integer>
++			</dict>
++			<key>selectTo</key>
++			<dict>
++				<key>column</key>
++				<integer>0</integer>
++				<key>line</key>
++				<integer>1</integer>
++			</dict>
+hunk ./website/website.tmproj 196
+-		<key>source/resources/ug-footer.md</key>
++		<key>source/resources/shared-header.md</key>
+hunk ./website/website.tmproj 203
+-				<integer>9</integer>
++				<integer>19</integer>
+hunk ./website/website.tmproj 210
+-		<key>source/resources/ug-header.md</key>
++		<key>source/resources/ug-footer.md</key>
+hunk ./website/website.tmproj 215
+-				<integer>93</integer>
++				<integer>0</integer>
+hunk ./website/website.tmproj 217
+-				<integer>1</integer>
++				<integer>9</integer>
+hunk ./website/website.tmproj 219
+-			<key>columnSelection</key>
+-			<false/>
+hunk ./website/website.tmproj 223
+-			<key>selectFrom</key>
+-			<dict>
+-				<key>column</key>
+-				<integer>80</integer>
+-				<key>line</key>
+-				<integer>1</integer>
+-			</dict>
+-			<key>selectTo</key>
++		</dict>
++		<key>source/resources/ug-header.md</key>
++		<dict>
++			<key>caret</key>
+hunk ./website/website.tmproj 229
+-				<integer>93</integer>
++				<integer>0</integer>
+hunk ./website/website.tmproj 231
+-				<integer>1</integer>
++				<integer>6</integer>
+hunk ./website/website.tmproj 233
++			<key>firstVisibleColumn</key>
++			<integer>0</integer>
++			<key>firstVisibleLine</key>
++			<integer>0</integer>
+hunk ./website/website.tmproj 259
+-				<integer>4</integer>
++				<integer>423</integer>
+hunk ./website/website.tmproj 261
+-			<key>columnSelection</key>
+-			<false/>
+hunk ./website/website.tmproj 264
+-			<integer>0</integer>
+-			<key>selectFrom</key>
+-			<dict>
+-				<key>column</key>
+-				<integer>0</integer>
+-				<key>line</key>
+-				<integer>0</integer>
+-			</dict>
+-			<key>selectTo</key>
+-			<dict>
+-				<key>column</key>
+-				<integer>0</integer>
+-				<key>line</key>
+-				<integer>381</integer>
+-			</dict>
++			<integer>389</integer>
+hunk ./website/website.tmproj 269
+-		<string>source/user-guide.css</string>
+hunk ./website/website.tmproj 270
+-		<string>source/user-guide.md</string>
++		<string>source/resources/shared-header.md</string>
+hunk ./website/website.tmproj 276
+-		<string>source/glossary.md</string>
+hunk ./website/website.tmproj 278
++	<false/>
++	<key>showFileHierarchyPanel</key>
+hunk ./website/website.tmproj 281
++	<key>treeState</key>
++	<dict>
++		<key>resources</key>
++		<dict>
++			<key>isExpanded</key>
++			<true/>
++			<key>subItems</key>
++			<dict/>
++		</dict>
++	</dict>
+hunk ./dev/lift.lisp 1326
+-  (let ((testsuite (find-testsuite suite-name)))
++  (let ((testsuite (find-testsuite suite-name :errorp t)))
+hunk ./COPYING 71
+-performance of this software, even if EKSL is advised of the possiblity
++performance of this software, even if EKSL is advised of the possibility
+hunk ./dev/lift.lisp 1425
+-	  (when *lift-report-pathname*
++	  (when report-pathname
+hunk ./dev/macros.lisp 188
+-	     ,gevent-count))))))  
++	     (float (/ ,gevent-count ,delay))))))))  
+hunk ./dev/measuring.lisp 8
+-(defmeasure measure-seconds 
++(defmeasure :measure-seconds 
+hunk ./dev/measuring.lisp 18
+-(defmeasure measure-space
++(defmeasure :measure-space
+hunk ./lift-documentation.asd 7
++#+(or)
++;; just ignore for now... sigh.
+hunk ./lift.asd 5
+-  :version "1.6.0"
++  :version "1.6.1"
+hunk ./lift-documentation.asd 7
+-#+(or)
+hunk ./lift-documentation.asd 18
++	       #+(or)
+hunk ./lift-documentation.asd 26
+-  :depends-on (:lift :docudown))
++  :depends-on (:lift #+(or) :docudown))
+hunk ./lift-documentation.asd 13
+-  :components ((:module "setup"
++  :components (
++	       #+(or)
++		 (:module "setup"
+hunk ./dev/config.lisp 3
++#|
++
++(:report-property :if-exists :supersede)
++(:report-property :unique-name nil)
++(:report-property :format :html)
++(:report-property :name "index")
++(:report-property :relative-to db.agraph.tests)
++
++For text based reports like :describe, the report name is the filename
++where the report is placed or a stream (e.g., *standard-output*).
++
++The :name property specifies the name and type.
++
++There are three ways to specify the directory:
++
++1. :full-name
++2. :relative-to
++3. the current directory (via *default-pathname-defaults*)
++
++If :full-name is a pathname with a name and type, then these will be
++used rather than :name. If :unique-name is true (and the destination
++is not a stream), then the date and an integer tag will be added to the 
++name. E.g., the path `/tmp/lift-tests/report.txt` will become 
++`/tmp/lift-tests/report-2009-02-01-1.txt`.
++
++
++For HTML, The report name specifies a _directory_. The :name property
++is ignored.
++
++There are three ways to specify the directory location. 
++
++1. :full-name
++2. :relative-to
++3. the current directory (via *default-pathname-defaults*)
++
++In all cases, the report will go into 
++
++|#
++
+hunk ./dev/config.lisp 55
+-
+hunk ./dev/config.lisp 227
++(defgeneric report-pathname (method &optional result))
++
++(defmethod report-pathname :around ((method (eql :html)) 
++				    &optional (result *test-result*))
++  (cond ((and (test-result-property result :full-pathname)
++	      (streamp (test-result-property result :full-pathname)))
++	 (call-next-method))
++	(t
++	 (let ((old-name (test-result-property result :name))
++	       (old-full-pathname (test-result-property result :full-pathname))
++	       (old-unique-name (test-result-property result :unique-name)))
++	   (unwind-protect
++		(progn
++		  (setf (test-result-property result :name) t
++			(test-result-property result :unique-name) nil)
++		  (let ((destination (pathname-sans-name+type (call-next-method))))
++		    (when old-name
++		      (setf destination
++			    (merge-pathnames
++			     (make-pathname :directory `(:relative ,old-name))
++			     destination)))
++		    (print destination)
++		    (merge-pathnames
++		     (make-pathname :name "index" :type "html")
++		     (pathname-sans-name+type
++		      (if old-unique-name 
++			  (unique-directory destination)
++			  destination)))))
++	     (setf (test-result-property result :name) old-name
++		   (test-result-property result :full-pathname) 
++		   old-full-pathname
++		   (test-result-property result :unique-name) 
++		   old-unique-name))))))
++
++#+(or)
++(defmethod report-pathname :around ((method t) &optional (result *test-result*))
++  "Make sure that directories exist"
++  (let ((output (call-next-method)))
++    (cond ((streamp output)
++	   output)
++	  (t
++	   (ensure-directories-exist output)
++	   output))))
++
++(defmethod report-pathname ((method t) &optional (result *test-result*))
++  (let* ((given-report-name (test-result-property result :name))
++	 (report-type (string-downcase
++		       (ensure-string 
++			(test-result-property result :format))))
++	 (report-name (or (and given-report-name
++			       (not (eq given-report-name t))
++			       (merge-pathnames
++				given-report-name 
++				(make-pathname :type report-type)))
++			  (format nil "report.~a" report-type)))
++	 (via nil)
++	 (dest (or (and (setf via :full-pathname)
++			(test-result-property result :full-pathname)
++			(streamp
++			 (test-result-property result :full-pathname))
++			(test-result-property result :full-pathname))
++		   (and (setf via :full-pathname)
++			(test-result-property result :full-pathname)
++			(not (streamp
++			      (test-result-property result :full-pathname)))
++			(cond ((eq given-report-name t)
++			       (test-result-property result :full-pathname))
++			      ((null given-report-name)
++			       (merge-pathnames
++				(test-result-property result :full-pathname)
++				report-name))
++			      (t
++			       (merge-pathnames
++				(test-result-property result :full-pathname)
++				given-report-name))))
++		   (and (setf via :relative-to)
++			(let ((relative-to 
++			       (test-result-property result :relative-to)))
++			  (and relative-to
++			       (asdf:find-system relative-to nil)
++			       (asdf:system-relative-pathname 
++				relative-to report-name))))
++		   (and (setf via :current-directory)
++			(merge-pathnames
++			 (make-pathname :defaults report-name)))))
++	 (unique-name? (test-result-property result :unique-name)))
++    (values 
++     (if (and unique-name? (not (streamp dest)))
++	 (unique-filename dest)
++	 dest)
++     via)))
++
+hunk ./dev/config.lisp 321
+-  (declare (ignore args))
+-  (let* ((dest (or (test-result-property *test-result* :full-pathname)
+-		   (asdf:system-relative-pathname 
+-		    (or (test-result-property *test-result* :relative-to)
+-			'lift)
+-		    (or (test-result-property *test-result* :name)
+-			"report.html"))))
+-	 (format (or (test-result-property *test-result* :format)
++ (declare (ignore args))
++ (let* ((format (or (test-result-property *test-result* :format)
+hunk ./dev/config.lisp 324
+-	 (unique-name (test-result-property *test-result* :unique-name)))
+-    (when (and unique-name (not (streamp dest)))
+-	(setf dest (unique-filename dest)))
+-    (with-standard-io-syntax 
+-      (let ((*print-readably* nil))
++	 (dest (report-pathname format *test-result*)))
++   (with-standard-io-syntax 
++     (let ((*print-readably* nil))
+hunk ./dev/config.lisp 337
+-	    ((or (streamp dest) (writable-directory-p dest))
++	    ((or (streamp dest) 
++		 (ensure-directories-exist dest)
++		 (writable-directory-p dest))
+hunk ./dev/config.lisp 343
+-	      *test-result*
+-	      dest
+-	      format))
++	      *test-result* dest format))
+hunk ./dev/config.lisp 347
+-  
++ 
+hunk ./dev/report-locations.lisp 6
+-
+-#+(or)
+-(defmethod html-report-pathname :around (pathname)
+-  (declare (ignore pathname))
+-  (let ((basepath (call-next-method)))
+-    (add-implementation-specific-directory-name basepath)))
+hunk ./dev/reports.lisp 96
+-(defgeneric html-report-pathname (pathname))
+-
+-(defmethod html-report-pathname (pathname)
+-  (merge-pathnames 
+-   (make-pathname :name (if (eql (length (pathname-name pathname)) 0)
+-			    "index" (pathname-name pathname))
+-		  :type "html"
+-		  :defaults (namestring (unique-directory pathname)))
+-   pathname))
+-
+-(defmethod test-result-report :around 
+-    (result output (format (eql :html))
+-	    &rest args
+-	    &key &allow-other-keys)
+-  (let ((output (html-report-pathname output)))
+-    (ensure-directories-exist output)
+-    (apply #'call-next-method result output format args)))
+-
+hunk ./dev/utilities.lisp 26
++(defun pathname-has-device-p (pathname)
++  (and (or (stringp pathname) (pathnamep pathname))
++       (not (member (pathname-device pathname) '(nil :unspecific)))))
++
++(defun pathname-has-host-p (pathname)
++  (and (or (stringp pathname) (pathnamep pathname))
++       (not (member (pathname-host pathname) '(nil :unspecific)))))
++
++(defun relative-pathname (relative-to pathname &key name type)
++  (let ((directory (pathname-directory pathname)))
++    (when (eq (car directory) :absolute)
++      (setf directory (copy-list directory)
++	    (car directory) :relative))
++    (merge-pathnames
++     (make-pathname :name (or name (pathname-name pathname))
++                    :type (or type (pathname-type pathname))
++                    :directory directory
++		    )
++     relative-to)))
++
++(defun directory-pathname-p (p)
++  (flet ((component-present-p (value)
++           (and value (not (eql value :unspecific)))))
++    (and 
++     (not (component-present-p (pathname-name p)))
++     (not (component-present-p (pathname-type p)))
++     p)))
++
++(defun directory-p (name)
++  (let ((truename (probe-file name)))
++    (and truename (directory-pathname-p name))))
++
++(defun containing-pathname (pathspec)
++  "Return the containing pathname of the thing to which 
++pathspac points. For example:
++
++    > \(containing-directory \"/foo/bar/bis.temp\"\)
++    \"/foo/bar/\"
++    > \(containing-directory \"/foo/bar/\"\)
++    \"/foo/\"
++"
++  (make-pathname
++   :directory `(,@(butlast (pathname-directory pathspec)
++			   (if (directory-pathname-p pathspec) 1 0)))
++   :name nil
++   :type nil
++   :defaults pathspec))
++
+hunk ./dev/utilities.lisp 75
+-(defun unique-filename (pathname &optional (max-count 100))
++(defun unique-filename (pathname &optional (max-count 10000))
+hunk ./dev/utilities.lisp 92
+-  (when (or (pathname-name pathname) (pathname-type pathname))
+-    (setf pathname (make-pathname 
+-		    :name nil
+-		    :type nil
+-		    :directory `(,@(pathname-directory pathname)
+-				   ,(format nil "~a~@[.~a~]"
+-					    (pathname-name pathname) 
+-					    (pathname-type pathname)))
+-		    :defaults (pathname-sans-name+type pathname))))
+-  (or (and (not (probe-file pathname)) pathname)
+-      (let ((date-part (date-stamp)))
+-	(loop repeat 100
++  (setf pathname (merge-pathnames pathname))
++  (let* ((date-part (date-stamp))
++	 (last-directory (first (last (pathname-directory pathname))))
++	 (base-pathname (containing-pathname pathname))
++	 (base-name (pathname-name last-directory))
++	 (base-type (pathname-type last-directory)))
++    (or (loop repeat 10000
+hunk ./dev/utilities.lisp 106
+-			  ,(format nil "~@[~a-~]~a-~d" 
+-				   (and (stringp (pathname-name pathname))
+-					(pathname-name pathname))
+-				   date-part index)))
+-	    (pathname-sans-name+type pathname)) do
++			  ,(format nil "~@[~a-~]~a-~d~@[.~a~]" 
++				   base-name date-part index base-type)))
++	    base-pathname) do
+hunk ./dev/utilities.lisp 110
+-	     (return name))))
+-      (error "Unable to find unique pathname for ~a" pathname)))
++	     (return name)))
++	(error "Unable to find unique pathname for ~a" pathname))))
+hunk ./dev/config.lisp 56
+-how it determines which configuration file to lof. If you use 
++how it determines which configuration file to load. If you use 
+hunk ./dev/introspection.lisp 45
+-  (flet ((ensure-string (it)
+-	   (etypecase it
+-	     (string it)
+-	     (symbol (symbol-name it)))))
+-    (let ((result nil)
+-	  (name-as-string (ensure-string string)))
+-      (flet ((add-if-match (suite-name &optional (to-add suite-name))
+-	       (when (search name-as-string (ensure-string suite-name)
+-			     :test #'char-equal)
+-		 (push to-add result))))
+-	(map-testsuites
+-	 (lambda (suite level)
+-	   (declare (ignore level))
+-	   (let ((suite-name (class-name suite)))
+-	     (add-if-match suite-name)
+-	     (when include-cases?
+-	       (loop for method-name in (testsuite-tests suite-name) do
+-		    (add-if-match 
+-		     method-name (cons suite-name method-name))))))
+-	 'test-mixin))
+-      (sort result #'string-lessp :key (lambda (it)
+-					 (typecase it
+-					   (atom it)
+-					   (cons (cdr it))))))))
++  (let ((result nil)
++	(name-as-string (ensure-string string)))
++    (flet ((add-if-match (suite-name &optional (to-add suite-name))
++	     (when (search name-as-string (ensure-string suite-name)
++			   :test #'char-equal)
++	       (push to-add result))))
++      (map-testsuites
++       (lambda (suite level)
++	 (declare (ignore level))
++	 (let ((suite-name (class-name suite)))
++	   (add-if-match suite-name)
++	   (when include-cases?
++	     (loop for method-name in (testsuite-tests suite-name) do
++		  (add-if-match 
++		   method-name (cons suite-name method-name))))))
++       'test-mixin))
++    (sort result #'string-lessp :key (lambda (it)
++				       (typecase it
++					 (atom it)
++					 (cons (cdr it)))))))
+hunk ./dev/utilities.lisp 239
++(defun ensure-string (it)
++  (etypecase it
++    (string it)
++    (symbol (symbol-name it))))
+hunk ./dev/lift.lisp 495
+-	      (maybe-raise-not-same-condition 
++	      (,(ecase guard-fn 
++		       (unless 'maybe-raise-not-same-condition)
++		       (when 'maybe-raise-ensure-same-condition))
+hunk ./dev/lift.lisp 533
+-	(problems (gensym)))
++	(problems (gensym))
++	(single-var-p (= (length vars) 1)))
+hunk ./dev/lift.lisp 538
+-	    (destructuring-bind ,vars ,case
++	    (destructuring-bind ,vars ,(if single-var-p `(list ,case) case)
+hunk ./dev/lift.lisp 1550
+-	     (unless result-pushed?
+-	       (setf result-pushed? t)
+-	       (push (list (type-of suite)
+-			   *current-test-case-name* (test-data suite))
+-		     (tests-run result)))))
++					;(print (list :mpr result-pushed? (test-data suite)))
++	     (let ((datum (list (type-of suite)
++				*current-test-case-name* (test-data suite))))
++	       (cond ((null result-pushed?)
++		      (setf result-pushed? t)
++		      (push datum (tests-run result)))
++		     (t
++		      ;; replace
++		      (setf (first (tests-run result)) datum))))))
+hunk ./dev/reports.lisp 837
+-		   (declare (ignore c)))))
++		   (declare (ignore c)))
++		 (error (c)
++		   (error c))))
+hunk ./lift.asd 5
+-  :version "1.6.1"
++  :version "1.7.0"

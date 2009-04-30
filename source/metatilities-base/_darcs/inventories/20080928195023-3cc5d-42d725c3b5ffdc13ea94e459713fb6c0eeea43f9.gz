@@ -1,0 +1,17 @@
+Starting with tag:
+[TAG version-0.6.5
+Gary King <gwking@metabang.com>**20080902030331] 
+[Remove unnecessary eval-when's from l0-marcos (thanks to Stelian Ionescu), case 227
+Gary King <gwking@metabang.com>**20080927234705] 
+[Fix undefinded function warnings
+Gary King <gwking@metabang.com>**20080927235851] 
+[version 0.6.6
+Gary King <gwking@metabang.com>**20080927235916] 
+[TAG version-0.6.6
+Gary King <gwking@metabang.com>**20080927235920] 
+[update .boring file
+Gary King <gwking@metabang.com>**20080928194905] 
+[added funcall-if-exists and refactored apply-if-exists
+Gary King <gwking@metabang.com>**20080928194942] 
+[Website stuff
+Gary King <gwking@metabang.com>**20080928195005] 

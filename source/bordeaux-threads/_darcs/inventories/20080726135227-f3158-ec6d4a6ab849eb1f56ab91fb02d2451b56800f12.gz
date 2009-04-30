@@ -1,0 +1,214 @@
+[Initial version of bordeaux-threads.
+Greg Pfeil <greg@technomadic.org>**20060606025206] 
+[Added link to docs, and table rows for Darwin/x86 results.
+Greg Pfeil <greg@technomadic.org>**20060606162501] 
+[more detailed test results.
+Greg Pfeil <greg@technomadic.org>**20060608020614] 
+[Fixes for LispWorks. It now passes all tests.
+Greg Pfeil <greg@technomadic.org>**20060608032404] 
+[Added a couple more ENSUREs to the tests.
+Greg Pfeil <greg@technomadic.org>**20060608032434] 
+[Manually ran tests on ECL darwin/ppc to get results.
+Greg Pfeil <greg@technomadic.org>**20060608033035] 
+[Added download information.
+Greg Pfeil <greg@technomadic.org>**20060608060711] 
+[Improved ArmedBear support.
+Greg Pfeil <greg@technomadic.org>**20060608070915] 
+[fixed defpackage form, :nickname -> :nicknames
+Greg Pfeil <greg@technomadic.org>**20060615055512] 
+[Add negative test case for threadp
+Greg Pfeil <greg@technomadic.org>**20060615055546] 
+[Changed platform support to a matrix and added Allegro-Darwin/x86 info.
+Greg Pfeil <greg@technomadic.org>**20060615064016] 
+[Tested on Allegro-8.0-Darwin/PPC
+Greg Pfeil <greg@technomadic.org>**20060615071330] 
+[Manually tested ABCL, and made some changes to fix it.
+Greg Pfeil <greg@technomadic.org>**20060615171316
+ * ABCL's version of ASDF doesn't support :serial;
+ * EXT:MAKE-THREAD-LOCK appears to be a thunk; and
+ * EXT:THREAD-LOCK doesn't return T on success.
+] 
+[Removed SBCL 0.9.11 row, since it's now old and hasn't been tested anyway.
+Greg Pfeil <greg@technomadic.org>**20060615172013] 
+[tested on SBCL-0.9.13 on Linux/x86
+Greg Pfeil <greg@technomadic.org>**20060616015049] 
+[Make it usable on non-threaded lisps like clisp
+attila.lendvai@gmail.com**20060823161524
+ 
+ Exported *supports-threads-p* so that apps can check that variable.
+ Some other small changes to make it load and 'work' on clisp.
+] 
+[Copyright and license notices
+Pierre Thierry <nowhere.man@levallois.eu.org>**20070331190036
+ Added a file containing the MIT license and a copyright and license notice in
+ each source file
+] 
+[Added license file.
+Greg Pfeil <greg@technomadic.org>**20070410040122] 
+[Incremented version for copyright addition.
+Greg Pfeil <greg@technomadic.org>**20070410040307] 
+[TAG 0.0.2
+Greg Pfeil <greg@technomadic.org>**20070410040340] 
+[Added location of Armed Bear threading implementation.
+Greg Pfeil <greg@technomadic.org>**20071016022338] 
+[Corrected name of method from destroy-process to destroy-thread.
+Greg Pfeil <greg@technomadic.org>**20071016022418] 
+[TAG version-0.0.2
+Greg Pfeil <greg@technomadic.org>**20071016220944] 
+[Added THREAD-ALIVE-P
+Greg Pfeil <greg@technomadic.org>**20071016221135] 
+[TAG version-0.1.0
+Greg Pfeil <greg@technomadic.org>**20071016221252] 
+[Changed BORDEAUX-MP to BORDEAUX-THREADS in documentation.
+Greg Pfeil <greg@technomadic.org>**20071016221435] 
+[TAG version-0.1.1
+Greg Pfeil <greg@technomadic.org>**20071016221525] 
+[Added documentation to THREAD-ALIVE-P.
+Greg Pfeil <greg@technomadic.org>**20071016223056] 
+[TAG version-0.1.2
+Greg Pfeil <greg@technomadic.org>**20071016223148] 
+[TAG version-0.1
+Greg Pfeil <greg@technomadic.org>**20071016223254] 
+[TAG version-0
+Greg Pfeil <greg@technomadic.org>**20071016223257] 
+[updated the version number
+Greg Pfeil <greg@technomadic.org>**20071017030815] 
+[Updated the version number to the _correct_ version.
+Greg Pfeil <greg@technomadic.org>**20071017030906] 
+[TAG version-0.1.2
+Greg Pfeil <greg@technomadic.org>**20071017030930] 
+[TAG version-0.1
+Greg Pfeil <greg@technomadic.org>**20071017030937] 
+[TAG version-0
+Greg Pfeil <greg@technomadic.org>**20071017030940] 
+[Fixed CMU implementation, based on patch submitted by Vladimir Sekissov.
+Greg Pfeil <greg@technomadic.org>**20071021143750] 
+[TAG version-0.1.3
+Greg Pfeil <greg@technomadic.org>**20071021144228] 
+[TAG version-0.1
+Greg Pfeil <greg@technomadic.org>**20071021144231] 
+[TAG version-0
+Greg Pfeil <greg@technomadic.org>**20071021144233] 
+[Added contributor list.
+Greg Pfeil <greg@technomadic.org>**20071021145810] 
+[TAG version-0.1.4
+Greg Pfeil <greg@technomadic.org>**20071021145837] 
+[TAG version-0.1
+Greg Pfeil <greg@technomadic.org>**20071021145839] 
+[TAG version-0
+Greg Pfeil <greg@technomadic.org>**20071021145841] 
+[Improved handling of unthreaded SBCL.
+Greg Pfeil <greg@technomadic.org>**20071021190434] 
+[TAG version-0.2.0
+Greg Pfeil <greg@technomadic.org>**20071021190533] 
+[TAG version-0.2
+Greg Pfeil <greg@technomadic.org>**20071021190537] 
+[TAG version-0
+Greg Pfeil <greg@technomadic.org>**20071021190539] 
+[Fixed a typo in mcl.lisp
+Greg Pfeil <greg@technomadic.org>**20071126002451] 
+[Shuffled around definitions to eliminate redefinition warnings.
+Greg Pfeil <greg@technomadic.org>**20071126003001] 
+[Resolved conflicts.
+Greg Pfeil <greg@technomadic.org>**20071126022921] 
+[Updated version
+Greg Pfeil <greg@technomadic.org>**20071126023259] 
+[TAG version-0.2.1
+Greg Pfeil <greg@technomadic.org>**20071126023340] 
+[TAG version-0.2
+Greg Pfeil <greg@technomadic.org>**20071126023343] 
+[TAG version-0
+Greg Pfeil <greg@technomadic.org>**20071126023345] 
+[Changed make-mp-support-error calls to make-threading-support-error
+Greg Pfeil <greg@technomadic.org>**20071126172138
+ 
+ Apparently a bad reversion while resolving some repo conflicts.
+] 
+[updated version
+Greg Pfeil <greg@technomadic.org>**20071126172415] 
+[TAG version-0.2.2
+Greg Pfeil <greg@technomadic.org>**20071126172427] 
+[TAG version-0.2
+Greg Pfeil <greg@technomadic.org>**20071126172429] 
+[TAG version-0
+Greg Pfeil <greg@technomadic.org>**20071126172431] 
+[Minor formatting change to copyright message (Stelian Ionescu <sionescu@common-lisp.net>)
+Greg Pfeil <greg@technomadic.org>**20071209204854] 
+[Centralized loading and checking of impl-specific thread libraries (Stelian Ionescu <sionescu@common-lisp.net>)
+Greg Pfeil <greg@technomadic.org>**20071209210618] 
+[Added threads check for ECL (Stelian Ionescu <sionescu@common-lisp.net>)
+Greg Pfeil <greg@technomadic.org>**20071212212902] 
+[Added FIXME for missing functionality in ECL (Stelian Ionescu <sionescu@common-lisp.net>)
+Greg Pfeil <greg@technomadic.org>**20071212213000] 
+[Finished conversion from methods to functions with defaults (Stelian Ionescu <sionescu@common-lisp.net>)
+Greg Pfeil <greg@technomadic.org>**20071212213155] 
+[TAG version-0.3.0
+Greg Pfeil <greg@technomadic.org>**20071212213320] 
+[TAG version-0.3
+Greg Pfeil <greg@technomadic.org>**20071212213322] 
+[TAG version-0
+Greg Pfeil <greg@technomadic.org>**20071212213324] 
+[updated version number
+Greg Pfeil <greg@technomadic.org>**20071212213521] 
+[TAG version-0.3.0
+Greg Pfeil <greg@technomadic.org>**20071212213530] 
+[TAG version-0.3
+Greg Pfeil <greg@technomadic.org>**20071212213532] 
+[TAG version-0
+Greg Pfeil <greg@technomadic.org>**20071212213534] 
+[Add THREAD-SUPPORT feature when the host implementation supports threads.
+Stelian Ionescu <sionescu@common-lisp.net>**20071213011542] 
+[Add WITH-TIMEOUT: native on SBCL, CMUCL and Allegro, emulated elsewhere.
+Stelian Ionescu <sionescu@common-lisp.net>**20071213011819] 
+[Add a forgotten bacquote
+Stelian Ionescu <sionescu@common-lisp.net>**20071213121819] 
+[Export symbol TIMEOUT.
+Stelian Ionescu <sionescu@common-lisp.net>**20071213154425] 
+[Remove INLINE declarations.
+Stelian Ionescu <sionescu@common-lisp.net>**20071213154845] 
+[TAG version-0.4.0
+Greg Pfeil <greg@technomadic.org>**20071216222749] 
+[TAG version-0.4
+Greg Pfeil <greg@technomadic.org>**20071216222753] 
+[TAG version-0
+Greg Pfeil <greg@technomadic.org>**20071216222756] 
+[updated version number
+Greg Pfeil <greg@technomadic.org>**20071216223018] 
+[TAG version-0.4.0
+Greg Pfeil <greg@technomadic.org>**20071216223029] 
+[TAG version-0.4
+Greg Pfeil <greg@technomadic.org>**20071216223032] 
+[TAG version-0
+Greg Pfeil <greg@technomadic.org>**20071216223036] 
+[Add THREAD-JOIN interface and the implementation for SBCL.
+Stelian Ionescu <sionescu@common-lisp.net>**20080404140418] 
+[Specify in index.html that bordeaux-threads more or less works on threadless implementations.
+Stelian Ionescu <sionescu@common-lisp.net>**20080408000926] 
+[Renamed THREAD-JOIN to JOIN-THREAD (which is the symbol we were exporting anyway).
+Greg Pfeil <greg@technomadic.org>**20080602003616] 
+[incremented version
+Greg Pfeil <greg@technomadic.org>**20080602020827] 
+[TAG version-0.5.0
+Greg Pfeil <greg@technomadic.org>**20080602020600] 
+[TAG version-0.5
+Greg Pfeil <greg@technomadic.org>**20080602020604] 
+[TAG version-0
+Greg Pfeil <greg@technomadic.org>**20080602020605] 
+[TAG version-0.5.0
+Greg Pfeil <greg@technomadic.org>**20080602020840] 
+[TAG version-0.5
+Greg Pfeil <greg@technomadic.org>**20080602020843] 
+[TAG version-0
+Greg Pfeil <greg@technomadic.org>**20080602020846] 
+[Shadowed WITH-TIMEOUT, now that it's exported by LIFT.
+Greg Pfeil <greg@technomadic.org>**20080726133840] 
+[Only expand default function/macro when there is no platform-specific implementation. (from Hans Huebner)
+Greg Pfeil <greg@technomadic.org>**20080726134014] 
+[incremented version
+Greg Pfeil <greg@technomadic.org>**20080726134346] 
+[Fix broken MAKE-THREAD for CMUCL. (from Hans Huebner)
+Greg Pfeil <greg@technomadic.org>**20080726134930] 
+[TAG version-0.5.1
+Greg Pfeil <greg@technomadic.org>**20080726135220] 
+[TAG version-0.5
+Greg Pfeil <greg@technomadic.org>**20080726135224] 

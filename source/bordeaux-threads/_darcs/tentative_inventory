@@ -1,0 +1,34 @@
+Starting with tag:
+[TAG version-0
+Greg Pfeil <greg@technomadic.org>**20080726135227] 
+[Add Scieneer Common Lisp support.
+Douglas Crosher <dtc@scieneer.com>**20081026123725] 
+[Update use of DEFTESTSUITE to latest LIFT.
+Stephen Compall <scompall@nocandysw.com>**20081228154010] 
+[Change *default-special-bindings* semantics and implement for all Lisps.
+Stephen Compall <scompall@nocandysw.com>**20081228164503] 
+[Add default initialization forms for *default-special-bindings*.
+Stelian Ionescu <sionescu@common-lisp.net>**20081228164757] 
+[Change *default-special-bindings* to adhere to the behaviour of with-standard-io-syntax.
+Stelian Ionescu <sionescu@common-lisp.net>**20081228170625] 
+[Whitespace changes and add modeline that inhibits indentation with tabs.
+Stelian Ionescu <sionescu@common-lisp.net>**20081228203209] 
+[Add an IGNORABLE declaration in WITH-TIMEOUT.
+Stelian Ionescu <sionescu@common-lisp.net>**20081228211508] 
+[Move definition of BINDING-DEFAULT-SPECIALS after that of *DEFAULT-SPECIAL-BINDINGS*.
+Stelian Ionescu <sionescu@common-lisp.net>**20081228212136] 
+[Remove *break-on-signals* and *random-state* from thread default initial bindings.
+Stelian Ionescu <sionescu@common-lisp.net>**20090110204518] 
+[Add INITIAL-BINDINGS keyword argument to MAKE-THREAD.
+Stelian Ionescu <sionescu@common-lisp.net>**20090110220430] 
+[Use DEFDMACRO to define default WITH-TIMEOUT.
+Stelian Ionescu <sionescu@common-lisp.net>**20090110220632] 
+[Style fix in SIGNAL-ERROR-IF-CURRENT-THREAD.
+Stelian Ionescu <sionescu@common-lisp.net>**20090110220846
+ 
+ No need to use MAKE-CONDITION with ERROR.
+] 
+[Fix docstring setting in DEFDFUN and DEFDMACRO.
+Stelian Ionescu <sionescu@common-lisp.net>**20090110222247] 
+[Use "Anonymous" as default thread name.
+Stelian Ionescu <sionescu@common-lisp.net>**20090111020410] 

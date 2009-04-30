@@ -1,0 +1,23 @@
+Starting with tag:
+[TAG version-0.4
+attila.lendvai@gmail.com**20080214155417] 
+[Smarter locale name parsing, 'it-IT "it-it" 'it_it, etc all parses to "it_IT".
+attila.lendvai@gmail.com**20080305104017] 
+[Make format-number accept NIL as *float-digits* which means no limit on it.
+attila.lendvai@gmail.com**20080305104619
+ (Patch by Andrea Chiumenti)
+] 
+[Make en-gb be the default English locale and en-us override it. (No offense, just tradition and conformance to other tools)
+attila.lendvai@gmail.com**20080305105656] 
+[Bah, remove my en_UK gibberish...
+attila.lendvai@gmail.com**20080305134421] 
+[Add a cerror complaining about .lisp files being loaded with non-utf-8 encoding
+attila.lendvai@gmail.com**20080305164950] 
+[quick patch to allow numeric printing in it_IT
+sean@guruhut.com**20080305171136] 
+[update tests for numeric printing
+sean@guruhut.com**20080305172010] 
+[Locale-file KLUDGE: hotpatch it_IT. this is really not the way to do this, or it should be sent upstream at least...
+attila.lendvai@gmail.com**20080305192855
+ (Patch by Andrea Chiumenti)
+] 

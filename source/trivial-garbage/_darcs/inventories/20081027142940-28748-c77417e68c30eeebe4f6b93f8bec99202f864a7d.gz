@@ -1,0 +1,117 @@
+[Initial version.
+Luis Oliveira <loliveira@common-lisp.net>**20060415234329] 
+[Add README file
+Luis Oliveira <loliveira@common-lisp.net>**20060415234427] 
+[insert descriptive patch name here
+Luis Oliveira <loliveira@common-lisp.net>**20060424002658
+ 
+ - New test: hashtables.weak-key.2.
+ - Renamed the hashtable tests.
+ - Placed trivial-garbage in the public domain.
+ - Poke at some insane OpenMCL internals to implement weak pointers.
+ - Use 'eq as the default :test for make-weak-key-hash-table.
+ - Use a weak alist to keep Corman's finalizers.
+] 
+[Mention the public domainess in the README
+Luis Oliveira <loliveira@common-lisp.net>**20060424003601] 
+[new file: release.sh
+Luis Oliveira <loliveira@common-lisp.net>**20060424011427] 
+[doh
+Luis Oliveira <loliveira@common-lisp.net>**20060424011506] 
+[Remove UUOC
+Luis Oliveira <loliveira@common-lisp.net>**20060424011638] 
+[simpler version grabbing
+Luis Oliveira <loliveira@common-lisp.net>**20060424012523] 
+[finalizations -> finalizers
+Luis Oliveira <loliveira@common-lisp.net>**20060424013852] 
+[cancel-finalizations -> cancel-finalization
+Luis Oliveira <loliveira@common-lisp.net>**20060424014327] 
+[New version: 0.10
+Luis Oliveira <loliveira@common-lisp.net>**20060424014407] 
+[TAG 0.10
+Luis Oliveira <loliveira@common-lisp.net>**20060424014429] 
+[New version: 0.11
+Luis Oliveira <loliveira@common-lisp.net>**20060424162557
+ 
+ - Fix finalization tests.
+ - Use less insane weak pointer implementation for OpenMCL.
+] 
+[TAG 0.11
+Luis Oliveira <loliveira@common-lisp.net>**20060424162725] 
+[Make Corman's finalizers thread-safe (hopefully)
+Luis Oliveira <loliveira@common-lisp.net>**20060424172130] 
+[Weak hash-table API changes and SBCL support.
+Luis Oliveira <loliveira@common-lisp.net>**20060831125213
+ 
+ - API change: MAKE-WEAK-HASH-TABLE that takes a WEAKNESS keyword
+   instead of separate MAKE-WEAK-VALUE-HASH-TABLE and
+   MAKE-WEAK-KEY-HASH-TABLE.
+ - New entry point TG::MAKE-HASH-TABLE that can be optionally used
+   to shadow CL:MAKE-HASH-TABLE.
+ - SBCL support for weak hash tables (requires patch to SBCL).
+ 
+ Original patch courtesy of Attila Lendvai.
+] 
+[Increment version number.
+Luis Oliveira <loliveira@common-lisp.net>**20060911191223] 
+[TAG 0.12
+Luis Oliveira <loliveira@common-lisp.net>**20060911191240] 
+[Documentation, compatibility and cleaning up.
+Luis Oliveira <loliveira@common-lisp.net>**20060920200908
+ 
+ - Remove old functions from the package export list.
+ - Quickly documented the MAKE-WEAK-HASH-TABLE function.
+ - Added a documentation generator to the README file.
+] 
+[New version: 0.13
+Luis Oliveira <loliveira@common-lisp.net>**20060920201147] 
+[TAG 0.13
+Luis Oliveira <loliveira@common-lisp.net>**20060920201204] 
+[Fix loading on lisps other then sbcl
+attila.lendvai@gmail.com**20060921150809] 
+[New version: 0.14
+Luis Oliveira <loliveira@common-lisp.net>**20060921155440] 
+[TAG 0.14
+Luis Oliveira <loliveira@common-lisp.net>**20060921155450] 
+[Fix CLISP finalizers
+Luis Oliveira <loliveira@common-lisp.net>**20070214130714
+ 
+ Fix courtesy of Marco Gidde.
+] 
+[preparation for 0.15
+Luis Oliveira <loliveira@common-lisp.net>**20070214130846] 
+[TAG 0.15
+Luis Oliveira <loliveira@common-lisp.net>**20070214130908] 
+[Add TG-TESTS nickname.
+Luis Oliveira <loliveira@common-lisp.net>**20080407192249] 
+[Remove unnecessary colons
+Luis Oliveira <loliveira@common-lisp.net>**20080407192426] 
+[Fix #+lispworks bug in FINALIZE
+Luis Oliveira <loliveira@common-lisp.net>**20080407192709] 
+[Rewrote finalizer tests to be simpler and more reliable.
+Luis Oliveira <loliveira@common-lisp.net>**20080407195427] 
+[Add ECL finalizers and GC
+Luis Oliveira <loliveira@common-lisp.net>**20080407195535] 
+[Use (incf (gethash x ht <default-value>)) idiom.
+Luis Oliveira <loliveira@common-lisp.net>**20080407195939] 
+[Improved weak hash-table support for Lispworks
+Luis Oliveira <loliveira@common-lisp.net>**20080522043405
+ 
+ - Map :key-or-value and :key-and-value to :both and :either, 
+   respectively.
+ 
+ Patch courtesy of Matt Lamari.
+] 
+[Increment version in .asd file
+Luis Oliveira <loliveira@common-lisp.net>**20080522043755] 
+[TAG 0.16
+Luis Oliveira <loliveira@common-lisp.net>**20080522043817] 
+[Add support for the Scieneer CL
+Luis Oliveira <loliveira@common-lisp.net>**20081027142456
+ 
+ Patch courtesy of Douglas Crosher, sent by Stelian Ionescu.
+] 
+[New release.sh script.
+Luis Oliveira <loliveira@common-lisp.net>**20081027142903] 
+[update trivial-garbage.asd for version 0.17
+Luis Oliveira <loliveira@common-lisp.net>**20081027142939] 

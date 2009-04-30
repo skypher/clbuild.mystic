@@ -1,0 +1,10 @@
+(asdf:oos 'asdf:load-op :contextl)
+(compile-file "figure-editor-2.lisp")
+(load "figure-editor-2")
+(in-package :contextl-user)
+(run-test-2)
+
+#+allegro (excl:exit)
+#+cmu (ext:quit)
+#+(or openmcl clozure-common-lisp) (ccl:quit)
+#+sbcl (sb-ext:quit)

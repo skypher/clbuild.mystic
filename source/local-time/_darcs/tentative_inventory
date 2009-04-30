@@ -1,0 +1,17 @@
+Starting with tag:
+[TAG 2008-11-27
+attila.lendvai@gmail.com**20081127150407
+ Ignore-this: 9d6f3d956cb6436e69f285ffeaa41207
+] 
+[fix :weekday support for format-timestamp
+attila.lendvai@gmail.com**20081223000411
+ Ignore-this: af6abab43e3d60e97a24a627982e09cd
+] 
+[follow :weekday change in the manual
+attila.lendvai@gmail.com**20081223002030
+ Ignore-this: 6b303376bed4e880911ce5e3e0f4d037
+] 
+[document the interpretation of day-of-week
+attila.lendvai@gmail.com**20081223002624
+ Ignore-this: 26bf6ba060df9684a5e60a9464adcfb0
+] 

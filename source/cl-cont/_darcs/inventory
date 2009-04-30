@@ -1,0 +1,13 @@
+Starting with tag:
+[TAG 0.3.5
+coffeemug@gmail.com**20081005231001] 
+[Disable inlining for FUNCALL/CC on SBCL.
+Leslie P. Polzer <polzer@gnu.org>**20081106092055] 
+[Updating changelog for 0.3.6
+coffeemug@gmail.com**20081106174502] 
+[Remove XFAIL on clozure-broken-typep, as Clozure is now fixed
+Stephen Compall <scompall@nocandysw.com>**20081126144323] 
+[Receive multiple values from called non-CPS functions
+Stephen Compall <scompall@nocandysw.com>**20081126144756] 
+[Updating version/changelog
+coffeemug@gmail.com**20081203011754] 

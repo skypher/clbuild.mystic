@@ -1,0 +1,49 @@
+hunk ./features.lisp 281
+-:lispworks5.1-5.1.1
++:lispworks5.1-5.1.2
+hunk ./features.txt 62
+-LispWorks, 5.0 - 5.0.2, 5.1, 5.1.1 Personal & Professional Edition
++LispWorks, 5.0 - 5.0.2, 5.1, 5.1.2 Personal & Professional Edition
+hunk ./features.lisp 420
+-:sbcl 1.0.24
++:sbcl 1.0.25
+hunk ./features.txt 107
+-SBCL 1.0.24
++SBCL 1.0.25
+hunk ./supported-cls.txt 5
+-LispWorks 5.1.1 Personal & Professional Edition
+-SBCL 1.0.24
++LispWorks 5.1.1 Personal
++LispWorks 5.1.2 Professional Edition
++SBCL 1.0.25
+hunk ./features.lisp 67
+- (:eql-specializer fixed)
+hunk ./features.txt 40
+-- EQL-SPECIALIZER is not exported. Fixed.
+hunk ./features.lisp 419
+-:sbcl 1.0.25
++:sbcl 1.0.26
+hunk ./features.txt 106
+-SBCL 1.0.25
++SBCL 1.0.26
+hunk ./supported-cls.txt 7
+-SBCL 1.0.25
++SBCL 1.0.26
+hunk ./features.lisp 87
+-:cmu19e
++:cmu19f
+hunk ./features.txt 44
+-CMUCL 19e
++CMUCL 19f
+hunk ./supported-cls.txt 4
+-CMU Common Lisp 19e
++CMU Common Lisp 19f
+hunk ./features.lisp 419
+-:sbcl 1.0.26
++:sbcl 1.0.27
+hunk ./features.txt 106
+-SBCL 1.0.26
++SBCL 1.0.27
+hunk ./supported-cls.txt 7
+-SBCL 1.0.26
++SBCL 1.0.27

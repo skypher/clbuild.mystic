@@ -1,0 +1,197 @@
+Starting with tag:
+[TAG 2006-08-16
+attila.lendvai@gmail.com**20060816211128] 
+[Allegro environment walk fix.
+Maciek Pasternacki <maciekp@japhy.fnord.org>**20060830093122] 
+[Fix unescape-as-uri and optimize it while we are at it
+attila.lendvai@gmail.com**20060831153343] 
+[Optimized write-as-uri
+attila.lendvai@gmail.com**20060831161612] 
+[Fix the reader test
+attila.lendvai@gmail.com**20060902115131] 
+[Workaround for clisp adjust-array bug
+attila.lendvai@gmail.com**20060905112932
+ 
+ (adjust-array x 0) is legal according to CLHS, but clisp yells.
+ so added an early-return for "" input.
+] 
+[Drop accidental debug printf's
+attila.lendvai@gmail.com**20060905132115] 
+[Various small patches by Chris Dean
+attila.lendvai@gmail.com**20060909095845
+ 
+ - A compatibility change to QUIT for LispWorks
+ - A case-insensitive version of HTML-ENTITIES
+ - A new function HTML-ENTITY->CHAR
+ - A LispWorks fix for RADIX-VALUES
+ - Small fix to HEAD
+] 
+[Added with-logging-io to rebind some *io* vars while inside the logging code
+attila.lendvai@gmail.com**20060911105133] 
+[src/posixenv.lisp: drop Time-stamp line
+Luca Capello <luca@pca.it>**20060918120805] 
+[Added a warning to deflogger at macroexpand time to warn when defining a logger whose name is from a foreign package
+attila.lendvai@gmail.com**20061015131548] 
+[Added :at-redefinition to deflookup-table, default is :warn otherwise it can be nil or a code form
+attila.lendvai@gmail.com**20061015131703] 
+[Missing pieces for my last two patches (damn)
+attila.lendvai@gmail.com**20061017152503] 
+[Added remove-keywords defun and implement remf-keywords as a define-modify-macro
+attila.lendvai@gmail.com**20061017154226] 
+[pushnew instead of push for *features*
+attila.lendvai@gmail.com**20061018103629] 
+[Print debug messages with *package* = :keyword (to fully qualify every symbol printed)
+attila.lendvai@gmail.com**20061102142939] 
+[Do not export log.debug and friends
+attila.lendvai@gmail.com**20061102143049
+ 
+ to avoid mass confusion: two packages both using arnesi defining a logger called 'log.
+] 
+[More detailed error reporting in unescape-as-uri
+henrik@evahjelte.com**20061128101729
+ Also a continue-as-is restart that allows parsing of invalid urls.
+] 
+[Set (FDEFINITION/CC NAME) on DEFGENERIC/CC; don't reDEFGENERIC/CC on DEFMETHOD/CC when GENERIC/CC already exists.
+Maciek Pasternacki <maciekp@japhy.fnord.org>**20061204081042] 
+[Bind *package* to the COMMON-LISP package instead of KEYWORD
+attila.lendvai@gmail.com**20061105220327] 
+[Added partial lispworks support for string encodings
+attila.lendvai@gmail.com**20061206091936] 
+[Clean up uri escaping to fix unicode text in ucw forms. Drop non-standard %u1234 unencoding.
+attila.lendvai@gmail.com**20061210192813] 
+[Add inline annotations to %string-to-octets and friends, reorder definitions
+attila.lendvai@gmail.com**20061210192956] 
+[Use eval-always in log.lisp
+attila.lendvai@gmail.com**20061210193004] 
+[Added commented out eval based check for special-var-p
+attila.lendvai@gmail.com**20061210193058
+ 
+ This is the only way to check for a (defvar foo) where (boundp 'foo) is nil.
+ Comment out for now, someone willing to take the responsibility should enable it... :)
+] 
+[Added slime-repl-log-appender that renders the args as inspectable presentations if :verbosity is > 1
+attila.lendvai@gmail.com**20061219165118] 
+[Small fix for the slime-repl-log-appender
+attila.lendvai@gmail.com**20061219171754] 
+[Added swank inspector dwim lookup hook for logger stuff (e.g. 'log or 'log.debug)
+attila.lendvai@gmail.com**20061224130840] 
+[Specialize slime inspection of log categories, added [set level] action with predefined minibuffer history
+attila.lendvai@gmail.com**20061225160657] 
+[FIX: unescape-as-uri (of + -> space) broke in my previous patch. fix and add test case.
+attila.lendvai@gmail.com**20070107193736] 
+[test-op is never done
+attila.lendvai@gmail.com**20070107193846] 
+[Fix (encoding-keyword-to-native :us-ascii) on lispworks (hopefully, can't test it)
+attila.lendvai@gmail.com**20070208223124] 
+[Evaluate macros in correct lexical environment in code walker, use code walking in sharpl-reader
+Berki Lukacs Tamas <blt@sch.bme.hu>**20061226165103] 
+[added test-suite :it.bese.arnesi.csv; csv.2 fails
+kilian.sprotte@gmail.com**20070228155717] 
+[fixed test csv.2
+kilian.sprotte@gmail.com**20070228163222] 
+[Do not register a restart in unescape-as-uri
+attila.lendvai@gmail.com**20070112154504
+ 
+ ...because it's a relatively expensive operation compared to the rest of the code
+ and the restart is not useful in production systems.
+] 
+[Delete unused *k* variable
+attila.lendvai@gmail.com**20070412183518] 
+[Support a :with-package in deprint-object
+attila.lendvai@gmail.com**20070425101219] 
+[Bind *print-length* to 64 while logging
+attila.lendvai@gmail.com**20070425101409] 
+[Added with-logger-level
+attila.lendvai@gmail.com**20070425135721] 
+[Initialize log level to nil and only set a default +debug+ in deflogger if the logger has no ansestor
+attila.lendvai@gmail.com**20070425150507
+ 
+ The result is that chained loggers will get their level from their parent unless it's explicitly set on them.
+] 
+[Added an &key (muffle-errors t) to defprint-object
+attila.lendvai@gmail.com**20070425222236] 
+[Renamed the CHILDER accessor of loggers to CHILDREN
+attila.lendvai@gmail.com**20070425101056] 
+[Small cleanup in the testsuite, mostly usage of #L
+attila.lendvai@gmail.com**20070426152438] 
+[FIX: #L reader captures *package* properly
+attila.lendvai@gmail.com**20070426152519
+ 
+ When used inside a macro it was potentially expanded (and interning) with a different *package*.
+] 
+[Clean up some reader macro stuff
+attila.lendvai@gmail.com**20070426162331] 
+[Use write-string instead of print in unpintable errors to leave alone newlines
+attila.lendvai@gmail.com**20070427211234] 
+[Do not register a restart in unescape-as-uri
+attila.lendvai@gmail.com*-20070112154504
+ 
+ ...because it's a relatively expensive operation compared to the rest of the code
+ and the restart is not useful in production systems.
+] 
+[Small change in unescape-as-uri to muffle some compiler notes
+attila.lendvai@gmail.com**20070429095352] 
+[Added failing with-call/cc test for special var binding in the /cc block
+attila.lendvai@gmail.com**20070505102343] 
+[Change brief-stream-log-appender to generate more human readable output
+attila.lendvai@gmail.com**20070508011343
+ 
+ 03:12  UCW.BACKEND INFO    Handling request from "192.168.1.1" for "/dynamic/js/functional.js"
+ 03:12  UCW.BACKEND INFO    Handled request in 0.004 secs (request came from "192.168.1.1" for "/dynamic/js/functional.js")
+] 
+[Typo and cosmetic fixes by Faré
+attila.lendvai@gmail.com**20070510150242] 
+[testcases for unescape-as-uri-non-strict
+Henrik Hjelte <henrik@evahjelte.com>**20070619051710] 
+[Make unencode-as-uri-non-strict work with all bad uris I know of
+Henrik Hjelte <henrik@evahjelte.com>**20070619051850] 
+[Export COLLECT-TIMING function.
+jmckitrick@reedlarkeygroup.com**20070629190329] 
+[add an (eval-when ...) when defining a test suite
+Luca Capello <luca@pca.it>**20070701155053] 
+[Dropped unnecessary eval-always from log.lisp (to make Nikodemus happy :)
+attila.lendvai@gmail.com**20070516131547] 
+[Add an implicit block for defmethod/cc and defun/cc so that the semantics of return-from remains the same
+attila.lendvai@gmail.com**20070521152536] 
+[Added '/' to the *uri-escaping-ok-table*
+attila.lendvai@gmail.com**20070628162920] 
+[Added random-queue-element
+attila.lendvai@gmail.com**20070628162956] 
+[added assert to warn that defgeneric/cc does not walk the :method entries
+attila.lendvai@gmail.com**20070903085209] 
+[Remove nil's from the appender list to make it easier to customize it
+attila.lendvai@gmail.com**20070910161039] 
+[Added an ignore-errors for :around append-message
+attila.lendvai@gmail.com**20070516131449] 
+[optimize strcat a little
+attila.lendvai@gmail.com**20070914171800] 
+[added load-time-value to call/cc
+attila.lendvai@gmail.com**20071023165346] 
+[wrap get-logger into a load-time-value.
+attila.lendvai@gmail.com**20071023210949
+ 
+ get-logger is not thread-safe and compiling sbcl with the :sb-hash-table-debug flag triggered it quite fast.
+ it also makes logging a hash-table lookup faster.
+] 
+[rollback the strcat dynamic-extent allocation, it causes too many notes on sbcl (and it's not enabled anyway)
+attila.lendvai@gmail.com**20071026225935] 
+[Adding swank::present-in-emacs that used to be part of swank proper but was removed from there.
+Nathan Bird <nathan@acceleration.net>**20080109193201] 
+[removing parameters to swank:inspect-for-emacs to keep up to date with swank.
+Nathan Bird <nathan@acceleration.net>**20080204210653] 
+[Fix LOOP statement order (unbreaks compilation on ECL).
+Maciek Pasternacki <maciekp@japhy.fnord.org>**20080210170822] 
+[Don't inline package object in ECL (breaks compilation)
+Maciek Pasternacki <maciekp@japhy.fnord.org>**20080210171007] 
+[swank:inspect-for-emacs is known called swank:emacs-inspect
+Marco Baringer <mb@bese.it>**20080217133715] 
+[Moved slime specific stuff into arnesi.slime-extras system, arnesi itself no longer depends on swank
+Marco Baringer <mb@bese.it>**20080217134147] 
+[strict-define-modify-macro-lw5.1
+sven@beta9.be**20080331102929
+ LispWorks 5.1 strictly enforces the function in define-modify-marco to be a symbol. Lambda's are not supported. Replaced the lambda with a helper function.
+] 
+[Replace #\u character with something slightly more portable
+asf@boinkor.net**20080427102505] 
+[fixed k-for-call/cc to properly handle multiple-value returns
+Russ Tyndall <russ@acceleration.net>**20081211170718] 

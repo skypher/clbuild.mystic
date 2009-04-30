@@ -1,0 +1,165 @@
+Starting with tag:
+[TAG version-0.6.7
+Gary King <gwking@metabang.com>**20070428231329] 
+[Remove nicely-format-filename; it's _way_ too specific (and really just a GLU holdoever).
+Gary King <gwking@metabang.com>**20070430185453] 
+[bumped version
+Gary King <gwking@metabang.com>**20070430185521] 
+[Intern depth
+Gary King <gwking@metabang.com>**20070430190943] 
+[TAG version-0.6.8
+Gary King <gwking@metabang.com>**20070430190947] 
+[cleanup old cruft
+Gary King <gwking@metabang.com>**20070616192100] 
+[Moved with-input, with-output, and with-stream-from-specifier from cl-markdown to metatilities
+Gary King <gwking@metabang.com>**20070616192204] 
+[Use load-time-value for a more efficient form-keyword
+Gary King <gwking@metabang.com>**20070616192243] 
+[futzing with leap-year-p testing
+Gary King <gwking@metabang.com>**20070616192309] 
+[clean up cruft
+Gary King <gwking@metabang.com>**20070626021957] 
+[SBCL wants defgeneric to say &rest args instead of just &rest; fine by me.
+Gary King <gwking@metabang.com>**20070626022026] 
+[Removed crufty old comment line separators
+Gary King <gwking@metabang.com>**20070626170159] 
+[Copy file is supposed to be depend on dev, not get loaded first!
+Gary King <gwking@metabang.com>**20070626170223] 
+[Remove #\{ and #\} from a docstring (it confused cl-markdown's extensions
+Gary King <gwking@metabang.com>**20070626170248] 
+[How did this ever work; returned copy-stream (borrowed this time from asdf-install).
+Gary King <gwking@metabang.com>**20070626170318] 
+[bumped version
+Gary King <gwking@metabang.com>**20070626170402] 
+[TAG version-0.6.8
+Gary King <gwking@metabang.com>**20070626170424] 
+[reformat
+Gary King <gwking@metabang.com>**20071105152744] 
+[Remove clim reader conditional; lowercase asdf ones; cleanup
+Gary King <gwking@metabang.com>**20071105152827] 
+[reformatting and spell correction
+Gary King <gwking@metabang.com>**20071105152947] 
+[Moved to new test setup
+Gary King <gwking@metabang.com>**20071111034833] 
+[Moved website to CL-Markdown; slight changes
+Gary King <gwking@metabang.com>**20071111143728] 
+[Moved to 'new' 'standard' test setup; now to write tests...
+Gary King <gwking@metabang.com>**20071111143830] 
+[bumped version
+Gary King <gwking@metabang.com>**20071111143901] 
+[TAG version-0.6.10
+Gary King <gwking@metabang.com>**20071111143913] 
+[Fix website to change header from class to id
+Gary King <gwking@metabang.com>**20071125170920] 
+[Pulled some stuff out of dates-and-times and into l0-time
+Gary King <gwking@metabang.com>**20080301191310] 
+[Pulled in some basic file handling routines
+Gary King <gwking@metabang.com>**20080301191356] 
+[Pulled some stuff out of dates-and-times and into l0-time
+Gary King <gwking@metabang.com>**20080301191450] 
+[Updated for changes in metabang-bind
+Gary King <gwking@metabang.com>**20080301191548] 
+[renamed the map-lines macro to iterate-lines
+Gary King <gwking@metabang.com>**20080301191636] 
+[Just a bit 'o cleanup
+Gary King <gwking@metabang.com>**20080301191654] 
+[bumped version
+Gary King <gwking@metabang.com>**20080301192023] 
+[TAG version-0.6.11
+Gary King <gwking@metabang.com>**20080301192033] 
+[Fix my incorrect call to complement (thanks to Tobias C. Rittweiler)
+Gary King <gwking@metabang.com>**20080316165856] 
+[Add the start of map-matching-files and collect-matching-files
+Gary King <gwking@metabang.com>**20080316170003] 
+[cleanup formatting, etc
+Gary King <gwking@metabang.com>**20080316170030] 
+[comment about eval-always
+Gary King <gwking@metabang.com>**20080316170058] 
+[Kill directory-name-p and replace with directory-pathname-p (standardize)
+Gary King <gwking@metabang.com>**20080316170145] 
+[bump version
+Gary King <gwking@metabang.com>**20080317024449] 
+[TAG version-0.6.12
+Gary King <gwking@metabang.com>**20080317024500] 
+[Fixed test configuration
+Gary King <gwking@metabang.com>**20080317024856] 
+[website updates
+Gary King <gwking@metabang.com>**20080323232544] 
+[Removed load-glu
+Gary King <gwking@metabang.com>**20080504003216] 
+[include next-element in the backage
+Gary King <gwking@metabang.com>**20080504003251] 
+[Do not pull in defsystem-compatibility anymore
+Gary King <gwking@metabang.com>**20080504003312] 
+[Splitting dynamic-classes into it's own directory/project; bringing define-classes.lisp along for the ride
+Gary King <gwking@metabang.com>**20080526151318] 
+[Added apply-if-exists
+Gary King <gwking@metabang.com>**20080526151359] 
+[Decoupling from moptilities
+Gary King <gwking@metabang.com>**20080526151507] 
+[Removed metatilities-base and dynamic-classes
+Gary King <gwking@metabang.com>**20080527011222] 
+[moved bits and pieces of date formatting utilities into metatilities-base
+Gary King <gwking@metabang.com>**20080527011918] 
+[moved nyi macro to metatilities-base
+Gary King <gwking@metabang.com>**20080527012013] 
+[moved a few string utilities to metatiliities-base
+Gary King <gwking@metabang.com>**20080527012118] 
+[Moved fixnump to metatilities-base
+Gary King <gwking@metabang.com>**20080527012133] 
+[Just renamed asdf system packages
+Gary King <gwking@metabang.com>**20080527012159] 
+[website touch ups
+Gary King <gwking@metabang.com>**20080527024905] 
+[Moved iterate-over-indexes to metatilities-base
+Gary King <gwking@metabang.com>**20080610160223] 
+[bump version; depend on metatilities-base 0.6.0 or higher
+Gary King <gwking@metabang.com>**20080610160334] 
+[TAG version-0.6.13
+Gary King <gwking@metabang.com>**20080610160348] 
+[moved file-newer-than-file-p from here to metatilities-base
+Gary King <gwking@metabang.com>**20080621022111] 
+[moved stuff from metatilities-base's package to metatilities's package additional
+Gary King <gwking@metabang.com>**20080621022210] 
+[bump version
+Gary King <gwking@metabang.com>**20080621025521] 
+[TAG version-0.6.14
+Gary King <gwking@metabang.com>**20080621025534] 
+[stop exporting 
+Gary King <gwking@metabang.com>**20080621030100] 
+[Updated date parsing code to handle case insensitive Lisps
+Gary King <gwking@metabang.com>**20080803124306] 
+[bump version
+Gary King <gwking@metabang.com>**20080901171322] 
+[TAG version-0.6.15
+Gary King <gwking@metabang.com>**20080901171335] 
+[fix declaration (thanks to Stelian Ionescu)) - case 227
+Gary King <gwking@metabang.com>**20080928000513] 
+[Fix package name to metatilities-test, not metatilities-base-test <smile>
+Gary King <gwking@metabang.com>**20080928002828] 
+[some new tests for parse-time
+Gary King <gwking@metabang.com>**20080928002851] 
+[Fix parse-time (thanks to Stelian Ionescu) - case 237
+Gary King <gwking@metabang.com>**20080928002925] 
+[Added .boring file
+Gary King <gwking@metabang.com>**20081003031858] 
+[added tests
+Gary King <gwking@metabang.com>**20081003033113] 
+[Added some more boring extensions
+Gary King <gwking@metabang.com>**20081003033212] 
+[case 236 - was calling directory with non-portable arguments (thanks to Stelian Ionescu for reporting this)
+Gary King <gwking@metabang.com>**20081003033255] 
+[Added textmate project file for website
+Gary King <gwking@metabang.com>**20081003033311] 
+[bump version
+Gary King <gwking@metabang.com>**20081003033349] 
+[TAG version-0.6.15
+Gary King <gwking@metabang.com>**20081003033359] 
+[add if-does-not-exist to delete-directory (thought that this was a case but can't find it)
+Gary King <gwking@metabang.com>**20081204173839] 
+[Export time-day-of-week
+Gary King <gwking@metabang.com>**20081204173924] 
+[Case 288 : fixed compiler macros for conjoin and disjoin (should never have worked!)
+Gary King <gwking@metabang.com>**20081204174155] 
+[bump version
+Gary King <gwking@metabang.com>**20081204174207] 

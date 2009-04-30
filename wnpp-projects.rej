@@ -1,0 +1,17 @@
+***************
+*** 152,158 ****
+  yaclml       get_darcs http://common-lisp.net/project/bese/repos/yaclml #generating XML/HTML
+  log5 get_darcs http://common-lisp.net/project/log5 # logging framework organized around five things: categories, outputs, senders, messages and contexts
+  # cl-randist get_git http://lambdatau.com/git/cl-randist.git # random number distribution. Repo fails, download from http://code.google.com/p/cl-randist/
+- contextl get_darcs http://common-lisp.net/project/closer/repos/contextl/  # CLOS extension for Context-oriented Programming
+  cl-l10n get_darcs http://www.common-lisp.net/project/cl-l10n/repos/cl-l10n # localization
+  local-time get_darcs http://common-lisp.net/project/local-time/darcs/local-time # library for manipulating date and time information
+  trivial-email-utf-8 get_darcs http://common-lisp.net/project/bpm/darcs/trivial-email-utf-8 # http://groups.google.com/group/cl-terrace/web/trivial-email-utf-8
+--- 152,158 ----
+  yaclml       get_darcs http://common-lisp.net/project/bese/repos/yaclml #generating XML/HTML
+  log5 get_darcs http://common-lisp.net/project/log5 # logging framework organized around five things: categories, outputs, senders, messages and contexts
+  # cl-randist get_git http://lambdatau.com/git/cl-randist.git # random number distribution. Repo fails, download from http://code.google.com/p/cl-randist/
++ contextl get_darcs http://common-lisp.net/project/closer/repos/contextl  # CLOS extension for Context-oriented Programming
+  cl-l10n get_darcs http://www.common-lisp.net/project/cl-l10n/repos/cl-l10n # localization
+  local-time get_darcs http://common-lisp.net/project/local-time/darcs/local-time # library for manipulating date and time information
+  trivial-email-utf-8 get_darcs http://common-lisp.net/project/bpm/darcs/trivial-email-utf-8 # http://groups.google.com/group/cl-terrace/web/trivial-email-utf-8

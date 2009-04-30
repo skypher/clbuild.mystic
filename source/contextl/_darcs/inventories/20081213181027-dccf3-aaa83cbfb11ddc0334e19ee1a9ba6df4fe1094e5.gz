@@ -1,0 +1,11 @@
+Starting with tag:
+[TAG 0.51
+pc@p-cos.net**20081129190559] 
+[Renamed alternative system definitions, to make tthe package work nicer with asd-install.
+pc@p-cos.net**20081213171702] 
+[Added default-initargs to some metaclasses to make them compatible with new SBCL release.
+pc@p-cos.net**20081213180758] 
+[Fixed a minor backquote inelegance.
+pc@p-cos.net**20081213180910] 
+[Updated version number to 0.52.
+pc@p-cos.net**20081213180947] 

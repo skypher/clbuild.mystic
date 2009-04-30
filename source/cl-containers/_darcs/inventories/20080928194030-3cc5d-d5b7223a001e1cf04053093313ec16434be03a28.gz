@@ -1,0 +1,7 @@
+Starting with tag:
+[TAG version-0.11.0
+Gary King <gwking@metabang.com>**20080928192249] 
+[Update version requirements in dependencies
+Gary King <gwking@metabang.com>**20080928193956] 
+[Use funcall-if-exists, not apply-if-exists
+Gary King <gwking@metabang.com>**20080928194011] 

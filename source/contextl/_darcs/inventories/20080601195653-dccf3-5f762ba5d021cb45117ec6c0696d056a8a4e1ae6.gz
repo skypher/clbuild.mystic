@@ -1,0 +1,369 @@
+[Initial revision.
+pc@p-cos.net**20050822095709] 
+[Removed spurious &allow-other-keys declarations.
+pc@p-cos.net**20050910103405] 
+[cl:defmethod reverted to defmethod.
+pc@p-cos.net**20050910110450
+ 
+ I have changed one method definition to cl:defmethod because the LispWorks version of closer-mop redefines the defmethod macro. In that one case that led to a lack of recognizing additional keyword arguments. Closer-mop now includes a workaround for this, so that the workaround in ContextL is not necessary anymore.
+ 
+] 
+[Added define-layered-method, removed naming convention for layered methods.
+pc@p-cos.net**20050910144635
+ 
+ Until now, methods for layered functions had to be defined like this:
+ 
+ (defmethod -function-name- ((layer some-layer) args ...)
+   ...)
+ 
+ People found this confusing and inconsistent with the other defining macros, i.e. define-layered-class and define-layered-function. Furthermore, they didn't like the naming convention that layered functions are named like function-name, and their methods are named like -function-name- (i.e. with preceding and succeeding dashes). So this has been replaced, and now the methods for layered functions are defined like that:
+ 
+ (define-layered-method :in-layer some-layer (args ...)
+   ...)
+ 
+ Note that the :in-layer declaration has to come before the qualifiers, if any.
+ 
+ Thanks to Bjoern Lindberg and Thomas F. Burdick for the concrete suggestions. Among other things, the new approach also has the advantage that the implementation of layered functions doesn't shine through.
+ 
+] 
+[Added the possibility to ensure inactive layers + a number of bugfixes.
+pc@p-cos.net**20050910213915
+ 
+ It's now possible to say with-inactive-layers, and the functional equivalents to with-active-layers have also been adapted to enable inactivation of layers. During the process, a number of bugs have been revealed, especially wrt the previous removal of &allow-other-keys and problems related to finalize-inheritance in Allegro Common Lisp.
+ 
+] 
+[Added checks for layer inheritance.
+pc@p-cos.net**20050911124706
+ 
+ Inheritance between layers is not officially supported yet, but I have already added checks for ensuring active and inactive that would result in incorrect layer orderings.
+ 
+] 
+[TAG 0.1
+pc@p-cos.net**20050911124939] 
+[Added safe-special-symbol-progv and special-symbol-progv, plus a few optimization tweaks in cx-layer.
+pc@p-cos.net**20050911212723] 
+[Further performance tweaks and a workaround for a bug in OpenMCL.
+pc@p-cos.net**20050914232409] 
+[Automatically generated writers need a different argument-precedence-order than the default.
+pc@p-cos.net**20050919155004] 
+[Fixed typo in cx-layered-class.lisp
+pc@p-cos.net**20051019180043] 
+[Fixed a bug in the compiler macros in cx-layer.
+pc@p-cos.net**20051026153315] 
+[Resurrected better error handling for rebinding non-special places from AspectL.
+pc@p-cos.net**20051030142833] 
+[Changing non-special places to special places now also works in Allegro.
+pc@p-cos.net**20051030142923] 
+[Added a comment for an otherwise confusing method definition.
+pc@p-cos.net**20051130202637] 
+[Improved parsing of layered methods.
+pc@p-cos.net**20051130214708
+ 
+ The :method option in define-layered-function is now parsed correctly, similar to how define-layered-method is parsed and processed. Furthermore, one can now give a name to the otherwise gensymmed layer parameter for a layered method. This is useful when one wants to call call-next-method with changed parameters. In that case, the layer parameter must be passed explicitly. (That's not optimal, but the best workaround I can think of.)
+ 
+ Example:
+ 
+ (define-layered-method some-function :in-layer (layer some-layer) (&rest some-parameters)
+   (apply #'call-next-method layer ... changed parameters ... some-parameters))
+ 
+] 
+[Fix in updating non-special slots.
+pc@p-cos.net**20051220104806] 
+[Switched to symbols in the asdf definition.
+pc@p-cos.net**20051220162053] 
+[Added a new namespace for layers.
+pc@p-cos.net**20051220195304
+ 
+ Before this change, layers were simply classes with the same name as given in the deflayer form. This potentially leads to name conflicts between classes and layers. Since Common Lisp favors multiple namespaces, I have changed this, so now layers reside in their own namespace. (They are still internally implemented as classes.)
+ 
+] 
+[Replaced a reduce idiom with a better understandable loop idiom.
+pc@p-cos.net**20051228215809] 
+[Removed a spurious #:.
+pc@p-cos.net**20060103113036] 
+[TAG 0.2
+pc@p-cos.net**20060119203302] 
+[Removed :method-class option from ensure-layered-method in CMUCL and SBCL.
+pc@p-cos.net**20060127143425
+ 
+ Since the implementation of ensure-method in CMUCL's and SBCL's Closer to MOP implementation has changed, ContextL's ensure-layered-method cannot accept the :method-class option anymore. This restriction can hopefully be removed again in the future.
+] 
+[Switched from slot-xxx-using-class to slot-xxx in a shared-initialize definition.
+pc@p-cos.net**20060127143707
+ 
+ CLisp seems to have problems with calling slot-xxx-using-class functions within shared-initialize under some circumstances, so I switched to calling the plain slot-xxx functions instead.
+] 
+[Replaced a few loops with calls to the new Closer to MOP utility function required-args.
+pc@p-cos.net**20060127224216] 
+[TAG 0.21
+pc@p-cos.net**20060203121040] 
+[Update code because MCL is disappearing from OpenMCL's features list
+pc@p-cos.net**20060224214723] 
+[Updated the version number and copyright information in the system definition.
+pc@p-cos.net**20060301201034] 
+[Add the metaclass singleton-class.
+pc@p-cos.net**20060302154100] 
+[A layer is now a subclass of special-class and singleton-class.
+pc@p-cos.net**20060302154347] 
+[Reordered ensure-inactive-layer-context to allow for inlining.
+pc@p-cos.net**20060302154715] 
+[Minor edits.
+pc@p-cos.net**20060302154852] 
+[Added a few calls to load-time-value.
+pc@p-cos.net**20060302154939] 
+[Moved function name predicates to cx-util.lisp.
+pc@p-cos.net**20060302155011] 
+[Refactored shifting of special slots so that it works for slots with :allocation :class as well.
+pc@p-cos.net**20060302155044] 
+[Added clearer separation between layers and layer-classes.
+pc@p-cos.net**20060303161020
+ 
+ Layers and layer classes were somewhat mixed up until recently. (See also comments about singleton classes.) They are now more cleanly separated.
+ 
+ Note that previous uses of find-layer have to be replaced by calls to find-layer-class. The function find-layer has now a slightly different meaning - it returns the prototye instance for a layer, not its class anymore.
+ 
+] 
+[Cleaned up implementation of singleton classes.
+pc@p-cos.net**20060303161417
+ 
+ Accessors that automagically access slots in a class prototype when slots in the related class are attempted to be accessed are now removed again. These automagic accessors could have easily led to confusing base level and meta level code.
+ 
+ Singleton classes can now also have initargs.
+ 
+] 
+[Reimplemented shared-initialize for special classes.
+pc@p-cos.net**20060303161656
+ 
+ Reimplementation of shared-initialize for special classes was necessary because otherwise slots with :allocation :class would have behaved erroneously when they are assigned to via initargs. (At least that was the case in one CL implementation, probably due to some optimization in the CLOS implementation that is now removed with the plain shared-initialize implementation.)
+ 
+] 
+[Added with-special-initargs / with-special-initargs* to special classes.
+pc@p-cos.net**20060305123037
+ 
+ Thanks to Drew Crampsie for the main idea.
+ 
+] 
+[Added :initarg processing in with-active-layers / with-active-layers*.
+pc@p-cos.net**20060305123150
+ 
+ Thanks to Nick Bourner for the main idea.
+ 
+] 
+[Removed function-name-p in cx-util and changed the function name test in cx-layered-function accordingly.
+pc@p-cos.net**20060305132624] 
+[Removed a spurious gensym in cx-layered-function.
+pc@p-cos.net**20060305135646] 
+[Added calls to finalize-inheritance in find-layer, so that it also works in Allegro Common Lisp.
+pc@p-cos.net**20060305141624] 
+[Added a test suite for special slots and with-special-initargs.
+pc@p-cos.net**20060305141715] 
+[Turned many uses of *active-context* into a reference to a lexically scoped parameter active-context. This is a first step towards providing a MOP for layer activation/deactivation.
+pc@p-cos.net**20060305161336] 
+[Renamed layer-object and layer-class to standard-layer-object and standard-layer-class, as another preparatory step towards providing a MOP for layer activation/deactivation.
+pc@p-cos.net**20060306211023] 
+[Added a utility script for batch processing of the test cases.
+pc@p-cos.net**20060306211226] 
+[Added a function call-next-layered-method as a more convenient way to perform a call-next-method with changed arguments.
+pc@p-cos.net**20060307204826] 
+[Exported singleton classes.
+pc@p-cos.net**20060308135226] 
+[Added two optional parameters to find-singleton.
+pc@p-cos.net**20060309234019] 
+[Added functions to remove layers and layered functions.
+pc@p-cos.net**20060310004004] 
+[Added an optional environment parameter to find-layer-class.
+pc@p-cos.net**20060310004042] 
+[Added activate-layer-using-class and deactivate-layer-using-class for metacircular layer activation/deactivation.
+pc@p-cos.net**20060310160711] 
+[Added a test case for metacircular layer activation.
+pc@p-cos.net**20060310160959] 
+[Added two benchmarks.
+pc@p-cos.net**20060310161020] 
+[Slots in singleton classes and in layers can now be reinitialized.
+pc@p-cos.net**20060318210539
+ 
+ This is achieved by the :reinitialize option for a slot, like this:
+ 
+ (defclass some-class ()
+   ((some-slot :initform 'foo :reinitialize t))
+   (:metaclass singleton-class))
+ 
+ (deflayer some-layer ()
+   ((some-slot :initform 'bar :reinitialize t)))
+ 
+ The default value for the :reinitialize option is nil. If it is nil, then the slot will only be initialized when the class/layer is initialized. When the class/layer already exists before the new defclass/deflayer form is processed, the slot keeps its old value, as is the case for slots with :allocation :class in plain CLOS. If the :reinitialize option is true, however, then the respective slot will always be re/initialized with the value given with the :initform, no matter what. If no :initform is given, the slot is made unbound, again no matter what. In other words, a slot with :reinitialize nil behaves similar to a defvar form while a slot with :reinitialize t behaves similar to a defparameter form.
+ 
+ Currently, CMUCL and MCL have a bug wrt reinitialization of slots with :allocation :class, which leads to subsequent bug in ContextL. This has the consequence that special slots (with the option :special set to true) in singleton classes, in layers and in special classes for slots with :allocation :class do not work correctly anymore when the respective class/layer is reinitialized. As soon as the bugs in CMUCL and MCL are fixed, I can also fix the related bug in ContextL.
+ 
+] 
+[New version of reinitializable singleton/layer slots. The previous one had a buggy corner case.
+pc@p-cos.net**20060320064341] 
+[Added support for ecl.
+pc@p-cos.net**20060501083059] 
+[Switched to another idiom for disabling initarg checks for partial classes.
+pc@p-cos.net**20060501083142] 
+[Restricted MOP-friendly initialization of special slots to CL implementations that actually need it.
+pc@p-cos.net**20060501083215] 
+[Replaced calls to finalize-inheritance with calls to ensure-finalized.
+pc@p-cos.net**20060720105517] 
+[Removed a spurious in-package declaration in the .asd file.
+pc@p-cos.net**20060821203929] 
+[In SBCL, ensure-layered-method now can take the :method-class argument again.
+pc@p-cos.net**20060826131123] 
+[TAG 0.3
+pc@p-cos.net**20060826131349] 
+[Updated version number in the .asd file.
+pc@p-cos.net**20060826131414] 
+[Added a block to define-layered-method's body, so return-from works as expected
+attila.lendvai@gmail.com**20060911004739] 
+[Fixed minor bug in block names for layered methods.
+pc@p-cos.net**20060930153014] 
+[Fixed a bug in some (loop var on list ...) idioms. Thanks to Attila Lendvai.
+pc@p-cos.net**20061028113821] 
+[Removed the inline declaration for call-next-layered-method in LispWorks because this confuses LispWorks.
+pc@p-cos.net**20061109154825] 
+[Checked against SBCL 1.0. Modified call to ensure-method for SBCL.
+pc@p-cos.net**20061130203010
+ 
+ See related patch for Closer to MOP. The current version of ensure-method for SBCL doesn't understand the :method-class parameter (like most other CL implementations, btw).
+] 
+[Fixed some subtypep bugs in metaclass initialization.
+pc@p-cos.net**20061216164739] 
+[Added a script to run the figure editor example.
+pc@p-cos.net**20061216165204] 
+[Added a new version of the figure editor example.
+pc@p-cos.net**20061216165321] 
+[Reinstated the former ensure-method implementation for SBCL.
+pc@p-cos.net**20061227142455] 
+[Added a script for the second figure editor example.
+pc@p-cos.net**20061227142520] 
+[Added the figure editor examples to the automated test suite.
+pc@p-cos.net**20061228003149] 
+[TAG 0.31
+pc@p-cos.net**20061228152450] 
+[Updated version number in the .asd file.
+pc@p-cos.net**20061228152504] 
+[Fixed bugs in the implementation of special classes / special slots, especially wrt class reinitialization.
+pc@p-cos.net**20070407100040] 
+[Incremented version number to 0.32.
+pc@p-cos.net**20070421194838] 
+[TAG 0.32
+pc@p-cos.net**20070421195045] 
+[Several minor and major changes.
+pc@p-cos.net**20070421200127
+ 
+ This version of ContextL (0.4) incorporates several minor and major changes as a preparation towards a 1.0 release. Here is a list of the changes:
+ 
+ --- Changes in the visible API ---
+ 
+ + The functions activate-layer and activate-layer-using-class have been renamed to adjoin-layer and adjoin-layer-using-class, and deactivate-layer and deactivate-layer-using-class have been renamed to remove-layer and remove-layer-using-class. The new names reflect better what these functions actually do.
+ 
+ + Removed the functions funcall-with-layers and apply-with-layers. Use the functions funcall-with-layer-context and apply-with-layer-context instead.
+ 
+ + The deflayer macro doesn't take a :layer-class option anymore, but instead a :metaclass option. (I have tried to abstract from the internal representation as CLOS classes, but that turns out to be useless for the time being.)
+ 
+ --- Additions to the visible API ---
+ 
+ + Added the functions funcall-with-layer-context and apply-with-layer-context.
+ 
+ + Added the function current-layer-context. This captures the set of currently active layers, which can later be reinstalled with funcall-with-layer-context and apply-with-layer-context.
+ 
+ + Added the metaclasses layered-function and layered-method. However, they should better not be used directly. For programmatically creating layered functions and methods, better use the functions ensure-layered-function and ensure-layered-method.
+ 
+ + Added the readers layered-function-definer, layered-function-argument-precedence-order, layered-function-lambda-list.
+ 
+ + Added the readers layered-method-lambda-list, layered-method-specializers, layered-method-layer.
+ 
+ + Added the readers partial-class-defining-classes, partial-class-defining-metaclass and the class partial-object, which is the default superclass for partial classes.
+ 
+ + Added the readers slot-definition-layered-readers and slot-definition-layered-writers.
+ 
+ + You can now specify an :in-layer option in slot specifiers. This means that a slot within a define-layered-class form can be declared to be in a different layer than the respective class itself. This allows, for example, to group slots of different layers in the same define-layered-class form.
+ 
+ + Layers and layered functions can now also have uninterned symbols as names. This enables a form of anonymous layers and anonymous layered functions when gensym is used to create names for them.
+ 
+ + Added the function ensure-layer for programmatically creating layers.
+ 
+ --- Internal changes, which are not necessarily visible ---
+ 
+ + If someone tries to define default initargs for singleton classes or layers, ContextL emits a warning. The error handling is improved for the case when the :allocation for a singleton or layer-specific slot is set to something else than :class.
+ 
+ + Some of the :in-layer keyword parameters to internal functions have previously taken lists of layers for technical reasons. This is not the case anymore.
+ 
+ + Changed the handling of the :defining-metaclass option for partial classes.
+ 
+ + Layered direct slot definition metaobjects don't take :layered-reader, :layered-writer and :layered-accessor initargs anymore, but rather :layered-readers and :layered-writers, which is closer to how the CLOS MOP works as well.
+ 
+ + Added methods for print-object for the major classes and metaclasses, such that, for example, debug output now prints more nicely.
+ 
+] 
+[Incremented the version number to 0.40.
+pc@p-cos.net**20070421204713] 
+[TAG 0.40
+pc@p-cos.net**20070421204742] 
+[Fixed a typo.
+pc@p-cos.net**20070430135157] 
+[Added an initform to layer-name in standard-layer-class to avoid entering the debugger when printing instances. (due to Attila Lendvai)
+pc@p-cos.net**20070526155018] 
+[Added :in as an alternative for :in-layer.
+pc@p-cos.net**20070910132617] 
+[Added support for Allegro 8.1 in the test suite.
+pc@p-cos.net**20070926174714] 
+[ContextL news depends on portable-threads of the GBBopen project.
+pc@p-cos.net**20071112164655] 
+[Added a missing ignore declaration.
+pc@p-cos.net**20071112164820] 
+[Caching of layer contexts should now be thread-safe.
+pc@p-cos.net**20071112164845] 
+[Added (setf current-layer-context).
+pc@p-cos.net**20071112164928] 
+[Added a rationale why read operatoions on special slots should be thread-safe outside of object initializations.
+pc@p-cos.net**20071112164952] 
+[Enclosing uninterned symbols should now be thread-safe.
+pc@p-cos.net**20071112165114] 
+[Removed explicit loading of the GBBopen system definitions.
+pc@p-cos.net**20071116113334] 
+[Added new introspective function active-layers.
+pc@p-cos.net**20071117191417] 
+[Added slightly more flexible error handling when find-layer and find-layer-class don't find a layer for a given name.
+pc@p-cos.net**20071117191602] 
+[Added a garbage collector for layer caches.
+pc@p-cos.net**20071126000014
+ 
+ Whenever a layer definition is reinitialized (for example by calling reinitialize-instance or by evaluating a deflayer form for an already existing layer), all its entries in the layer activation caches are removed. This guarantees that adjoin-layer-using-class and remove-layer-using-class are called again when such a layer is activated or deactivated, even if those two generic functions have previously returned t as second values for that layer. Since layer-makunbound is implemented in terms of (setf find-class) and (setf class-name), which triggers a call to reinitialize-instance according to the CLOS MOP specification, this means that layer-makunbound causes the respective layer to be removed from the caches as well.
+ 
+ Likewise, if adjoin-layer-using-class and remove-layer-using-class are specialized on a particular layer metaclass, all entries for layers of that layer metaclass are also removed from the layer activation caches. This happens also when methods for these generic functions are redefined.
+ 
+] 
+[Reorganized the source code to support garbage collection of layer activation caches.
+pc@p-cos.net**20071126001051] 
+[Added a workaround for LispWorks, where :default-initargs for generic function metaclasses apparently don't always work.
+pc@p-cos.net**20071126001254] 
+[ensure-active-layer and ensure-inactive-layer now return nothing.
+pc@p-cos.net**20071126001404] 
+[A specializer for a method may not be a class, so print the specializer metaobject instead of the class name.
+pc@p-cos.net**20071126001428] 
+[Removed support in the test suite for old versions of Allegro Common Lisp.
+pc@p-cos.net**20071126001507] 
+[Added more scripts for running the test suite in different CL implementations.
+pc@p-cos.net**20071126001548] 
+[Force recompilation of ContextL in the first test file.
+pc@p-cos.net**20071126001641] 
+[Removed the fix for (sometimes) incorrect method metaobject classes. This was caused by an underlying bug in Closer to MOP which is now fixed over there.
+pc@p-cos.net**20071127232211] 
+[Simplified mapping of layer-related names to internal names, which should also make things easier to read when debugging ContextL programs.
+pc@p-cos.net**20071201002044] 
+[Some minor code simplifications.
+pc@p-cos.net**20071201170502] 
+[fix: (define-layered-method foo () "This shouldn't be a docstring!")
+attila.lendvai@gmail.com**20071212110116] 
+[Made locks more coarse-grained, and made adjoin-layer and remove-layer more efficient.
+pc@p-cos.net**20071216215418] 
+[Another variation of making ContextL thread-safe. This time it should actually work ;), and it is again more fine-grained, that is, more efficient than the previous version.
+pc@p-cos.net**20071217212204] 
+[Added conditionalization for Clozure Common Lisp.
+pc@p-cos.net**20080405134746] 
+[Adapted a test case so that it runs in CCL.
+pc@p-cos.net**20080509231730] 
+[Updated version number and copyright information in the system definitions.
+pc@p-cos.net**20080601195622] 

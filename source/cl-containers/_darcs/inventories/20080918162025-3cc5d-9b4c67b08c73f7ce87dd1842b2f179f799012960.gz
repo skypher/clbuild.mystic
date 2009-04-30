@@ -1,0 +1,346 @@
+[(re)initial commit
+Gary King <gwking@metabang.com>**20051104140625] 
+[added website source
+Gary King <gwking@metabang.com>**20051104154233] 
+[Added more documentation, tried some new container sampling stuff, updated web page source
+Gary King <gwking@metabang.com>**20051108145133] 
+[website
+Gary King <gwking@metabang.com>**20051111035631] 
+[reformatted system def
+Gary King <gwking@metabang.com>**20051111192832] 
+[added version files
+Gary King <gwking@metabang.com>**20051117031915] 
+[first time getting SBCL to load
+Gary King <gwking@metabang.com>**20051117175946] 
+[Moved system file up one level; moved website around a bit
+Gary King <gwking@metabang.com>**20051118151236] 
+[exported size
+Gary King <gwking@metabang.com>**20051123012356] 
+[returned iterators to containers
+Gary King <gwking@metabang.com>**20051124203929] 
+[delete-item-at for lists
+Gary King <gwking@metabang.com>**20051203021906] 
+[minor system cleanup
+Gary King <gwking@metabang.com>**20051203021926] 
+[added comment to website
+Gary King <gwking@metabang.com>**20051203021935] 
+[flailing: package name from keyword to string
+Gary King <gwking@metabang.com>**20051210214544] 
+[Changed output of item-at for lists to be more consistent with alists
+Gary King <gwking@metabang.com>**20051215144556] 
+[Updating for moptilities
+Gary King <gwking@metabang.com>**20051215144718] 
+[Moved test files; added asdf-system-connections to dependencies to help ASDF-Install magic; fixed e-mail address; added (but didn't implement) reverse-container.
+Gary King <gwking@metabang.com>**20051219173213] 
+[Another attempt to get ASDF-Install to be our friend
+Gary King <gwking@metabang.com>**20051219173550] 
+[Yet another attempt to get ASDF-Install to be our friend
+Gary King <gwking@metabang.com>**20051219174430] 
+[Added COPYING file
+Gary King <gwking@metabang.com>**20060101142510] 
+[added website to system file
+Gary King <gwking@metabang.com>**20060106221929] 
+[Fixed incorrect calls to add-parameter->dynamic-class (need test suite!)
+Gary King <gwking@metabang.com>**20060106222002] 
+[Re-worked webpage
+Gary King <gwking@metabang.com>**20060109201738] 
+[Added shared images and stuff
+Gary King <gwking@metabang.com>**20060109201820] 
+[Minor webpage fixes
+Gary King <gwking@metabang.com>**20060119152326] 
+[Added scrolling, width, etc for PRE
+Gary King <gwking@metabang.com>**20060119152520] 
+[Integrating cl-variates and cl-containers using ASDF-system-connections; lots of minor package symbol issues. Also added file file-iterators to system and improved hash-table compatibility.
+Gary King <gwking@metabang.com>**20060119152646] 
+[Changed first-item and last-item to first-element and last-element (but kept first-item and last-item around for now). Also made first-item and last-item setfable.
+Gary King <gwking@metabang.com>**20060120194443] 
+[Pulled out some defgenerics and created iterator-api file
+Gary King <gwking@metabang.com>**20060127035332] 
+[Removed some rather silly with-slots
+Gary King <gwking@metabang.com>**20060127035420] 
+[Fixed SBCL style warning about ignoring non-existent variables
+Gary King <gwking@metabang.com>**20060127035446] 
+[Fixed SBCL style warning about unnecessary tests in the iterate method for lists
+Gary King <gwking@metabang.com>**20060127035532] 
+[File-iterators was trying to step on 'stream' and that's a no-no; also had CCL specific termination code...
+Gary King <gwking@metabang.com>**20060127035620] 
+[Using new :export-p and :export-slots-p in defconditions
+Gary King <gwking@metabang.com>**20060127035703] 
+[Fixed :name links in website
+Gary King <gwking@metabang.com>**20060127035744] 
+[pulled out defgenerics into separate files
+Gary King <gwking@metabang.com>**20060127035820] 
+[bad Gary, removed with-slots and assumed we had a writer method...
+Gary King <gwking@metabang.com>**20060127150717] 
+[Moved to almost tableless design; I now have achieved nirvana: I can look a bit odd in every browser! <smile>
+Gary King <gwking@metabang.com>**20060128235156] 
+[Updated CSS to pass validity checks
+Gary King <gwking@metabang.com>**20060131025159] 
+[Moved unique-elements / nodes from cl-graph to cl-containers; moved some export commands into package.lisp; changed from  a simple use-package to export-exported-symbols in utilties-integration.
+Gary King <gwking@metabang.com>**20060131151718] 
+[Updated formatting of news section
+Gary King <gwking@metabang.com>**20060202184712] 
+[Updated style sheet
+Gary King <gwking@metabang.com>**20060202184726] 
+[Collected various exports into the package definition; some fixes for other Allegro warnings
+Gary King <gwking@metabang.com>**20060205025149] 
+[Making export-exported-symbols into a macro means we can't funcall it... so it's back to a function again
+Gary King <gwking@metabang.com>**20060205030605] 
+[Made containers-readtable MCL only; added some declare ignores
+Gary King <gwking@metabang.com>**20060206210445] 
+[Corrections for heap-container problems (in the 'how did this ever work' category). Removed insert-item <hc> <t> and replaced it with insert-item <hc> <heap-node>; altered class-precedence list of heap-container so that the correct methods get called and added an &allow-other-keys to make-container-for-contents.
+Gary King <gwking@metabang.com>**20060210144134] 
+[Tried to make lambda.png transparent
+Gary King <gwking@metabang.com>**20060301000253] 
+[If no element-type is specified, we should set it to t, not nil
+Gary King <gwking@metabang.com>**20060309143837] 
+[Had left a (return) in the sampling code which completed screwed the results... Need tests. Damn
+Gary King <gwking@metabang.com>**20060309143918] 
+[Reworked delete-item for vectors because delete does not keep express adjustability
+Gary King <gwking@metabang.com>**20060309144041] 
+[Added a bit more test structure
+Gary King <gwking@metabang.com>**20060309144127] 
+[Updated for mlisp
+Gary King <gwking@metabang.com>**20060320235533] 
+[The return of copying support
+Gary King <gwking@metabang.com>**20060322152454] 
+[copy-top-level --> copy-thing
+Gary King <gwking@metabang.com>**20060323173343] 
+[Added allegro badges
+Gary King <gwking@metabang.com>**20060413144903] 
+[Lower-cased package names in defsystem; lots of improvements to delimited-iterator; other minor stuff
+Gary King <gwking@metabang.com>**20060425023345] 
+[Added file-form-iterator
+Gary King <gwking@metabang.com>**20060425212752] 
+[Added shared structure warning to collect-elements documentation.
+Gary King <gwking@metabang.com>**20060504171639] 
+[Fixed the delete-item in vectors doesn't maintain order problem
+Gary King <gwking@metabang.com>**20060504171727] 
+[Added finish method to iterator protocol.
+Gary King <gwking@metabang.com>**20060504171742] 
+[Added with-iterator to handle calling finish automatically
+Gary King <gwking@metabang.com>**20060509171519] 
+[Fixing in-packages
+Gary King <gwking@metabang.com>**20060511190029] 
+[Force delimited iterators to cons up new chunks -- less efficient but shared structure was confusing things
+Gary King <gwking@metabang.com>**20060515020239] 
+[Both uses-contents-mixin and contents-as-hashtable-mixin were calling make-container-for-contents... cleaned this up.
+Gary King <gwking@metabang.com>**20060515020320] 
+[Rationalized make-contents-for-container methods to bypass a probably correct SBCL warning / error / bug
+Gary King <gwking@metabang.com>**20060515182605] 
+[Lots of defgenerics to stop warning and provide a putative place for documentation
+Gary King <gwking@metabang.com>**20060515214126] 
+[Replace-item had inconsistent lambda lists
+Gary King <gwking@metabang.com>**20060517184647] 
+[Switched from #+MCL to #+(or digitool openmcl)
+Gary King <gwking@metabang.com>**20060530023141] 
+[Added collect-keys for lists. It treats lists that start with an atom as property lists and lists that start with a cons as alists. Perhaps wacky but it seems to be working in practice.
+Gary King <gwking@metabang.com>**20060530023237] 
+[Updated and corrected copyright information
+Gary King <gwking@metabang.com>**20060606015628] 
+[fixed bug where stable-associative containers without initial elements could get confused and have multiple entries pointing to the same thing...
+Gary King <gwking@metabang.com>**20060606020149] 
+[added #\return to list of delimitors in line-iterator
+Gary King <gwking@metabang.com>**20060612165821] 
+[Fixed item-at-1 for alist-containers
+Gary King <gwking@metabang.com>**20060615125237] 
+[Corrected author statement in system file
+Gary King <gwking@metabang.com>**20060801182241] 
+[Corrected implementation of size for hash-tables (thanks to Joshua Moody)
+Gary King <gwking@metabang.com>**20060801182321] 
+[Documentation for insert-item-at and removed redundent comment from implementation
+Gary King <gwking@metabang.com>**20060801182355] 
+[More files
+Gary King <gwking@metabang.com>**20060924220320] 
+[Added test system at last
+Gary King <gwking@metabang.com>**20060924220349] 
+[Bumped version; added conditions; added testing operators
+Gary King <gwking@metabang.com>**20060924220431] 
+[Pulled conditions in conditions.lisp; worked a bit on standardizing
+Gary King <gwking@metabang.com>**20060924220544] 
+[documentation for successor & predecessor; corrected bug (thanks to Kai Kaminski)
+Gary King <gwking@metabang.com>**20060924220633] 
+[TAG version-0.9.1
+Gary King <gwking@metabang.com>**20060924220645] 
+[removed version file
+Gary King <gwking@metabang.com>**20060925152252] 
+[Move some more conditions into conditions.lisp to avoid warnings
+attila.lendvai@gmail.com**20061016111740] 
+[Turn off containers-and-metacopy on sbcl until get-structure is implemented
+attila.lendvai@gmail.com**20061016111819] 
+[Moved many mixins from associative.lisp to containers.lisp to help with load order issues. Thanks to Christoph Oppawsky for the detective work.
+Gary King <gwking@metabang.com>**20061209174248] 
+[TAG version-0.9.2
+Gary King <gwking@metabang.com>**20061209174307] 
+[Moved key-value-iteratable-container-mixin from basic-operations to containers (thanks to Christoph Oppawsky)
+Gary King <gwking@metabang.com>**20061216160812] 
+[Nil isn't a dlist-container-node (CMUCL knows enough to complain).
+Gary King <gwking@metabang.com>**20061216162523] 
+[Bumped version and copyright
+Gary King <gwking@metabang.com>**20070107200335] 
+[TAG version-0.8.3
+Gary King <gwking@metabang.com>**20070107200516] 
+[Using keywords for system dependencies
+Gary King <gwking@metabang.com>**20070205144914] 
+[nicer asdf-system-connections behavior
+Gary King <gwking@metabang.com>**20070212190917] 
+[Reformatted; depends-on switched to keywords
+Gary King <gwking@metabang.com>**20070319122838] 
+[Corrected size of red-black-tree containers (reported by Modius Roman); problem fixed by refactoring delete-item. Also, delete-item now more correctly calls delete-node.
+Gary King <gwking@metabang.com>**20070319123106] 
+[Added trees
+Gary King <gwking@metabang.com>**20070319123159] 
+[Bumped version
+Gary King <gwking@metabang.com>**20070319123450] 
+[TAG version-0.9.5
+Gary King <gwking@metabang.com>**20070319123506] 
+[metatilities now has the element-type symbol so we need to pull it in to avoid package conflicts
+Gary King <gwking@metabang.com>**20070427142603] 
+[We had an extra #'elment in the first-element definitions for priority-queue-on-container... Thanks to Josip Gracin for noticing.
+Gary King <gwking@metabang.com>**20070427142647] 
+[Bumped version to 0.9.6
+Gary King <gwking@metabang.com>**20070427142715] 
+[TAG version-0.9.6
+Gary King <gwking@metabang.com>**20070427142724] 
+[Remove my comment separator lines -- they're so 90's
+Gary King <gwking@metabang.com>**20070626165327] 
+[Formatting of line lines
+Gary King <gwking@metabang.com>**20070626165429] 
+[Fixed bug in map-over-window when asking for duplicated ends on an empty container (it could try to reference the 0th element of a container that didn't have one
+Gary King <gwking@metabang.com>**20070626165552] 
+[tweaked package container mapping
+Gary King <gwking@metabang.com>**20070626165606] 
+[bumped version
+Gary King <gwking@metabang.com>**20070626165703] 
+[bumped version
+Gary King <gwking@metabang.com>**20070626165707] 
+[TAG version-0.9.7
+Gary King <gwking@metabang.com>**20070626165719] 
+[lower-cased CONTAINERS in mode-line
+Gary King <gwking@metabang.com>**20070711174650] 
+[Binary-search-tree cleanup (WIP): container-uses-nodes-mixin needs to be first in superclass list; some general code reformatting; reimplement find-node <tree> t as call to find-time <tree> <node>; add first-node (still need last-node); cleanup what we have for tests and add simple priority-queue-on-container test (cf. e-mails on 2007-07-10 from Josip Gracin).
+Gary King <gwking@metabang.com>**20070711174923] 
+[bump version
+Gary King <gwking@metabang.com>**20070711175213] 
+[TAG version-0.9.8
+Gary King <gwking@metabang.com>**20070711175231] 
+[Added cl-markdown.png
+Gary King <gwking@metabang.com>**20070719233313] 
+[Minor rearrangements
+Gary King <gwking@metabang.com>**20071021024737] 
+[Bumped version
+Gary King <gwking@metabang.com>**20071021024836] 
+[TAG version-0.9.9
+Gary King <gwking@metabang.com>**20071021024850] 
+[Switched to configuration file based testing
+Gary King <gwking@metabang.com>**20071024142018] 
+[Added priority-queue.test (via Josip Gracin for starting it)
+Gary King <gwking@metabang.com>**20071024142055] 
+[Added first-node for binary-search-trees
+Gary King <gwking@metabang.com>**20071024142127] 
+[Used first-node instead of first-element in delete-first
+Gary King <gwking@metabang.com>**20071024142154] 
+[Add a directory to hold test results
+Gary King <gwking@metabang.com>**20071024142216] 
+[Added button
+Gary King <gwking@metabang.com>**20071024142254] 
+[Reorganized test system
+Gary King <gwking@metabang.com>**20071024142320] 
+[Switched to configuration file based testing; bumped version
+Gary King <gwking@metabang.com>**20071024142419] 
+[fixed test
+Gary King <gwking@metabang.com>**20071024143030] 
+[Remove old website files
+Gary King <gwking@metabang.com>**20071024160205] 
+[Added new website files
+Gary King <gwking@metabang.com>**20071024160231] 
+[Add new style sheet
+Gary King <gwking@metabang.com>**20071125165815] 
+[fix website typos
+Gary King <gwking@metabang.com>**20071125170000] 
+[Export filter; fix reference to missing index.lml file
+Gary King <gwking@metabang.com>**20080201042341] 
+[bump version
+Gary King <gwking@metabang.com>**20080201042417] 
+[TAG version-0.9.11
+Gary King <gwking@metabang.com>**20080201042436] 
+[Update copywrite
+Gary King <gwking@metabang.com>**20080316164001] 
+[cleanup
+Gary King <gwking@metabang.com>**20080316164031] 
+[reformatting to shorten line lengths
+Gary King <gwking@metabang.com>**20080316164125] 
+[Made make-iterator into a method so that it can take iterates as sources (which makes other things easier)
+Gary King <gwking@metabang.com>**20080316164207] 
+[bumped version
+Gary King <gwking@metabang.com>**20080316164234] 
+[TAG version-0.9.12
+Gary King <gwking@metabang.com>**20080316164242] 
+[Updates for LIFT changes
+Gary King <gwking@metabang.com>**20080323222047] 
+[improve (?) packaging of next-element symbol
+Gary King <gwking@metabang.com>**20080323222138] 
+[Cleaning up use of dynamic-classes a bit
+Gary King <gwking@metabang.com>**20080527021056] 
+[Lots of formatting cleanup
+Gary King <gwking@metabang.com>**20080527021807] 
+[Make sure lines aren't too long
+Gary King <gwking@metabang.com>**20080527023351] 
+[add iterate-elements and iterate-nodes methods for null
+Gary King <gwking@metabang.com>**20080527023821] 
+[Add methods for iteratable-p and iteratable-key-value-p
+Gary King <gwking@metabang.com>**20080527023854] 
+[Pulled some more things into dynamic-classes
+Gary King <gwking@metabang.com>**20080527024309] 
+[Cleanup r-tree comments
+Gary King <gwking@metabang.com>**20080527024344] 
+[Misc. formatting
+Gary King <gwking@metabang.com>**20080527024408] 
+[split moptilities dependency into a system connection
+Gary King <gwking@metabang.com>**20080527024616] 
+[bump version
+Gary King <gwking@metabang.com>**20080527024723] 
+[TAG version-0.10.0
+Gary King <gwking@metabang.com>**20080527024733] 
+[whoopts; forgot to add the dynamic-classes.lisp file
+Gary King <gwking@metabang.com>**20080528172933] 
+[bump version
+Gary King <gwking@metabang.com>**20080528172958] 
+[TAG version-0.10.1
+Gary King <gwking@metabang.com>**20080528173011] 
+[Make insert-new-item apply key to new item
+Daniel Dickison <danieldickison@gmail.com>**20080619012721] 
+[updated stylesheet
+Gary King <gwking@metabang.com>**20080620005112] 
+[remove _local_ test configuration
+Gary King <gwking@metabang.com>**20080620005148] 
+[Add dependency between tests and setup in test system
+Gary King <gwking@metabang.com>**20080620005218] 
+[cleanup _standard_ test configuration
+Gary King <gwking@metabang.com>**20080620005339] 
+[bump version
+Gary King <gwking@metabang.com>**20080620005349] 
+[TAG version-0.10.2
+Gary King <gwking@metabang.com>**20080620005402] 
+[add boring file
+Gary King <gwking@metabang.com>**20080831201858] 
+[cleanup comments
+Gary King <gwking@metabang.com>**20080831201934] 
+[test for case 207 (initial size of dlist-container) plus fix for the bug
+Gary King <gwking@metabang.com>**20080831202016] 
+[fix test package
+Gary King <gwking@metabang.com>**20080831202038] 
+[comment line width
+Gary King <gwking@metabang.com>**20080831202103] 
+[bump version
+Gary King <gwking@metabang.com>**20080831202127] 
+[TAG version-0.10.3
+Gary King <gwking@metabang.com>**20080831202146] 
+[added toc to style sheet
+Gary King <gwking@metabang.com>**20080901165911] 
+[Riffing on a patch from Daniel Herring to fix some forward-referenced-class issues; I altered the depends-on clauses rather than rearranging the system definition
+Gary King <gwking@metabang.com>**20080918161911] 
+[Fixed a variable name typo in a dynamic-extent declaration
+Gary King <gwking@metabang.com>**20080918161947] 
+[bump version to 0.10.4
+Gary King <gwking@metabang.com>**20080918162014] 

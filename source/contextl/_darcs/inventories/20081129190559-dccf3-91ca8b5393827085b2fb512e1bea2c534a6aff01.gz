@@ -1,0 +1,19 @@
+Starting with tag:
+[TAG 0.50
+pc@p-cos.net**20080601195653] 
+[Fixed a minor bug for mapping external to internal names.
+pc@p-cos.net**20080603230601
+ 
+ This is a minor bug, because it is only related to mapping external names that are uninterned symbols, which should be very rare.
+ 
+] 
+[Added support for CCL 1.2 in the test suite.
+pc@p-cos.net**20080920143515] 
+[ensure-layered-method now accepts function designators instead of function names (due to Drew Crampsie).
+pc@p-cos.net**20081002134806] 
+[Replaced some calls to subtypep with calls to subclassp.
+pc@p-cos.net**20081106123139] 
+[Fixed a typo in a comment.
+pc@p-cos.net**20081129190225] 
+[Updated version number in the system definition.
+pc@p-cos.net**20081129190502] 

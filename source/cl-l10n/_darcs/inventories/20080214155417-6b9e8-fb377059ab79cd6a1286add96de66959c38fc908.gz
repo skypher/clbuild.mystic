@@ -1,0 +1,49 @@
+Starting with tag:
+[TAG 2006-11-17
+attila.lendvai@gmail.com**20061117112137] 
+[Separate defresources for compile-time and load-time definitions.
+levente.meszaros@gmail.com**20070109123842] 
+[of-type fix
+sean@guruhut.com**20070116121540] 
+[Small change to hungarian plural
+attila.lendvai@gmail.com**20070209091740] 
+[Drop arnesi dependency and use flexi-streams for encoding conversions
+attila.lendvai@gmail.com**20070215155603] 
+[Load locale files with iso-8859-1 encoding
+attila.lendvai@gmail.com**20070215171825] 
+[Use defun in defresources to notify the compiler about the defined resource functions.
+levente.meszaros@gmail.com**20070305112611] 
+[Renamed to ensure-resource-lookup-function
+attila.lendvai@gmail.com**20070305132345] 
+[Fix compiler warning when loading functional resources from fasl which are referenced from the same file.
+levente.meszaros@gmail.com**20070306113447] 
+[Smarten up lookup-first-matching-resource to support when/unless conditionals
+attila.lendvai@gmail.com**20070312151921] 
+[Updated hu_HU locale from my Ubuntu's locale
+attila.lendvai@gmail.com**20070417090242] 
+[Replace '.' time separators to ':' in hu_HU locale
+attila.lendvai@gmail.com**20070417090340] 
+[Minor change in hungarian plural
+attila.lendvai@gmail.com**20070628144223] 
+[Minor change to defresources
+attila.lendvai@gmail.com**20070629220625] 
+[Fix thousand separato in hu locale (it's ' ' not '.')
+attila.lendvai@gmail.com**20070724215616] 
+[Fix number formatting to properly honour *float-digits*
+attila.lendvai@gmail.com**20070724215648] 
+[Get rid of a warning in hungarian resources
+attila.lendvai@gmail.com**20070724215721] 
+[Added hungarian language helper: jelzo kepzo rag szamokhoz
+attila.lendvai@gmail.com**20070823105056] 
+[allow using string resource keys with defresources (they are processed as strings after all)
+attila.lendvai@gmail.com**20070911131036] 
+[added definit-article, fixed indefinit typo
+attila.lendvai@gmail.com**20070914170900] 
+[Better missing-resource reporting.
+levente.meszaros@gmail.com**20071031084814] 
+[when a non-functionp resource is looked up with some args, then assume it's a format string
+attila.lendvai@gmail.com**20080205224953] 
+[added today/yesterday/tomorrow to the hu and en resources
+attila.lendvai@gmail.com**20080205225034] 
+[bumped version to 0.4
+attila.lendvai@gmail.com**20080214155405] 

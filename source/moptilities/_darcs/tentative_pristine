@@ -1,0 +1,225 @@
+hunk ./dev/moptilities.lisp 485
+-  (sb-introspect:function-arglist (fdefinition symbol))
++  (funcall 
++   (or (find-symbol (symbol-name '#:function-lambda-list) :sb-introspect)
++       (find-symbol (symbol-name '#:function-arglist) :sb-introspect))
++   (fdefinition symbol))
+hunk ./moptilities.asd 35
+-  :depends-on (:closer-mop))
++  :depends-on ((:version :closer-mop "0.50")))
+hunk ./moptilities.asd 14
+-  :version "0.3.11"
++  :version "0.3.12"
+hunk ./website/source/index.md 2
+-{set-property title "CL-Markdown - Zany, Zippy -- never Oozy"}
++{set-property title "Moptilities - Zany and Zippy yet never Oozy"}
+hunk ./website/source/index.md 26
+-Like several other projects on Common-Lisp.net, Moptilities provides a compatibility layer for minor MOP implementation differences. More importantly, it adds some handy reflection capabilities. [TINAA][8] documentation is [available][9].
+-
+-   [8]: http://common-lisp.net/project/tinaa/
+-   [9]: http://common-lisp.net/project/cl-containers/moptilities/documentation/
++Like several other projects on Common-Lisp.net, Moptilities
++provides a compatibility layer for minor MOP implementation
++differences. More importantly, it adds some handy reflection
++capabilities. [TINAA][] documentation is [available][project-documentation].
+hunk ./website/source/index.md 37
+-  * [moptilities-devel][]: A list for questions, patches, bug reports, and so on; It's for everything other than    
+-  
++  * [moptilities-devel][devel-list]: A list for questions,
++    patches, bug reports, and so on; It's for everything
++    other than
++
+hunk ./website/source/index.md 47
+-       darcs get http://common-lisp.net/project/moptilities
+-
+-Moptilities is [ASDF installable][12]. Its CLiki home is right [where][13] you'd expect.
++    darcs get http://common-lisp.net/project/moptilities
+hunk ./website/source/index.md 49
+-   [12]: http://www.cliki.net/asdf-install
+-   [13]: http://www.cliki.net/moptilities
++Moptilities is [ASDF installable][asdf-install]. Its CLiki home is
++right [where][cliki-home] you'd expect.
+hunk ./website/source/index.md 52
+-There's also a handy [gzipped tar file][14].
+-
+-   [14]: http://common-lisp.net/project/cl-containers/moptilities/moptilities_latest.tar.gz
++There's also a handy [gzipped tar file][tarball].
+hunk ./website/source/index.md 58
++1 Mar 2009 - tweaks, tweaks, tweaks.
++
+hunk ./website/source/resources/footer.md 6
+-Cl-Markdown has an [MIT style][mit-license] license
++moptilities has an [MIT style][mit-license] license
+hunk ./website/source/resources/header.md 1
++{include shared-links.md}
++
+hunk ./website/source/resources/header.md 6
+-
+-  [darcs]: http://www.darcs.net/
+-  [asdf-install]: http://common-lisp.net/project/asdf-install
+-  [tarball]: http://common-lisp.net/project/cl-markdown/cl-markdown_latest.tar.gz
+-  [cl-markdown-changelog]: changelog.html
+-  [cl-markdown-reference-guide]: reference-guide.html
+-  [gwking]: http://www.metabang.com/
+-  [cl-markdown-cliki]: http://www.cliki.net/cl-markdown
+-  [user-guide]: user-guide.html
+-  [metabang-software]: http://www.metabang.com/open-source-software.html
+-  [cl-markdown-mailing-list]: http://common-lisp.net/cgi-bin/mailman/listinfo/cl-markdown-devel
+-  [cl-markdown-email]: mailto:cl-markdown-devel@common-lisp.net
+-  [unCLog]: http://unclog.metabang.com/
+-  [logger]: http://logging.apache.org/log4j/docs/api/org/apache/log4j/Logger.html
+-  [appender]: http://logging.apache.org/log4j/docs/api/org/apache/log4j/Appender.html
+-  [mit-license]: http://www.opensource.org/licenses/mit-license.php
+-  [Overview]: overview.html
+-  [FAQ]: faq.html
+-  [del.icio.us]: http://del.icio.us/
+-  [mailto-cl-markdown]: mailto:cl-markdown-devel@common-lisp.net
+-  [Arnesi]: http://common-lisp.net/project/bese/arnesi.html
+-
+- [moptilities-devel]: moptilities-devel@common-lisp.net
+hunk ./website/source/resources/header.md 7
++ [devel-list]: http://common-lisp.net/cgi-bin/mailman/listinfo/moptilities-devel
++ [cliki-home]: http://www.cliki.net/moptilities
++ [tarball]: http://common-lisp.net/project/moptilities/moptilities.tar.gz
++ [project-documentation]: documentation
++ 
+hunk ./website/source/resources/navigation.md 1
+-<div id="navigation">
+-</div>
+rmfile ./website/source/resources/navigation.md
+hunk ./website/source/resources/ug-footer.md 1
+-<div id="footer">
+-{include resources/ug-navigation.md}
+-
+-### Copyright (c) 2007 Gary Warren King (gwking@metabang.com) 
+-
+-Log5 has an MIT style license
+-
+-<br>
+-<div id="timestamp">Last updated {today} at {now}</div>
+-</div>
++
+rmfile ./website/source/resources/ug-footer.md
+hunk ./website/source/resources/ug-header.md 1
+-{set-property html yes}
+-{set-property style-sheet user-guide}
+-
+-  [darcs]: http://www.darcs.net/
+-  [asdf-install]: http://common-lisp.net/project/asdf-install
+-  [tarball]: http://common-lisp.net/project/cl-markdown/cl-markdown_latest.tar.gz
+-  [gwking]: http://www.metabang.com/
+-  [cl-markdown-cliki]: http://www.cliki.net/cl-markdown
+-  [user-guide]: user-guide.html
+-  
+-<div id="header">
+-{include resources/ug-navigation.md}
+-</div>
+rmfile ./website/source/resources/ug-header.md
+hunk ./website/source/resources/ug-navigation.md 1
+-<div id="navigation">
+-[User's Guide][user-guide]
+-</div>
+rmfile ./website/source/resources/ug-navigation.md
+addfile ./website/source/website.tmproj
+hunk ./website/source/website.tmproj 1
++<?xml version="1.0" encoding="UTF-8"?>
++<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
++<plist version="1.0">
++<dict>
++	<key>currentDocument</key>
++	<string>darcs/moptilities/website/source/resources/header.md</string>
++	<key>documents</key>
++	<array>
++		<dict>
++			<key>expanded</key>
++			<true/>
++			<key>name</key>
++			<string>resources</string>
++			<key>regexFolderFilter</key>
++			<string>!.*/(\.[^/]*|CVS|_darcs|_MTN|\{arch\}|blib|.*~\.nib|.*\.(framework|app|pbproj|pbxproj|xcode(proj)?|bundle))$</string>
++			<key>sourceDirectory</key>
++			<string>resources</string>
++		</dict>
++		<dict>
++			<key>filename</key>
++			<string>index.md</string>
++		</dict>
++	</array>
++	<key>fileHierarchyDrawerWidth</key>
++	<integer>183</integer>
++	<key>metaData</key>
++	<dict>
++		<key>darcs/moptilities/website/source/index.md</key>
++		<dict>
++			<key>caret</key>
++			<dict>
++				<key>column</key>
++				<integer>22</integer>
++				<key>line</key>
++				<integer>3</integer>
++			</dict>
++			<key>firstVisibleColumn</key>
++			<integer>0</integer>
++			<key>firstVisibleLine</key>
++			<integer>-1</integer>
++		</dict>
++		<key>darcs/moptilities/website/source/resources/footer.md</key>
++		<dict>
++			<key>caret</key>
++			<dict>
++				<key>column</key>
++				<integer>11</integer>
++				<key>line</key>
++				<integer>5</integer>
++			</dict>
++			<key>firstVisibleColumn</key>
++			<integer>0</integer>
++			<key>firstVisibleLine</key>
++			<integer>0</integer>
++		</dict>
++		<key>darcs/moptilities/website/source/resources/header.md</key>
++		<dict>
++			<key>caret</key>
++			<dict>
++				<key>column</key>
++				<integer>39</integer>
++				<key>line</key>
++				<integer>12</integer>
++			</dict>
++			<key>firstVisibleColumn</key>
++			<integer>0</integer>
++			<key>firstVisibleLine</key>
++			<integer>0</integer>
++		</dict>
++	</dict>
++	<key>openDocuments</key>
++	<array>
++		<string>darcs/moptilities/website/source/resources/footer.md</string>
++		<string>darcs/moptilities/website/source/resources/header.md</string>
++	</array>
++	<key>showFileHierarchyDrawer</key>
++	<false/>
++	<key>showFileHierarchyPanel</key>
++	<true/>
++	<key>treeState</key>
++	<dict>
++		<key>resources</key>
++		<dict>
++			<key>isExpanded</key>
++			<true/>
++			<key>subItems</key>
++			<dict/>
++		</dict>
++	</dict>
++	<key>windowFrame</key>
++	<string>{{81, 4}, {1028, 784}}</string>
++</dict>
++</plist>
+hunk ./.boring 40
++(^|/)make($|/)
+hunk ./moptilities.asd 14
+-  :version "0.3.12"
++  :version "0.3.13"
+hunk ./moptilities.asd 35
+-  :depends-on ((:version :closer-mop "0.50")))
++  :depends-on ((:version :closer-mop "0.55")))

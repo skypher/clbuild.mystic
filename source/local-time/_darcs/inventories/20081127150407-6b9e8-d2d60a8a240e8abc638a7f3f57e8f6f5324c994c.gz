@@ -1,0 +1,239 @@
+Starting with tag:
+[TAG Before 1.0 refactor
+attila.lendvai@gmail.com**20080823182514] 
+[Renamed local-time objects to timestamp objects
+dlowe@bitmuse.com**20080306182506] 
+[clone-timestamp is now a function
+dlowe@bitmuse.com**20080312205157] 
+[Moved class and struct definitions to top
+Daniel Lowe <dlowe@bitmuse.com>**20080324013108] 
+[Renamed interval back to duration
+Daniel Lowe <dlowe@bitmuse.com>**20080327155012] 
+[Reformatted time related constants
+Daniel Lowe <dlowe@bitmuse.com>**20080327155110] 
+[Timestamps are now internally UTC
+Daniel Lowe <dlowe@bitmuse.com>**20080327155203] 
+[Created src and tests directories
+attila.lendvai@gmail.com**20080316163707] 
+[Added asdf-system-connections for cl-postgres
+attila.lendvai@gmail.com**20080316165134] 
+[Follow cl-postmodern's timestamp-with-timezone changes
+attila.lendvai@gmail.com**20080316182528] 
+[argh, what if we use minute instead of month when we supposed to do so
+levente.meszaros@gmail.com**20080323215142] 
+[typo
+attila.lendvai@gmail.com**20080325155918] 
+[allow forms to be used in the time part of adjust-local-time
+attila.lendvai@gmail.com**20080325155922] 
+[merge conflicts with the timestamp rename
+attila.lendvai@gmail.com**20080325161821] 
+[follow the local-time -> timestamp rename in the postmodern integration
+attila.lendvai@gmail.com**20080325172935] 
+[merge conflicts
+attila.lendvai@gmail.com**20080327164828] 
+[Removed attempt to asdf-install asdf-system-connections without asking
+Daniel Lowe <dlowe@bitmuse.com>**20080327174008] 
+[Updated version number
+Daniel Lowe <dlowe@bitmuse.com>**20080327174035] 
+[Removed unused var from format-timestamp
+Daniel Lowe <dlowe@bitmuse.com>**20080327174249] 
+[encode-decode-timestamp test now checks proper hour and specifies offset
+Daniel Lowe <dlowe@bitmuse.com>**20080327181150] 
+[Universal and unix conversion functions now follow 1.0 API
+Daniel Lowe <dlowe@bitmuse.com>**20080327193833] 
+[Make default timestamp output the same as the literal form
+Daniel Lowe <dlowe@bitmuse.com>**20080327194526] 
+[Unexported functions are now prefixed with a percent
+Daniel Lowe <dlowe@bitmuse.com>**20080328160329] 
+[Moved %timestamp-compare to be closer to its callers
+Daniel Lowe <dlowe@bitmuse.com>**20080328180047] 
+[timestamp-max and timestamp-min refactored
+Daniel Lowe <dlowe@bitmuse.com>**20080328180106] 
+[Added documentation strings for many functions
+Daniel Lowe <dlowe@bitmuse.com>**20080328180124] 
+[Renamed functions to timestamp-minimum and timestamp-maximum
+Daniel Lowe <dlowe@bitmuse.com>**20080328192610
+ 
+ This was to eliminate the abiguity between "minimum" and "minutes".
+] 
+[Timestamp reader now stops reading on first invalid character
+Daniel Lowe <dlowe@bitmuse.com>**20080328192757] 
+[Added functions to access decoded values of timestamp
+Daniel Lowe <dlowe@bitmuse.com>**20080328193258] 
+[%get-default-offset now trusts timezone information given by get-decoded-time
+Daniel Lowe <dlowe@bitmuse.com>**20080331144422] 
+[Added timestamp-maximize-part and timestamp-minimize-part
+Daniel Lowe <dlowe@bitmuse.com>**20080331145859
+ 
+ This will also remove first-day-of-year and last-day-of-year, as their
+ functionality is a subset of the new functions.
+ 
+] 
+[Fixed docstring for %timestamp-decode-time
+Daniel Lowe <dlowe@bitmuse.com>**20080331150017] 
+[Exported new minimize and maximize functions
+Daniel Lowe <dlowe@bitmuse.com>**20080331150204] 
+[Altered function TODAY to use new function
+Daniel Lowe <dlowe@bitmuse.com>**20080331150222] 
+[Fixed incorrect days in timestamp-maximize-part
+Daniel Lowe <dlowe@bitmuse.com>**20080331160543] 
+[timestamp+ and timestamp- now take an amount and unit
+Daniel Lowe <dlowe@bitmuse.com>**20080401164833
+ 
+ The previous timestamp-, which returns a difference between two
+ timestamps in seconds, has been renamed to timestamp-difference.
+ 
+] 
+[All duration and datestring code removed.
+Daniel Lowe <dlowe@bitmuse.com>**20080401175948] 
+[days-in-month has been optimized
+Daniel Lowe <dlowe@bitmuse.com>**20080401180250] 
+[Obsolete offset to timezone mapping removed
+Daniel Lowe <dlowe@bitmuse.com>**20080401180315] 
+[Internal errors are now asserts, other errors now signal defined conditions
+Daniel Lowe <dlowe@bitmuse.com>**20080402162718] 
+[Formatting changes
+Daniel Lowe <dlowe@bitmuse.com>**20080402162938] 
+[Timestamp decoding reader functions now use a default timezone
+Daniel Lowe <dlowe@bitmuse.com>**20080402163035] 
+[Subtimezone searching now uses binary search
+Daniel Lowe <dlowe@bitmuse.com>**20080402163109
+ 
+ This appears to have halved the runtime of decode-timestamp.
+ 
+] 
+[Cleanup with function declarations
+Daniel Lowe <dlowe@bitmuse.com>**20080508174911
+ 
+ Function that return only one value don't really need a VALUES return
+ type.
+] 
+[ASDF system connnection is defined only if asdf-system-connections is loaded
+Daniel Lowe <dlowe@bitmuse.com>**20080508175253] 
+[Move tests out of its own module
+dlowe@bitmuse.com**20080509150905] 
+[%list-length= defined for checking lists without traversing their entirety
+dlowe@bitmuse.com**20080509151725] 
+[%make-simple-timezone added for test cases and utc
+dlowe@bitmuse.com**20080509152329] 
+[Zones with no subzones may now be displayed
+dlowe@bitmuse.com**20080509153147] 
+[%read-binary-integer now handles signed integers properly
+dlowe@bitmuse.com**20080509163838] 
+[tzfile reading refactored, subzones are now structs
+dlowe@bitmuse.com**20080509163901] 
+[Project home directory discovery now follows symlinks
+dlowe@bitmuse.com**20080509164744] 
+[Removed absolute path from test timezone
+dlowe@bitmuse.com**20080509164805] 
+[decode-timestamp now returns zone information
+dlowe@bitmuse.com**20080509185120] 
+[Updates to documentation files
+dlowe@bitmuse.com**20080509204005] 
+[Moved the documentation directory to the shorter and standarder doc
+dlowe@bitmuse.com**20080509210344] 
+[format-timestring now takes a formatting list
+Daniel Lowe <dlowe@bitmuse.com>**20080530131155] 
+[with-decoded-timestamp now takes a timezone argument
+Daniel Lowe <dlowe@bitmuse.com>**20080530131342] 
+[Made improvements in documentation.
+Daniel Lowe <dlowe@bitmuse.com>**20080530133406] 
+[whitespace
+attila.lendvai@gmail.com**20080610133635] 
+[fix format-timestring calls
+attila.lendvai@gmail.com**20080610135032] 
+[cl-postgres integration updated to new local-time API
+Daniel Lowe <dlowe@bitmuse.com>**20080611152051] 
+[cl-postgres sql string uses utc-zone explicitly
+Daniel Lowe <dlowe@bitmuse.com>**20080611152834] 
+[Timestring is now formatted properly when updating to DB
+dlowe@bitmuse.com**20080614195550] 
+[some :foo-p keyword args were renamed to :foo
+attila.lendvai@gmail.com**20080616155137] 
+[added a :offset &key for parse-timestring which serves as a default timezone offset when it's not specified in the timestring.
+attila.lendvai@gmail.com**20080616174257
+ 
+ background: we can't get it from *default-timezone*, because to know the offset
+ of a timezone, you need to have an exact timestamp (think of daylight savings).
+] 
+[update manual to reflect code changes
+attila.lendvai@gmail.com**20080616180505] 
+[added +rfc3339-format+ and +rfc3339-format/date-only+
+attila.lendvai@gmail.com**20080618204948] 
+[export timestamp-difference
+attila.lendvai@gmail.com**20080618205049] 
+[delete assert from adjust-timestamp, so that it works when a form is passed as part which, when evaluated, returns a valid part at runtime
+attila.lendvai@gmail.com**20080618205108] 
+[fix adjust-timestamp: always use the utc zone when en/decoding
+attila.lendvai@gmail.com**20080618205153] 
+[added make-load-form for timestamp
+attila.lendvai@gmail.com**20080618205700] 
+[Removed read-time evaluation of constants
+Arjan Wekking <arjan@streamtech.nl>**20080721145511
+ 
+ Clozure CL generates read errors when encountering read-time
+ evaluation of constants such as '(integer 0 #.+seconds-per-day+) or
+ #.+rotated-month-offsets-without-leap-day+ due to the constants not
+ having been defined yet at read-time.
+ 
+ I'm assuming most CL implementations will recognize these constants
+ for what they are (constant) and will compile accordingly without
+ these explicit reader macros.
+] 
+[Added %unix-gettimeofday with implementation for SBCL, CCL and CMUCL
+Arjan Wekking <arjan@streamtech.nl>**20080722102126
+ 
+ Maps to whatever the CL implementation has to access the UNIX
+ gettimeofday(2) function. Returns NIL when the current implementation
+ is not supported.
+] 
+[Made local-time:now portable by using %unix-gettimeofday
+Arjan Wekking <arjan@streamtech.nl>**20080722102404
+ 
+ This will add nanosecond timestamp support to local-time:now in
+ Clozure CL (tested) and CMUCL (untested) besides the already existing
+ SBCL support. To support any other CL implementations, simply add an
+ implementation to %unix-gettimeofday.
+] 
+[Added Arjan Wekking to the CREDITS file
+Daniel Lowe <dlowe@bitmuse.com>**20080722161607] 
+[Refactored the internal %unix-gettimeofday abstraction a little.
+Daniel Lowe <dlowe@bitmuse.com>**20080722161759] 
+[Fixed parse-timestring tests so that they succeed with current build.
+Daniel Lowe <dlowe@bitmuse.com>**20080722161835] 
+[updated zoneinfo from ubuntu 8.04's files
+attila.lendvai@gmail.com**20080611191236] 
+[added find-timezone-by-location-name and better timezone repository
+attila.lendvai@gmail.com**20080823095154] 
+[with-decoded-timestamp annotates fixnum types for the generated variables
+attila.lendvai@gmail.com**20080907005442] 
+[fix parse-rfc3339-timestring: Z was not treated as a timezone when asserting for missing elements
+attila.lendvai@gmail.com**20080907005556] 
+[small, docstring.
+attila.lendvai@gmail.com**20080907015036] 
+[Return NIL when failed to parse and FAIL-ON-ERROR is NIL.
+levente.meszaros@gmail.com**20081002133721] 
+[follow asdf-system-connections
+attila.lendvai@gmail.com**20081025172044
+ Ignore-this: 655acf585d79d006b6d6d48b720cc3d5
+] 
+[use asdf:component-pathname. patch by Gábor Melis.
+attila.lendvai@gmail.com**20081110162921
+ Ignore-this: ae3a9e4e9b5d8e0ca8698674111f7cc8
+] 
+[eval-when defconstants to make ACL happy. patch by Gábor Melis.
+attila.lendvai@gmail.com**20081110163531
+ Ignore-this: a862f568000ef85e3692add8f4b349f
+] 
+[added +gmt-zone+ and notes about RFC 1123
+attila.lendvai@gmail.com**20081118013329
+ Ignore-this: 7811cd0f4bad4a052ca194eec83f0171
+] 
+[added format-http-timestring and to-http-timestring
+attila.lendvai@gmail.com**20081118104321
+ Ignore-this: 8c0021f0eb55df3db591ab2720b819f
+] 
+[fix local-time-difference: return nanosecs, too
+attila.lendvai@gmail.com**20081119151559
+ Ignore-this: b55dbfd0916f144981e66da773db92a7
+] 

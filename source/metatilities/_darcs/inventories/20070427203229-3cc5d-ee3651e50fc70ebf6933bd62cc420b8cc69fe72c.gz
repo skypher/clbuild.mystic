@@ -1,0 +1,191 @@
+[Recovering from 1.04 / 1.05 darcs problem (my problem?) by trashing history and starting fresh
+Gary King <gwking@metabang.com>**20060125151449] 
+[Improved documentation for defcondition; added :export-slots-p option
+Gary King <gwking@metabang.com>**20060127040535] 
+[added a place for half-baked ideas and such
+Gary King <gwking@metabang.com>**20060127040623] 
+[Working on cleaning up SBCL generated warnings; removed hcase
+Gary King <gwking@metabang.com>**20060127040700] 
+[Readded metabang-dynamic-classes
+Gary King <gwking@metabang.com>**20060127041429] 
+[Moved to almost tableless design; I now have achieved nirvana: I can look a bit odd in every browser! <smile>
+Gary King <gwking@metabang.com>**20060128235310] 
+[Improved write-missing-generics; dealt with CL-FAD:copy-file import symbol issue.
+Gary King <gwking@metabang.com>**20060131152012] 
+[Had two :depends-on clauses in system file for 'utilities'
+Gary King <gwking@metabang.com>**20060202160859] 
+[Improved formatting of system news in website
+Gary King <gwking@metabang.com>**20060202160939] 
+[Collected various exports into the package definition; some fixes for other Allegro warnings
+Gary King <gwking@metabang.com>**20060205025355] 
+[Making export-exported-symbols into a macro means we can't funcall it... so it's back to a function again
+Gary King <gwking@metabang.com>**20060205030559] 
+[Added physical-pathname-directory-separator; consolidated exports
+Gary King <gwking@metabang.com>**20060206210724] 
+[Added handler-bind*
+Gary King <gwking@metabang.com>**20060209194157] 
+[Playing with file-package
+Gary King <gwking@metabang.com>**20060209194204] 
+[Updates for OpenMCL feature change; moved exports from copy-file to here
+Gary King <gwking@metabang.com>**20060227154040] 
+[moved exports to package; fixed bad :overwrite translation for allegro
+Gary King <gwking@metabang.com>**20060227154118] 
+[Bad Gary. Used :compile-toplevel when I meant :compile-toplevel :load-toplevel
+Gary King <gwking@metabang.com>**20060227154230] 
+[Wrapped +very-small-number+ in a boundp guard
+Gary King <gwking@metabang.com>**20060227154259] 
+[Introduce name-postfix info defclass* and friends. Also rename conc-name to name-prefix. Hdy feels happy having accessors such as <class-name>.<slot-name> or <slot-name>-of or simply <slot-name>. This change is not backward compatible by breaking the old :conc-name initarg.
+levente.meszaros@gmail.com**20060227212213] 
+[Added a call to ensure-directories-exist to copy-file
+Gary King <gwking@metabang.com>**20060308170328] 
+[port to clisp (loadable, anyway)
+Stephen Compall <scompall@nocandysw.com>**20060307204555
+ 
+ - Change samep (fixnum fixnum) to (integer integer), as ANSI doesn't
+   specify that FIXNUM is a class.
+ - Define WITHOUT-INTERRUPTS as it is in Allegro.
+] 
+[Changed #+ACL to #-(or OPENMCL DiGiTOOL)
+Gary King <gwking@metabang.com>**20060309144521] 
+[Made CLISP patch apply to all Lisps, not just CLISP; also a bit more documentation
+Gary King <gwking@metabang.com>**20060309144620] 
+[Several bits of documentation
+Gary King <gwking@metabang.com>**20060309144633] 
+[Updated for mlisp
+Gary King <gwking@metabang.com>**20060320235709] 
+[:UNBOUND -> :unbound for mlisp happiness
+Gary King <gwking@metabang.com>**20060321144823] 
+[Added 'unsupported' for lisps that don't have 'generic-lisp' support
+Gary King <gwking@metabang.com>**20060322151801] 
+[Moved dotted-pair-p from metatilities system to metatilities-base system (for the benefit of metacopy)
+Gary King <gwking@metabang.com>**20060322151827] 
+[Moved pathname-name+type from files.lisp to l0-files.lisp (used in defsystem-compatibility)
+Gary King <gwking@metabang.com>**20060327175504] 
+[file-package deals slightly better with multiple in-package forms. It now handles the case where you have (in-package ...) (defpackage ...) (in-package ...)
+Gary King <gwking@metabang.com>**20060404131812] 
+[moved generic-lisp system into metatilities system as a module (mostly because it broke defsystem-compatibility to have a system in a file that didn't share its name...)
+Gary King <gwking@metabang.com>**20060404131854] 
+[Make sure we don't add another :accessor or :initform when the user supplied one for defclass*
+attila.lendvai@gmail.com**20060405104016] 
+[Moved quit-lisp* from generic-interface to generic-lisp (which is where it belongs!)
+Gary King <gwking@metabang.com>**20060413145413] 
+[Improved defgeneric creation
+Gary King <gwking@metabang.com>**20060413145434] 
+[Finished moving exported symbols to package.lisp; corrected report format in source/target-file-error
+Gary King <gwking@metabang.com>**20060413145543] 
+[Worked with eval-always a bit; added documentation to defclass-property macro
+Gary King <gwking@metabang.com>**20060413145621] 
+[File-package returns keywords; added :, (, ) and & to characters to escape from filenames.
+Gary King <gwking@metabang.com>**20060413145833] 
+[moved profile
+Gary King <gwking@metabang.com>**20060425023825] 
+[Fixed dynamic class bug that found superclasses with too many extraneous other classes
+Gary King <gwking@metabang.com>**20060425023933] 
+[Whitespacep returns t or nil (not a char); minor documentation and WIPs elsewhere
+Gary King <gwking@metabang.com>**20060425024039] 
+[Fixing in-packages
+Gary King <gwking@metabang.com>**20060511193511] 
+[Fixed a few warnings due to load order
+Gary King <gwking@metabang.com>**20060515182811] 
+[moved with-gensyms; tweaked dependencies in system file; tweaked build-generics
+Gary King <gwking@metabang.com>**20060517185844] 
+[Smarted exporting in defcondition
+Gary King <gwking@metabang.com>**20060522205159] 
+[Removed shell-command (see trivial-shell). Also removed threads exports from package
+Gary King <gwking@metabang.com>**20060522205316] 
+[Removed an old sample call
+Gary King <gwking@metabang.com>**20060522205418] 
+[Package : / #: cleanup ... more!
+Gary King <gwking@metabang.com>**20060522205512] 
+[removed shell command stuff and apple script support (see trivial-shell).
+Gary King <gwking@metabang.com>**20060522205535] 
+[Added api.lisp
+Gary King <gwking@metabang.com>**20060523202449] 
+[Removed sockets vestiges
+Gary King <gwking@metabang.com>**20060530150614] 
+[Moved physical-pathname-directory-separator from files to l0-files (i.e., from metatilities to metatilities-base)
+Gary King <gwking@metabang.com>**20060602165129] 
+[Added macros to files dependency
+Gary King <gwking@metabang.com>**20060604145935] 
+[Updated and corrected copyright information
+Gary King <gwking@metabang.com>**20060606015752] 
+[Added test system for metatilities-base
+Gary King <gwking@metabang.com>**20060611202534] 
+[Passes unknown slot options through parse-brief-slot
+Gary King <gwking@metabang.com>**20060611202745] 
+[cleaned up a few warnings
+Gary King <gwking@metabang.com>**20060611202813] 
+[added test system for metatilities-base
+Gary King <gwking@metabang.com>**20060611202825] 
+[Added test and fix for parse-brief-slot (thanks to Attila Lendvai for this and that last update)
+Gary King <gwking@metabang.com>**20060612003316] 
+[added +seconds-per-day+ (gasp! <smile>); cleaned up notifications
+Gary King <gwking@metabang.com>**20060618204201] 
+[Fixed comment in copy-file
+Gary King <gwking@metabang.com>**20060701022651] 
+[Added +seconds-per-day+ (whoo whoo)
+Gary King <gwking@metabang.com>**20060701022724] 
+[collect-garbage for allegro
+Gary King <gwking@metabang.com>**20060701022742] 
+[updated copyright
+Gary King <gwking@metabang.com>**20060925010415] 
+[added implementation for total-bytes-allocated
+Gary King <gwking@metabang.com>**20060925010450] 
+[fixed condition in file copying
+Gary King <gwking@metabang.com>**20060925010527] 
+[change from gf dispatch to explicit call to check-type b/c fixnum isn't a class in all Lisps
+Gary King <gwking@metabang.com>**20060925010611] 
+[Bumped version
+Gary King <gwking@metabang.com>**20060925153502] 
+[TAG version-0.6.1
+Gary King <gwking@metabang.com>**20060925153515] 
+[updated copyright
+Gary King <gwking@metabang.com>**20070119015845] 
+[Added test and key keyword arguments to set-equal
+Gary King <gwking@metabang.com>**20070119020013] 
+[Added move-file
+Gary King <gwking@metabang.com>**20070119020105] 
+[Improved error message in format-date
+Gary King <gwking@metabang.com>**20070119020154] 
+[Mostly reformatting
+Gary King <gwking@metabang.com>**20070119020255] 
+[metatilities.asd
+Gary King <gwking@metabang.com>**20070119020331] 
+[TAG version-0.6.2
+Gary King <gwking@metabang.com>**20070119020348] 
+[Reformmated system file; made depends-on keywords
+Gary King <gwking@metabang.com>**20070204202656] 
+[System file cleanup in an attempt to robustify asdf-system-connections usage; also bumped version
+Gary King <gwking@metabang.com>**20070212135403] 
+[Copy-file symbol madness
+Gary King <gwking@metabang.com>**20070212185431] 
+[Copy-file symbol madness -- muffed the export form
+Gary King <gwking@metabang.com>**20070212185756] 
+[TAG version-0.6.3
+Gary King <gwking@metabang.com>**20070215035214] 
+[Sheesh -- my bad. Didn't add unit-tests/tests.lisp to the repo; fixed.
+Gary King <gwking@metabang.com>**20070228141052] 
+[Bumped version
+Gary King <gwking@metabang.com>**20070228141229] 
+[TAG version-0.6.4
+Gary King <gwking@metabang.com>**20070228141238] 
+[Bumped version
+Gary King <gwking@metabang.com>**20070228141723] 
+[Bumped version
+Gary King <gwking@metabang.com>**20070228141830] 
+[Adds defgenerics for 'properties' created with defproperty
+Gary King <gwking@metabang.com>**20070427185834] 
+[removed comment line separators
+Gary King <gwking@metabang.com>**20070427185853] 
+[added with-new-file to metatilities-base
+Gary King <gwking@metabang.com>**20070427185915] 
+[Added copy-file to metatilities-base
+Gary King <gwking@metabang.com>**20070427185931] 
+[Fixed some package maddness
+Gary King <gwking@metabang.com>**20070427190124] 
+[Removed with-new-file from metatilities (it's now in base)
+Gary King <gwking@metabang.com>**20070427190148] 
+[Some cleanup; removed reliance on cl-fad
+Gary King <gwking@metabang.com>**20070427201452] 
+[bumped version
+Gary King <gwking@metabang.com>**20070427203212] 

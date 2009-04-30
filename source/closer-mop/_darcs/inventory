@@ -1,0 +1,19 @@
+Starting with tag:
+[TAG 0.55
+pc@p-cos.net**20081129185837] 
+[Checked against SBCL 1.0.23 - no changes.
+pc@p-cos.net**20081201164034] 
+[Checked against SBCL 1.0.24 - no changes.
+pc@p-cos.net**20090101134337] 
+[Noted support for LispWorks 5.1.2.
+pc@p-cos.net**20090207120303] 
+[Checked against SBCL 1.0.25 - no changes.
+pc@p-cos.net**20090207120352] 
+[Noted that Clozure Common Lisp 1.2 supports EQL-SPECIALIZER.
+pc@p-cos.net**20090212145431] 
+[Checked against SBCL 1.0.26 - no changes.
+pc@p-cos.net**20090301223311] 
+[Checked against CMUCL 19f - no changes.
+pc@p-cos.net**20090314204013] 
+[Checked against SBCL 1.0.27 - no changes.
+pc@p-cos.net**20090403141953] 

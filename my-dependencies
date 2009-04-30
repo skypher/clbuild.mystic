@@ -1,0 +1,13 @@
+# systems that reside in mystic/packages and are missing from clbuild: trivial-email-utf-8 cl-smtp cl-i18n 
+# systems that reside somewhere else: swank 
+# systems that are available only as file releases: cl-randist cl-qprint 
+# cl-smtp dependencies: usocket trivial-gray-streams flexi-streams cl+ssl cl-base64
+# some other unknown dependencies: postmodern(put under clbuild)
+# dependencies which could be disabled due to private modifications: elephant weblocks. We should set them initially to collect all deps, but then
+# we can disable them 
+zzzmystic alexandria anaphora arnesi asdf-system-connections babel bordeaux-threads cffi chunga cl+ssl cl-base64 cl-cont cl-containers cl-fad cl-json cl-l10n cl-ppcre cl-unicode cl-who closer-mop closure-common clsql contextl cxml elephant f-underscore fare-matcher fare-utils fiveam flexi-streams fset html-template hunchentoot ieee-floats ironclad iterate lift local-time log5 lw-compat md5 metabang-bind metatilities metatilities-base misc-extensions moptilities parenscript portable-threads postmodern puri rfc2388 rt slime split-sequence trivial-features trivial-garbage trivial-gray-streams trivial-utf-8 url-rewrite usocket weblocks rw-ut
+
+
+
+
+

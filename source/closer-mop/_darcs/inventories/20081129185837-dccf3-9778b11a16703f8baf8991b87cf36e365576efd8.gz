@@ -1,0 +1,39 @@
+Starting with tag:
+[TAG 0.50
+pc@p-cos.net**20080601194725] 
+[Checked against LispWorks 5.1.1 - no changes.
+pc@p-cos.net**20080615152813] 
+[Checked against SBCL 1.0.18 - no changes.
+pc@p-cos.net**20080630052501] 
+[Checked against LispWorks 5.1.1 Personal Edition - no changes.
+pc@p-cos.net**20080701095341] 
+[Checked against clisp 2.46 - no changes.
+pc@p-cos.net**20080702175239] 
+[Fixed a bug in the recognition of documentation strings in make-method-lambda for Lispworks.
+pc@p-cos.net**20080702193008] 
+[Checked against SBCL 1.0.19 - no changes.
+pc@p-cos.net**20080805223520] 
+[Checked against SBCL 1.0.20 - no changes.
+pc@p-cos.net**20080903132443] 
+[Checked against CCL 1.2 - no changes.
+pc@p-cos.net**20080920143217] 
+[Checked against SBCL 1.0.21 - no changes.
+pc@p-cos.net**20081011112537] 
+[Checked against clisp 2.47 - no changes.
+pc@p-cos.net**20081025155758] 
+[Checked against SBCL 1.0.22 - no changes.
+pc@p-cos.net**20081031104145] 
+[Added standard-instance-access and funcallable-standard-instance-access to LispWorks, due to popular request.
+pc@p-cos.net**20081105202757] 
+[Added utility function subclassp.
+pc@p-cos.net**20081106121713
+ 
+ Some CLOS implementations have problems with determining subtype relationships between classes in certain corner cases. For example, clisp doesn't like to determine such relationships for forward referenced classes, and some instances of PCL have problems with anonymous classes under certain circumstances (primarily when doing CLOS MOP programming).
+ 
+ Apparently, subtypep is typically implemented based on the class precedence list, which can only be determined until after a class has been finalized, and this seems to be one of the reasons for these problems. However, the CLOS MOP places restrictions on methods for compute-class-precedence-list such that the subtype relationship actually does _not_ depend on the precedence list, but can be based on a membership test in the unordered set of all direct and indirect superclasses.
+ 
+ I have provided subclassp in Closer to MOP as a utility function that does just that: It walks the superclass hierarchy to determine whether one class is a subclass of another. This implementation is not that efficient, so it should only be used when subtypep fails. (It could probably be made more efficient, but since this is only provided as a replacement for subtypep in hopefully rare corner cases, I haven't put the energy into this to do this yet.)
+ 
+] 
+[Updated version number in the system definition.
+pc@p-cos.net**20081129185736] 

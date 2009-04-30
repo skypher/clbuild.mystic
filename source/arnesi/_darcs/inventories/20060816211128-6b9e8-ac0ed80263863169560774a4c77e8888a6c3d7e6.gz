@@ -1,0 +1,755 @@
+[Setup boring file
+Marco Baringer <mb@bese.it>**20050706100535] 
+[added arch stuff to boring file
+Marco Baringer <mb@bese.it>**20050706101630] 
+[Initial Import
+Marco Baringer <mb@bese.it>**20050706101657
+ This import moves arnesi from arch to darcs. Nothing has actually changed since 
+ bese-2004@common-lisp.net/arnesi--dev--1.4--patch-14
+] 
+[Fix bug in handling of defclass-struct's :predicate option
+Marco Baringer <mb@bese.it>**20050706105324] 
+[Big patch including all the cps interpreter stuff upto now
+Marco Baringer <mb@bese.it>**20050707083739] 
+[Minor docstring fixup for with-call/cc
+Marco Baringer <mb@bese.it>**20050707090619] 
+[Initial version of environment.lisp
+Marco Baringer <mb@bese.it>**20050707091019] 
+[Rename src/environment.lisp
+Marco Baringer <mb@bese.it>**20050707091114] 
+[added src/lexenv.lisp to arnesi.asd
+Marco Baringer <mb@bese.it>**20050707091127] 
+[mistyped #+openmcl in lexenv.lisp
+Marco Baringer <mb@bese.it>**20050707092959] 
+[added support for walking local varibales in the lexical environment
+Marco Baringer <mb@bese.it>**20050707093027
+ 
+ this applies to all those variables defined the envorinment object
+ grabbed via an &environment macro argument. 
+ 
+] 
+[walk.lisp depends on lexenv.lisp
+Marco Baringer <mb@bese.it>**20050707093140] 
+[Added support to the cps interpreter forl communicating with lexical variables
+Marco Baringer <mb@bese.it>**20050707094608] 
+[Fix openmcl's definition of lexical-variables to deal with ccl::definition-environment
+Marco Baringer <mb@bese.it>**20050719152230] 
+[More cps tests
+Marco Baringer <mb@bese.it>**20050719152327] 
+[Move the error checking code for lambda arguments into apply, not lambda (in cps interpreter)
+Marco Baringer <mb@bese.it>**20050719153121] 
+[Added defgeneric/cc
+Marco Baringer <mb@bese.it>**20050719153441] 
+[Added support for &optional arguments in cps closures
+Marco Baringer <mb@bese.it>**20050720091658] 
+[Allow defun/cc defined functions te be called outside of a with-call/cc
+Marco Baringer <mb@bese.it>**20050720091826] 
+[Rename (optional|keyword|rest)-argument-form classes to include the -form suffix
+Marco Baringer <mb@bese.it>**20050720092124] 
+[Temporarily comment out the log tests
+Marco Baringer <mb@bese.it>**20050720092312] 
+[Added ignore declarations to defun/cc and defmethod/cc to make the compiler happy
+Marco Baringer <mb@bese.it>**20050720110112] 
+[Fix bug in the lambda generated for method forms
+Marco Baringer <mb@bese.it>**20050720144450] 
+[Extend the walker to handle #'(setf foo) function names
+Marco Baringer <mb@bese.it>**20050723104431] 
+[Change the test for constant-form'ness in walk.lisp
+Marco Baringer <mb@bese.it>**20050723113019] 
+[Export the symbol KALL
+Marco Baringer <mb@bese.it>**20050723133052] 
+[Fix a bug in the handling of the case when LOOKUP finds a value for a name but the value is NIL
+Marco Baringer <mb@bese.it>**20050723133106] 
+[More tests
+Marco Baringer <mb@bese.it>**20050723133158] 
+[Fix handling of optional arguments in apply-cps-lambda
+Marco Baringer <mb@bese.it>**20050726085155] 
+[Fix generation of defmethod froms from defmethod/cc; added tests
+Marco Baringer <mb@bese.it>**20050726085226] 
+[Typo in extract-argument-names
+Marco Baringer <mb@bese.it>**20050726090256] 
+[defmethod arguments should be ignorable, not ignore (openmcl warns whenever you ignore a specialized argument)
+Marco Baringer <mb@bese.it>**20050726090308] 
+[fixed type name mismatch for allow-other-keys-function-arguement-form
+smoof-ra@elder-gods.org**20050727152456] 
+[dont need to register allow-other-keys because its not a binding
+smoof-ra@elder-gods.org**20050727153603] 
+[Rename asdf property version to features, add "cps-interpreter"
+Marco Baringer <mb@bese.it>**20050728120238] 
+[Call the property :FEATURES, not FEATURES
+Marco Baringer <mb@bese.it>**20050729103229] 
+[initial support for remembering declarations
+smoof-ra@elder-gods.org**20050801184329
+ 
+ this patch adds a mixin called implicit-progn-with-declare-mixin and 
+ uses it instead of implicit-progn-mixin in all the places that allow declares.
+ It has slot which should contain a list of the declares at the top of the 
+ implicit-progn.  This patch doesn't do anything clever with the declares, 
+ it just creates declaration-form objects and points their source slots 
+ at the original declares, however it would be easy to modify parse-declaration
+ to generate more usefull declaration objects.
+ 
+] 
+[oops i forgot to actually make the declaration-form instances
+smoof-ra@elder-gods.org**20050801185641] 
+[declares needs to be copied in the labels handler just like the other lambda-function-form slots
+smoof-ra@elder-gods.org**20050801193107] 
+[labels can have declarations inside the body
+smoof-ra@elder-gods.org**20050801193433] 
+[progv
+smoof-ra@elder-gods.org**20050802150342] 
+[Minor spacing fixs to the previous patch
+Marco Baringer <mb@bese.it>**20050802152421] 
+[allow new special forms to be added to the walker by shadowing *walker-handlers*
+smoof-ra@elder-gods.org**20050802165355] 
+[Added walker class for THE forms
+Marco Baringer <mb@bese.it>**20050803085210] 
+[Moved defclass progv-form to keep the walker classes defined in alphabetical order 
+Marco Baringer <mb@bese.it>**20050803085254] 
+[minor comment fixup
+Marco Baringer <mb@bese.it>**20050803085322] 
+[Added cps evaluation of THE forms
+Marco Baringer <mb@bese.it>**20050803092059] 
+[Rewrite multiple-value-setf so that my simple mind can understand it.
+Marco Baringer <mb@bese.it>**20050803104652] 
+[recognise flets from the lexical environment (on sbcl)
+smoof-ra@elder-gods.org**20050803222732] 
+[Implement lexical-functions for cmucl
+Marco Baringer <mb@bese.it>**20050804143350] 
+[Typo in previous patch
+Marco Baringer <mb@bese.it>**20050804150242] 
+[Fix lexical-variables for cmucl to not return ignored variables
+Marco Baringer <mb@bese.it>**20050804150256] 
+[Change lexical-variables for sbcl so that it doesn't return ignored variables
+Marco Baringer <mb@bese.it>**20050804150841] 
+[Typo in lexical-variables for sbcl (we were accessing lexenv-funs instead of lexenv-vars)
+Marco Baringer <mb@bese.it>**20050804152051] 
+[Fixup lexical-variables and lexical-functions for OpenMCL
+Marco Baringer <mb@bese.it>**20050804152727
+ 
+ This patch causes lexical-variables to no longer return ignored
+ variables and symbol-macrolets. We've also implemented
+ lexical-functions (though we do some hackery to convert functions
+ names to something "normal" (ie SETF::|FOO::BAR| ==> (SETF FOO::BAR))
+ 
+] 
+[Make the lexenv stuff use generic-functions and methods
+Marco Baringer <mb@bese.it>**20050804161857] 
+[Implement environment-p and lexical-variables for CLISP
+Marco Baringer <mb@bese.it>**20050804165821] 
+[aparently global variables can be found in sbcl lexical environments
+smoof-ra@elder-gods.org**20050804164859] 
+[Delete arnesi.el. SLIME is perfectly able to figure out the indententation by itself.
+Marco Baringer <mb@bese.it>**20050807075500] 
+[Fix evaluation of #'(foo bar) in cps interpreter
+Marco Baringer <mb@bese.it>**20050806182653] 
+[Remove arnesi.el from ssytem def
+Marco Baringer <mb@bese.it>**20050807204654] 
+[Implement lexical-variables and lexical-functions for NIL environments
+Marco Baringer <mb@bese.it>**20050807204711] 
+[Implement lexical-functions for CLISP
+Marco Baringer <mb@bese.it>**20050807204738] 
+[Make sure we only pass symbols to functions like GET and MACRO-FUNCTION
+Marco Baringer <mb@bese.it>**20050807222905] 
+[Use FDEFINITION instead of SYMBOL-FUNCTION to get a function from a function name.
+Marco Baringer <mb@bese.it>**20050807222932] 
+[Fix lexical-variables and lexical-functions on clisp
+Marco Baringer <mb@bese.it>**20050807223244] 
+[Trivial change to the name of the gensym generated by DOLIST*
+Marco Baringer <mb@bese.it>**20050809061102] 
+[Fix typo in fold-strings' docstring
+Marco Baringer <mb@bese.it>**20050809083006] 
+[Rename cps.lisp to cc-interpreter.lisp
+Marco Baringer <mb@bese.it>**20050809104737] 
+[Remove 'cps' from test suite, replace it with 'call/cc' 
+Marco Baringer <mb@bese.it>**20050809104818] 
+[Remove occurences of 'cps' in the api. We don't actually cps transforme anymore so this is misleading.
+Marco Baringer <mb@bese.it>**20050809125933] 
+[Added copyright notice to cc-interpreter.lisp
+Marco Baringer <mb@bese.it>**20050809151738] 
+[make closure/cc a funcallable instance (in sbcl)
+smoof-ra@elder-gods.org**20050809182900
+ 
+ funcalling a closure/cc will just call it with a toplevel continuation
+ that way cc closures can be called totally transparently by non-cc code
+ as long as the cc-closure doesn't call/cc.
+ 
+] 
+[ method combination 
+smoof-ra@elder-gods.org**20050810035825] 
+[Don't use GET so that we don't break package locks. Add now function fdefinition/cc
+Marco Baringer <mb@bese.it>**20050810054327
+ 
+ Basically it's a bad idea to use #'get and #'(setf get) on standard
+ symbols, however this is something we're going to want to do. We know
+ have our own hash-table (*cc-functions*) which maps symbols to closure
+ objects.
+ 
+] 
+[Typo in name of k-for-apply/cc/optional-argument-default-value continuation
+Marco Baringer <mb@bese.it>**20050810055105] 
+[Use fedinition/cc, not fdefinition, for defun/cc
+Marco Baringer <mb@bese.it>**20050810055126] 
+[Added *debug-evaluate/cc* and related functions
+Marco Baringer <mb@bese.it>**20050810063228] 
+[Added :method-combination option to the expaniosn of the defgeneric/cc macro
+Marco Baringer <mb@bese.it>**20050810101446] 
+[the fdefinition/cc table must remeber, other than the def, whether it was a function or a method (since we treat those two differently)
+Marco Baringer <mb@bese.it>**20050810101541] 
+[Refactor FOLD-STRING (Patch by: Janis Dzerins <jdz@dir.lv>)
+Marco Baringer <mb@bese.it>**20050810103438] 
+[Refactor cc-interpreter into a few smaller files in the call-cc directory
+Marco Baringer <mb@bese.it>**20050810104819] 
+[Move debugging code into DEFK where have access to the name of the continuation we're calling (as apposed to KLAMBDA)
+Marco Baringer <mb@bese.it>**20050810121305] 
+[keyword-function-argument-form is not a subclass of optional-argument-form, even though they are superficially similar
+Marco Baringer <mb@bese.it>**20050810140659] 
+[Added support for &key, &allow-other-keys in lambda/cc (and therefore defun/cc and defmethod/cc)
+Marco Baringer <mb@bese.it>**20050810140725] 
+[Fix generic/method/function lambda list handling and manipulation in walker and cc-interpreter
+Marco Baringer <mb@bese.it>**20050811130002] 
+[Added missing cleane-argument-list function and tests
+Marco Baringer <mb@bese.it>**20050811130722] 
+[Added cc definintions of common standard functions whcih take functions as parameters (assoc and mapXYZ)
+Marco Baringer <mb@bese.it>**20050811152400] 
+[Make the arguments to a continuation all option (the equivalent of evaluating (values))
+Marco Baringer <mb@bese.it>**20050811152449] 
+[Added more tests for cc-standard method combination
+Marco Baringer <mb@bese.it>**20050811152516] 
+[JOIN-STRINGS was not returning the result :(
+Marco Baringer <mb@bese.it>**20050812070730] 
+[Remove type declarations form join-string (ucw passes in strings which violate some of the type declarations)
+Marco Baringer <mb@bese.it>**20050812102333] 
+[Two minor indentation fixups
+Marco Baringer <mb@bese.it>**20050812102429] 
+[Update the list of exported symbols
+Marco Baringer <mb@bese.it>**20050812102709] 
+[Added required specifier :primary to cc-standard method combination
+Marco Baringer <mb@bese.it>**20050812114343
+ 
+ This prevents people from accidentaly using defmethod on a cc generic
+ function. You must now either use defmethod/cc (which retains the same
+ API as before), or pass the :primary method qualifier (and if you do
+ we'll assume you know what you're doing).
+ 
+] 
+[Change the name of the walker handler for atom so that it doesn't used to walk forms whose car is CL:ATOM.
+Marco Baringer <mb@bese.it>**20050812114613] 
+[more usefull declaration objects
+smoof-ra@elder-gods.org**20050815202603] 
+[Moved register/lookup/(setf lookup) into one-liners.lisp, added the extend macro
+Marco Baringer <mb@bese.it>**20050816084654] 
+[Convert (setf env (register env ...)) into (extend env ...)
+Marco Baringer <mb@bese.it>**20050816084720] 
+[Added initial version of lex-env function for lispworks
+Marco Baringer <mb@bese.it>**20050816141839] 
+[Added copyright notices
+Marco Baringer <mb@bese.it>**20050816141938] 
+[fixed typo
+smoof-ra@elder-gods.org**20050816174806] 
+[Added delete/remove family of functions to common-lisp-cc
+Marco Baringer <mb@bese.it>**20050817100128] 
+[Added lexical-variables and lexical-functions for Allegro. (Patch by: Slawek Zak <slawek.zak@gmail.com>)
+Marco Baringer <mb@bese.it>**20050824123802] 
+[Fix local-function application
+Marco Baringer <mb@bese.it>**20050824164938] 
+[Added in a few more tests
+Marco Baringer <mb@bese.it>**20050824165751] 
+[Added hash-table-keys and hash-table-values functions
+Marco Baringer <mb@bese.it>**20050825062935] 
+[Fix LEXICAL-FUNCTIONS on cmucl (Patch by: Fabricio Chalub <chalub@gmail.com>)
+Marco Baringer <mb@bese.it>**20050827110128] 
+[Introduce the distinction between a keyword argument's name and the effective-keyword used to pass the value.
+Marco Baringer <mb@bese.it>**20050827111706
+ 
+ we now can tell if the user supplied a keyword name (different from
+ the argument's name) and proceed accordingly. this patch works around
+ cmucl's bug in the handling of generic lambda lists.
+] 
+[Minor refactoring to avoid sbcl's "deleting unreachable code" warning
+Marco Baringer <mb@bese.it>**20050827121814] 
+[Use &key instead of &optional in the test suite for the cc interpreter
+Marco Baringer <mb@bese.it>**20050827184725] 
+[Make nunescape-as-uri accept external-format parameter
+binarin@gmail.com**20050827134456] 
+[When sb-unicode is avaible don't encode characters with codes > 127 as html entities
+binarin@gmail.com**20050827134518] 
+[Minor whitespace fix to previous patch
+Marco Baringer <mb@bese.it>**20050827194602] 
+[enhanced defmethod/cc to work in the case of a null argument list and missing body.
+drewc@tech.coop**20050819201500
+ 
+] 
+[Fix handling of special operator FUNCTION in the faco of defun/cc functions
+Marco Baringer <mb@bese.it>**20050831094727] 
+[More lexical-(variables|functions) methods for lispworks (Patch by: Asbjørn Bjørnstad <asbjxrn@bjxrnstad.net>)
+Marco Baringer <mb@bese.it>**20050831094750] 
+[Added generic error-reporting method on evaluate/cc
+Marco Baringer <mb@bese.it>**20050901100314] 
+[When a defmethod/cc form has somethnig which looks like a comment we 'pass' that to the underlying defmethod form
+Marco Baringer <mb@bese.it>**20050901100340] 
+[Fix silly mistake in previous docstring for defmethod/cc patch
+Marco Baringer <mb@bese.it>**20050903140254] 
+[More lexical-(variables|functions) for lispworks (Patch by: Asbjørn Bjørnstad <asbjxrn@bjxrnstad.net>)
+Marco Baringer <mb@bese.it>**20050906140657] 
+[Added if-does-not-exist parameter to write-string-to-file
+Marco Baringer <mb@bese.it>**20050925155049] 
+[Teach the walker to handle global symbol macros
+Marco Baringer <mb@bese.it>**20050925155112] 
+[Added nfasl to .boring
+Marco Baringer <mb@bese.it>**20051007174421] 
+[Add dynamic-environment to the cc interpreter
+Marco Baringer <mb@bese.it>**20051007174859
+ 
+ This patch changes the api for evaluate/cc (and associated functions)
+ by adding a dynamic-environment parameter and fixs the catch handler
+ to use this dynamic-environment (and not the lexical environment).
+] 
+[Added the :return-suffix parameter to starts-with
+Marco Baringer <mb@bese.it>**20051007190426] 
+[lex-env support for lispworks on windows (Patch by: Mac Chan <emailmac@gmail.com>)
+Marco Baringer <mb@bese.it>**20051009103654] 
+[Remove ignore declarations for unused variable DYNAMIC-ENVIRONMENT
+Marco Baringer <mb@bese.it>**20051012141417] 
+[Minor fixup to wrapping-standard's docstring
+Marco Baringer <mb@bese.it>**20051014094112] 
+[Rewrote parse-float in order to support tho :decimal-character keyword parameter
+Marco Baringer <mb@bese.it>**20051018101950] 
+[Typo in last patch
+Marco Baringer <mb@bese.it>**20051018102126] 
+[Specify result element-type in radix-values
+Marco Baringer <mb@bese.it>**20051018102502] 
+[Added tests for parse-float
+Marco Baringer <mb@bese.it>**20051021153936] 
+[Added dyn-env parameter to sbcl's call to apply-lambda/cc
+Marco Baringer <mb@bese.it>**20051021153948] 
+[CMUCL lexical-variables global var detection
+svg@surnet.ru**20051024191615] 
+[remove debian/ folder
+Luca Capello <luca@pca.it>**20051028103802
+ 
+ The CL-Debian group decided to avoid Debian native packages.
+ 
+ http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=310665
+] 
+[Exported all the symbols related to the walker
+Marco Baringer <mb@bese.it>**20051028122648] 
+[Changed lambda list of IF-BIND so that slime will ident it better.
+Marco Baringer <mb@bese.it>**20051105150656] 
+[Remove duplicate export of arnesi:form
+Marco Baringer <mb@bese.it>**20051105151130] 
+[Removed qbook include to non existent file scr/cps.lisp
+Marco Baringer <mb@bese.it>**20051105151143] 
+[Escape { and } in boring regexps
+Marco Baringer <mb@bese.it>**20051105152003] 
+[Added *trace-cc* parameter (and supporitng code). See docstring for details.
+Marco Baringer <mb@bese.it>**20051108125255] 
+[Added a few more trace statements
+Marco Baringer <mb@bese.it>**20051108130243] 
+[Drop the :ALL option for *trace-cc*
+Marco Baringer <mb@bese.it>**20051108131116] 
+[thinko in cc trace-statement (Patch by: Aleksandar Bakic <a_bakic@yahoo.com>)
+Marco Baringer <mb@bese.it>**20051110094851] 
+[More fixs to trace-statements (Patch by: Aleksandar Bakic <a_bakic@yahoo.com>)
+Marco Baringer <mb@bese.it>**20051110115953] 
+[Yet another trace-statement patch by our resident Q&A expert. (Patch by: Aleksandar Bakic <a_bakic@yahoo.com>)
+Marco Baringer <mb@bese.it>**20051110195739] 
+[We had an etypecase form with a T clasue, changed to typecase (Reported by: Luigi Panzeri <matley@muppetslab.org>)
+Marco Baringer <mb@bese.it>**20051111171221] 
+[yet another yet another trace cc thinko
+Marco Baringer <mb@bese.it>**20051112122930] 
+[Added lispworks specific walk handlers
+Marco Baringer <mb@bese.it>**20051115122956] 
+[Make the 'return from unknown block' error a restartable condition
+Marco Baringer <mb@bese.it>**20051118193020] 
+[Added a walker for unwind-protect
+Marco Baringer <mb@bese.it>**20051118193044] 
+[Removed all texinfo syntax from docstrings
+Marco Baringer <mb@bese.it>**20051125173708] 
+[Document the #L read macro
+Marco Baringer <mb@bese.it>**20051125173744] 
+[Make docs/Makefile easier to adapat to different lisps and systems
+Marco Baringer <mb@bese.it>**20051125173801] 
+[Minor change in with-unique-names' docstring
+Marco Baringer <mb@bese.it>**20051125173827] 
+[minor fix in wrapping-standard's docstring
+Marco Baringer <mb@bese.it>**20051126162847] 
+[include walk.lisp in qbook's autput
+Marco Baringer <mb@bese.it>**20051126162859] 
+[Fix walking of macrolet forms
+Marco Baringer <mb@bese.it>**20051126162913] 
+[Document the slots of the log-category class
+Marco Baringer <mb@bese.it>**20051201170222] 
+[added a walker for load-time-value
+Marco Baringer <mb@bese.it>**20051201170253] 
+[Added :wrap-aronud method types ot wrapping-standard method combination
+Marco Baringer <mb@bese.it>**20051204162319] 
+[Fix spelling in log.lisp comments
+Chris Dean <ctdean@sokitomi.com>**20051209072321] 
+[Also make a debug logger
+Chris Dean <ctdean@sokitomi.com>**20051209072439] 
+[Fix handling of &allow-other-keys and lambda lists with only (&key &allow-other-keys)
+Marco Baringer <mb@bese.it>**20051211131145] 
+[Fix generation of lambda list from a list of argument-parameter objects (in the walker)
+Marco Baringer <mb@bese.it>**20051211135245] 
+[Export extract-argument-names and walk-lambda-list
+Marco Baringer <mb@bese.it>**20051211135308] 
+[Use &body, instead of &rest, in the lambda lists of ESWITCH and CSWITCH
+Marco Baringer <mb@bese.it>**20051218122248
+ This change makes slime add the proper indentation for these forms
+] 
+[Implement and export STRING-TO-OCTETS and OCTETS-TO-STRING
+Marco Baringer <mb@bese.it>**20051218123215
+ Currently these do something only on SBCL and CLISP.
+] 
+[remove unneeded escapes
+svg@surnet.ru**20051213204631] 
+[Conditionalize on (and sbcl sb-unicode), not just sbcl
+Marco Baringer <mb@bese.it>**20051218123532] 
+[Fix previous eswitch/cswitch patch
+Marco Baringer <mb@bese.it>**20051218124148] 
+[Declare char->hex-value to be inlined
+Marco Baringer <mb@bese.it>**20051218124425] 
+[Use the new octets-to-string function in http.lisp
+Marco Baringer <mb@bese.it>**20051218124500] 
+[Implement QUIT for allegro. (Patch by: BAM <solnul@gmx.de>)
+Marco Baringer <mb@bese.it>**20051220000154] 
+[Drop char->hex-value. digit-char-p does the exact same thing.
+Marco Baringer <mb@bese.it>**20051220000406] 
+[Don't use uppercase names for list-matcher symbols. not all lisps have :upcase readtable-case (Reported by: BAM <solnul@gmx.de>)
+Marco Baringer <mb@bese.it>**20051220000456] 
+[Enable unicode on clisp only if :UNICODE is in *features*
+Marco Baringer <mb@bese.it>**20060109140827] 
+[Stop trying to convert keywords directly to charset symbols.
+Marco Baringer <mb@bese.it>**20060113113430] 
+[In recent clisps the convert-bytes-to-string function has been renamed to convert-string-from-bytes
+Marco Baringer <mb@bese.it>**20060113113449] 
+[Added test for escape/unescape-uri using fiveam's new random checking
+Marco Baringer <mb@bese.it>**20060120110709] 
+[Update copyright dates
+Marco Baringer <mb@bese.it>**20060123125009] 
+[Fix thinko in definition of test-op
+Marco Baringer <mb@bese.it>**20060124131555] 
+[Reimplement intern-concat to accept only strings and symbols as string designators.
+Marco Baringer <mb@bese.it>**20060124135505
+ 
+ Simply using PRINC can have different semantics on different
+ lisps. Explicitly allowing only strings and symbols resoles this issue
+ and makes clearer what inter-concat is intended to deal with. (passing
+ objects or numberns to inter-concat was never intentional anyway).
+] 
+[Use FiveAM's new random testing for the parse-float test
+Marco Baringer <mb@bese.it>**20060124140012] 
+[Export levenshtein-distance
+Marco Baringer <mb@bese.it>**20060202114018] 
+[Added time.lisp
+Marco Baringer <mb@bese.it>**20060202114049] 
+[Added log.level methods specialized on symbols
+Marco Baringer <mb@bese.it>**20060202114058] 
+[Change names of parameters in MULF and DIVF to match documentation
+Marco Baringer <mb@bese.it>**20060202114140] 
+[Move test suite into its own package
+Marco Baringer <mb@bese.it>**20060202114156] 
+[minor docstring fix
+Marco Baringer <mb@bese.it>**20060202145727] 
+[Ecase->case typo.
+Maciek Pasternacki <maciekp@japhy.fnord.org>**20060130230302] 
+[Support (declare (special var)) declarations and put variable values in the dynamic environment.
+Levente Mészáros <melevy@freemail.hu>**20060206224208
+ This patch allows to access dynamic variables defined in cc code from cc code.
+] 
+[Makes visible the dynamic variables defined in cc code for normal lisp code.
+Levente Mészáros <melevy@freemail.hu>**20060206224603
+ This has some performance issues when dynamic variables are defined in cc code.
+] 
+[Support capturing dynamic variables from lisp via declare.
+Levente Mészáros <melevy@freemail.hu>**20060208214015] 
+[Add test cases for dynamic variable handling
+Levente Mészáros <melevy@freemail.hu>**20060209213739] 
+[(setf log.level) needs to, as all setf methods, return the new-value
+Marco Baringer <mb@bese.it>**20060210154819] 
+[Fixed bug in with-call/cc's handling of multiple-value-call. (Reported by: Matthew Danish <mdanish@andrew.cmu.edu>)
+Marco Baringer <mb@bese.it>**20060211165654
+ 
+ When the function in a multiple-value-call form was a literal lambda
+ we were accidentaly passing _all_ the arguments passed to m-v-c to the
+ function (the first of these arguments is always the function itself).
+] 
+[Add test cases for dynamic variable handling
+Levente Mészáros <melevy@freemail.hu>**20060209215158] 
+[Make importing and exporting specials explicit functions, plus support importing in defun/cc.
+Levente Mészáros <melevy@freemail.hu>**20060211205043] 
+[Rework test cases for special variable handling.
+Levente Mészáros <melevy@freemail.hu>**20060211205154] 
+[conflict resolution with levente's special variable patch
+Marco Baringer <mb@bese.it>**20060213181217] 
+[Fix infinite loop in (setf log.level)
+Marco Baringer <mb@bese.it>**20060213173230
+ 
+ argh. we'd defined a method for (setf log.level) specialized on
+ SYMBOLs, this method called (get-logger symbol) and passed that back
+ again to (setf log.level). However, when get-logger returned nil
+ (which happens the symbol didn't specify a logging category) we'd
+ again call the same method (since nil is a symbol), and not the one
+ specialized on category objects :(
+] 
+[Split stream-log-append into brief-stream-log-appender and verbose-stream-log-appender
+Marco Baringer <mb@bese.it>**20060213185541
+ 
+ The stream-log-appender was wasting too much space on extremly
+ reptative information. The new hierarchy contains three classes: the
+ abstract base class stream-log-appender; a verbose out class (exactly
+ the same output as the original stream-log-appender) called
+ verbose-stream-log-appender and a quieter append called
+ brief-stream-log-appender.
+ 
+ NB: This change breaks backwards compatability. All occurences of
+ "make-instance 'stream-log-appender" will need to be replaced with
+ "make-instance 'verbose-stream-log-appender"
+] 
+[Eliminate runtime call to eval when exporting special variables from cc code to lisp code.
+levente.meszaros@gmail.com**20060214210552] 
+[escape html unicode characters
+henrik.hjelte@poboxes.com**20060215141526
+ Not all unicode characters fit the latin-1 encoding, escaping them helps out.
+] 
+[escape html unicode characters
+henrik.hjelte@poboxes.com*-20060215141526
+ Not all unicode characters fit the latin-1 encoding, escaping them helps out.
+] 
+[Added missing ignore declarations
+Marco Baringer <mb@bese.it>**20060224121944] 
+[Added vector based queue implementation
+Marco Baringer <mb@bese.it>**20060224141820] 
+[Create the queue's buffer to be 1+ the required size
+Marco Baringer <mb@bese.it>**20060224142145
+ 
+ The length of the buffer is actually one less than the total number of
+ elements we can hold. Since the :size initarg means 'numbor of
+ elements we can store without resizing' we need to create the buffer
+ slightly larger.
+] 
+[Implement peek-queue
+Marco Baringer <mb@bese.it>**20060224145231] 
+[Added lru-queue
+Marco Baringer <mb@bese.it>**20060224145245] 
+[Added enqueue-or-move-to-front method to the lru-queue class
+Marco Baringer <mb@bese.it>**20060224154525] 
+[Make the cc interpreter 'see' special variables
+Marco Baringer <mb@bese.it>**20060224155153
+ 
+ If a symbol is globally bound, and isn't locally overridden, we assume
+ it's a global special and treat it as such.
+] 
+[Added a print-object method for function-argument-form objects
+Marco Baringer <mb@bese.it>**20060226184343] 
+[Typo in do-all-elements macro when the indexe parameter is nil
+Marco Baringer <mb@bese.it>**20060226184405] 
+[A code UnWalker
+Hoan Ton-That <hoan@ton-that.org>**20060301075456] 
+[matcher ext :AND, :ACCESSORS, :PLIST
+Kilian Sprotte <ml13@onlinehome.de>**20060304195313] 
+[Added copy-stream function
+Marco Baringer <mb@bese.it>**20060313222455] 
+[Added print-object method for log-category
+Marco Baringer <mb@bese.it>**20060313222510] 
+[Fix typo in walk.lisp
+Marco Baringer <mb@bese.it>**20060313222523] 
+[Dropped our trim-string function, common lisp already provides string-trim
+Marco Baringer <mb@bese.it>**20060324104938] 
+[Added bracket reader and with-package function
+Marco Baringer <mb@bese.it>**20060324111610] 
+[Added doc strings for the read-macro stuff
+Marco Baringer <mb@bese.it>**20060324113104] 
+[Added read-macros.lisp to asdf
+Marco Baringer <mb@bese.it>**20060324114744] 
+[Change with-package read-macro specifier so that it returns a progn.
+Marco Baringer <mb@bese.it>**20060324115026] 
+[Let the implementation use the default value. SBCL seems to only accept a real readtable there.
+levente.meszaros@gmail.com**20060325233110] 
+[Unwalker mistakes
+Hoan Ton-That <hoan@ton-that.org>**20060401084803] 
+[Use class-slots instead of our custom 'walk class hierarchy and collect slot defs' code.
+Marco Baringer <mb@bese.it>**20060405120648
+ 
+ This change should fix problems with allegro. Nathan Bird reported
+ this and suggested the proper solution.
+] 
+[src/posixenv.lisp: define `getenv'
+Luca Capello <luca@pca.it>**20060412132403
+ 
+ ATM, this is the only POSIX function present in src/posixenv.lisp.
+ 
+ I also added "getenv" to the list of features in the ASDF file, in
+ order to depend on it in other project (first of all, UCW).
+] 
+[Fix encoding-keyword-to-native for clisp. (Patch by: Pascal Bourguignon <pjb@informatimago.com>)
+Marco Baringer <mb@bese.it>**20060413140523] 
+[Pass the env argument to make-load-form
+Marco Baringer <mb@bese.it>**20060423105632] 
+[Added the REBIND macro (Patch by: Attila Lendvai <attila.lendvai@gmail.com>)
+Marco Baringer <mb@bese.it>**20060423105838] 
+[Find-symbol SYSTEM::*HTTP-ENCODING* only if there is a SYSTEM package.
+Maciek Pasternacki <maciekp@japhy.fnord.org>**20060425195734] 
+[Added the *warn-undenifed* variable.
+Marco Baringer <mb@bese.it>**20060427131102
+ 
+ We can now check for undenfined varibales/functions at walk time
+] 
+[Signal warning for undefined functions
+Marco Baringer <mb@bese.it>**20060427131248] 
+[Export *warn-undefined*
+Marco Baringer <mb@bese.it>**20060427131316] 
+[Skip nil's in strcat
+attila.lendvai@gmail.com**20060213230204] 
+[Fix the return value of compose for fn > 4
+attila.lendvai@gmail.com**20060502104311] 
+[Change defclss-struct to allow class-options
+Marco Baringer <mb@bese.it>**20060509144410] 
+[implement walker for eval-when
+Marco Baringer <mb@bese.it>**20060509145223] 
+[Added remf-keywords macro to remove keyword args
+attila.lendvai@gmail.com**20060511150622] 
+[Define apply-lambda/cc method on symbols.
+Marco Baringer <mb@bese.it>**20060515135717
+ 
+ This new method just calls apply-lambda/cc passing it the symbol-function of the operator.
+] 
+[Fix enable-bracket-reader
+attila.lendvai@gmail.com**20060515173051] 
+[Added docstring on log-file slot
+Marco Baringer <mb@bese.it>**20060517090828] 
+[Added queue->list method (Patch by: Chris Dean <ctdean@sokitomi.com>)
+Marco Baringer <mb@bese.it>**20060517090847] 
+[Convenience, Lisp-1 support, and partial application syntax
+Hoan Ton-That <hoan@ton-that.org>**20060522112451] 
+[Export `_'
+Hoan Ton-That <hoan@ton-that.org>**20060530105625] 
+[Make sure the walker doesn't call fboundp on non symbols
+Marco Baringer <mb@bese.it>**20060531195843] 
+[Support missing result forms in cond-bind and acond
+Chris Dean <ctdean@kyluka.com>**20060601165635
+ 
+ The CLHS says that COND results in:
+ 
+   the values of the forms in the first clause whose test-form yields
+   true, or the primary value of the test-form if there are no forms in
+   that clause
+ 
+ Meaning (among other things) that
+ 
+   (cond (1)) => 1
+ 
+ This is a patch to give COND-BIND and ACOND the same behavior.  Before
+ this patch they would return NIL.
+] 
+[Added eval-when support for the unwalker, fixed some lisp1 bugs
+Hoan Ton-That <hoan@ton-that.org>**20060613120932] 
+[Added external-format keyword to read-string-from-file
+attila.lendvai@gmail.com**20060617180142] 
+[Added :execute to enable-bracket-reader eval-when
+attila.lendvai@gmail.com**20060617180148] 
+[Deleted listify and consify from the exports
+attila.lendvai@gmail.com**20060618113838] 
+[Added `aif2', which tests on the second value
+Hoan Ton-That <hoan@ton-that.org>**20060620094448] 
+[Added `while' and `until'
+Hoan Ton-That <hoan@ton-that.org>**20060620125308] 
+[Added copy-array
+Marco Baringer <mb@bese.it>**20060621102333] 
+[Updated read-string-from-file's docstring
+Marco Baringer <mb@bese.it>**20060621104204] 
+[io.lisp depends on string.lisp
+Marco Baringer <mb@bese.it>**20060621104245] 
+[Don't export WHILE and UNTIL.
+Marco Baringer <mb@bese.it>**20060621153819
+ 
+ Arnesi if often used in conjunction with iterate, which also exports
+ the symbols while and until. If you want while and until just do
+ arnesi::while or import the symbols manually.
+] 
+[Export encoding-keyword-to-native
+attila.lendvai@gmail.com**20060630012811] 
+[Moved make-displaced-array from ucw to arnesi
+attila.lendvai@gmail.com**20060630012918] 
+[Make stuff in io.lisp encoding-aware
+attila.lendvai@gmail.com**20060630131314] 
+[Fix thinko in previous io.lisp patch
+attila.lendvai@gmail.com**20060630142709] 
+[Refactor functions into lambda-list.lisp
+Hoan Ton-That <hoan@ton-that.org>**20060703075940] 
+[Fix unbound variable handling in DEFUN1 and DEFMETHOD1
+Hoan Ton-That <hoan@ton-that.org>**20060703080015] 
+[Document lisp1.lisp
+Hoan Ton-That <hoan@ton-that.org>**20060703083820] 
+[Fix walking PROGV
+Hoan Ton-That <hoan@ton-that.org>**20060703084010] 
+[Fix walking FLET
+Hoan Ton-That <hoan@ton-that.org>**20060703093546] 
+[Add an enabledp check in deflogger at compile-time
+attila.lendvai@gmail.com**20060703125918
+ 
+ This means that when a logger is defined with a given level then
+ the messages below this level will be expanded to nil at compile time,
+ so they'll have no performance penalties at runtime.
+ 
+ An example setup:
+   (deflogger foo :level +debug+) ; +debug+ level at compile-time
+   (setf (log.level 'foo) +info+) ; set runtime level to +info+
+   (foo.dribble "foo: ~S" (some-expensive-calculation)) ; expands to nil
+   (foo.debug ...) ; will log if the runtime level is appropiate
+] 
+[Added defalut implementation of encoding-keyword-to-native and declare the 'wrapper' functions inline
+Marco Baringer <mb@bese.it>**20060703154620] 
+[allegro quick fix
+Henrik Hjelte <henrik@evahjelte.com>**20060703163119] 
+[Turned the previous logger change into a foll-blown compile-time-level on loggers
+attila.lendvai@gmail.com**20060703172247
+ 
+   Added a compile-time-level slot to loggers. Log expressions whose level
+ is below the compile-time-level of the logger at compilation will macroexpand
+ to NIL.
+   In other words, setting the compile time level to +debug+ will drop
+ all dribble messages so that they can't even be enabled at runtime.
+] 
+[Fix typo and backward compatibility of loggers
+attila.lendvai@gmail.com**20060703194333] 
+[Added defprint-object
+attila.lendvai@gmail.com**20060704094407] 
+[Fix bug with EXTRACT-ARGUMENT-NAMES, thanks to Attila Lendvai
+Hoan Ton-That <hoan@ton-that.org>**20060707031316] 
+[Added AWHILE
+Hoan Ton-That <hoan@ton-that.org>**20060712050434] 
+[Export the accessors and slots of the walker
+Hoan Ton-That <hoan@ton-that.org>**20060712053922
+ 
+ If there are any conflicts with other packages,
+ please tell me and I'll comment it out with that
+ package name in the comment.
+ 
+] 
+[Pass keywords to print-unreadable-object from defprint-object
+attila.lendvai@gmail.com**20060710194835] 
+[Export more of the walker
+Hoan Ton-That <hoan@ton-that.org>**20060729031048] 
+[Unwalk MACROLET-FORM
+Hoan Ton-That <hoan@ton-that.org>**20060729232936] 
+[Unwalk SYMBOL-MACROLET-FORM
+Hoan Ton-That <hoan@ton-that.org>**20060729233014] 
+[Added SYMBOL-MACROLET and MACROLET tests
+Hoan Ton-That <hoan@ton-that.org>**20060729234554] 
+[Added encoding support for Allegro
+attila.lendvai@gmail.com**20060807185516
+ 
+ I've added it based on the Allegro docs but I can't test it. Someone with a working ACL, please test it!
+] 
+[Allegro implementation of string-encodings
+Henrik Hjelte <henrik@evahjelte.com>**20060808111122] 
+[Allegro duplicate removed
+Henrik Hjelte <henrik@evahjelte.com>**20060808113730] 
+[Rename some variables in lisp1.lisp
+Hoan Ton-That <hoan@ton-that.org>**20060809093852] 
+[Unwalk declarations
+Hoan Ton-That <hoan@ton-that.org>**20060809103455] 
+[Added CIRCULARIZE
+Hoan Ton-That <hoan@ton-that.org>**20060812011654] 
