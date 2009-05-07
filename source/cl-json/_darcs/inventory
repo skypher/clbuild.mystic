@@ -103,3 +103,12 @@ Henrik Hjelte <henrik@evahjelte.com>**20081207232353
 ] 
 [Fixed: classes for CLOS encoder / decoder in the tests were ending up unfinalized.
 Boris Smilga <boris.smilga@gmail.com>**20081208111036] 
+[Patch for OpenMCL/ClozureCL by Ian Eslick 
+Henrik Hjelte <henrik@evahjelte.com>**20090226122225
+ Ignore-this: 3a301a9494d8e7b0b122a365de2a96a2
+ It works around a problem in ANSI interpretation that crops up in OpenMCL/ClozureCL but not in the other lisps.
+] 
+[TAG Pre-0.4-bundle
+Henrik Hjelte <henrik@evahjelte.com>**20090414085958
+ Ignore-this: 91e69af5b92fef3c3298463937b9fb72
+] 

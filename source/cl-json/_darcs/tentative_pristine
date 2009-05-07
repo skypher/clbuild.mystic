@@ -1,0 +1,5 @@
+hunk ./src/encoder.lisp 33
+-    (type-error (e)
++    ((or type-error #+ccl simple-error) (e)
+hunk ./src/encoder.lisp 39
++     (length s) ;; ISE: trips error in ccl which will fail silently above
